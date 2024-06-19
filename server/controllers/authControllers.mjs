@@ -1,6 +1,7 @@
 import create from "prompt-sync";
 import User from "../models/user.mjs";
 import { hashPassword, comparePassword } from "../helpers/auth.mjs";
+import jwt from "jsonwebtoken";
 
 export const test = (req, res) => {
   console.log("test is working");

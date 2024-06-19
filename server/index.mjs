@@ -2,6 +2,9 @@ import express from "express";
 import dotenv from "dotenv";
 import cors from "cors";
 import mongoose from "mongoose";
+import cookieParser from "cookie-parser";
+
+//import router
 import router from "./routes/router.mjs";
 
 dotenv.config();
@@ -17,6 +20,8 @@ mongoose
 
 //middleware
 app.use(express.json());
+app.use(cookieParser());
+app.use(express.urlencoded({ extended: false }));
 
 app.use(router);
 
