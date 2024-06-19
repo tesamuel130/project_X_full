@@ -1,5 +1,6 @@
 import create from "prompt-sync";
 import User from "../models/user.mjs";
+import { hashPassword, comparePassword } from "../helpers/auth.mjs";
 
 export const test = (req, res) => {
   console.log("test is working");
@@ -25,11 +26,12 @@ export const registerCustomer = async (req, res) => {
       return res.json({ error: "Email already exist" });
     }
 
-    //create a user
+    const hashedPassword = await hashPassword(password);
+    //create a user in database
     const user = await User.create({
       name,
       email,
-      password,
+      password: hashPassword,
     });
 
     return res.json(user);
