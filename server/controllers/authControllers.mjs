@@ -6,6 +6,7 @@ export const test = (req, res) => {
   console.log("test is working");
 };
 
+//customer register endpoint
 export const registerCustomer = async (req, res) => {
   try {
     const { name, email, password } = req.body;
@@ -35,6 +36,32 @@ export const registerCustomer = async (req, res) => {
     });
 
     return res.json(user);
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+//customer login endpoint
+export const loginUser = async (req, res) => {
+  try {
+    const { email, password } = req.body;
+
+    //check if user exist
+    const user = await User.findOne({ email });
+    if (!user) {
+      return res.json({ error: "Email or password is incorrect" });
+    }
+
+    //check if passwords match
+    const match = await comparePassword(password, user.password);
+    if (match) {
+      res.json("password is match");
+    }
+    if (!match) {
+      res.json({
+        error: "Email or password is incorrect",
+      });
+    }
   } catch (error) {
     console.log(error);
   }
