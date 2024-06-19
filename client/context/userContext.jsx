@@ -3,7 +3,7 @@ import { createContext, useState, useEffect } from "react";
 
 export const userContext = createContext({});
 
-export function userContextProvider({ children }) {
+export function UserContextProvider({ children }) {
   const [user, setUser] = useState(null);
   useEffect(() => {
     if (!user) {
@@ -14,7 +14,7 @@ export function userContextProvider({ children }) {
   }, []);
 
   return (
-    <userContext.Provider value={(user, setUser)}>
+    <userContext.Provider value={{ user, setUser }}>
       {children}
     </userContext.Provider>
   );

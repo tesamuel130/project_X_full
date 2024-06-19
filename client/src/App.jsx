@@ -6,22 +6,24 @@ import SignUp from "./pages/SignUp";
 import LogIn from "./pages/LogIn";
 import axios from "axios";
 import { Toaster } from "react-hot-toast";
-import { userContextProvider } from "../context/userContext";
+import { UserContextProvider } from "../context/userContext";
+import Dashbord from "./pages/Dashbord";
 
 axios.defaults.baseURL = "http://localhost:8081";
 axios.defaults.withCredentials = true;
 
 function App() {
   return (
-    <userContextProvider>
+    <UserContextProvider>
       <NavBar />
       <Toaster position="top-right" toastOptions={{ duration: 3000 }} />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/register" element={<SignUp />} />
         <Route path="/login" element={<LogIn />} />
+        <Route path="/dashbord" element={<Dashbord />} />
       </Routes>
-    </userContextProvider>
+    </UserContextProvider>
   );
 }
 

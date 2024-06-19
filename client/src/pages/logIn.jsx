@@ -24,7 +24,7 @@ export default function LogIn() {
         toast.error(data.error);
       } else {
         setData({});
-        navigate("/");
+        navigate("/dashbord");
       }
     } catch (error) {}
   };
