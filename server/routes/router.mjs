@@ -12,6 +12,8 @@ router.use(
 );
 
 import authRout from "./authRout.mjs";
+import userProfile from "./userProfile.mjs";
 router.use("/", authRout);
+router.use("/", userProfile);
 
 export default router;
