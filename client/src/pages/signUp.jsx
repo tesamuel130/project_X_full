@@ -8,8 +8,16 @@ export default function SignUp() {
     password: "",
   });
 
-  const registerUser = (e) => {
+  const registerUser = async (e) => {
     e.preventDefault();
+    const { name, email, password } = data;
+    try {
+      const { data } = await axios.post("/register", {
+        name,
+        email,
+        password,
+      });
+    } catch (error) {}
   };
 
   return (
