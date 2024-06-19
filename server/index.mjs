@@ -9,6 +9,12 @@ dotenv.config();
 const app = express();
 const PORT = 8081;
 
+//database connection
+mongoose
+  .connect(process.env.MONGO_URL)
+  .then(() => console.log(`database connected`))
+  .catch((err) => console.log("databse is not connected", err));
+
 app.use(router);
 
 app.listen(PORT, () => {

@@ -1,2 +1,0 @@
-usName: project-x
-pwd: kBzwQYYgMNkktOS5
