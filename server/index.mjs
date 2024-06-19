@@ -15,6 +15,9 @@ mongoose
   .then(() => console.log(`database connected`))
   .catch((err) => console.log("databse is not connected", err));
 
+//middleware
+app.use(express.json());
+
 app.use(router);
 
 app.listen(PORT, () => {

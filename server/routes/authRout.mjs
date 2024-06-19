@@ -1,6 +1,6 @@
 import { Router } from "express";
 import cors from "cors";
-import { test } from "../controllers/authControllers.mjs";
+import { test, registerCustomer } from "../controllers/authControllers.mjs";
 
 const router = Router();
 
@@ -13,5 +13,6 @@ router.use(
 );
 
 router.get("/", test);
+router.post("/register", registerCustomer);
 
 export default router;
