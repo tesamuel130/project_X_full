@@ -84,7 +84,7 @@ export default function SignUp() {
                   />
                 </div>
                 <div className="form-group">
-                  <label htmlFor="exampleInputEmail1">Email</label>
+                  <label htmlFor="exampleInputEmail2">Email</label>
                   <input
                     type="email"
                     value={data.email}
@@ -92,7 +92,7 @@ export default function SignUp() {
                       setData({ ...data, email: e.target.value })
                     }
                     className="form-control"
-                    id="exampleInputEmail1"
+                    id="exampleInputEmail2"
                     placeholder="sample@gmail.com"
                   />
                 </div>
