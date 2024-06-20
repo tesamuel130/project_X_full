@@ -9,6 +9,7 @@ import { Toaster } from "react-hot-toast";
 import { UserContextProvider } from "../context/userContext";
 import Dashbord from "./pages/Dashbord";
 import Navbartr from "./components/Navbartr";
+import Logintry from "./pages/Logintry";
 
 axios.defaults.baseURL = "http://localhost:8081";
 axios.defaults.withCredentials = true;
@@ -23,8 +24,9 @@ function App() {
         <Route path="/register" element={<SignUp />} />
         <Route path="/login" element={<LogIn />} />
         <Route path="/dashbord" element={<Dashbord />} />
-        //cheack the navbar
+        //cheack the pages
         <Route path="/navbar" element={<Navbartr />} />
+        <Route path="/logintry" element={<Logintry />} />
       </Routes>
     </UserContextProvider>
   );

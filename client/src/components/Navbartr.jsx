@@ -128,7 +128,7 @@ export default function Navbartr() {
                     method="post"
                   >
                     <div className="topsearch">
-                      <i className="cv cvicon-cv-cancel topsearch-close"></i>
+                      {/* <i className="cv cvicon-cv-cancel topsearch-close"></i> */}
                       <div className="input-group">
                         <span className="input-group-addon" id="sizing-addon2">
                           {/* <i class="fa fa-search"></i> */}
