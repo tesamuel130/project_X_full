@@ -1,5 +1,11 @@
 import { Link } from "react-router-dom";
 
+//import the css asset
+import "../assets/style/style.css";
+import "../assets/style/form-awesome.css";
+import "../assets/style/font-circle-video.css";
+import "../assets/bootstrap/css/bootstrap.min.css";
+
 export default function Navbartr() {
   return (
     <>
