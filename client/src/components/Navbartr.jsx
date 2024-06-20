@@ -8,38 +8,43 @@ import "../assets/bootstrap/css/bootstrap.min.css";
 
 //import fontawsome
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { fasolid, faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
+import {
+  faBars,
+  faMagnifyingGlass,
+  faVideo,
+  faSortAmountDown,
+} from "@fortawesome/free-solid-svg-icons";
 
 export default function Navbartr() {
   return (
     <>
-      <div class="container-fluid">
-        <div class="row">
-          <div class="btn-color-toggle">
+      <div className="container-fluid">
+        <div className="row">
+          <div className="btn-color-toggle">
             {/* <img src="images/icon_bulb_light.png" alt=""> */}
           </div>
-          <div class="navbar-container single">
-            <div class="container">
-              <div class="row">
-                <div class="col-xs-3 visible-xs">
-                  <Link class="btn-menu-toggle">
+          <div className="navbar-container single">
+            <div className="container">
+              <div className="row">
+                <div className="col-xs-3 visible-xs">
+                  <Link className="btn-menu-toggle">
                     {/* <i class="cv cvicon-cv-menu"></i> */}
-                    <FontAwesomeIcon icon="fa-solid fa-bars" />
+                    <FontAwesomeIcon icon={faBars} />
                   </Link>
                 </div>
-                <div class="col-lg-1 col-sm-2 col-xs-6">
-                  <Link class="navbar-brand" to="/index-2.html">
+                <div className="col-lg-1 col-sm-2 col-xs-6">
+                  <Link className="navbar-brand" to="/index-2.html">
                     <img
                       src="images/logo.svg"
                       alt="Project name"
-                      class="logo"
+                      className="logo"
                     />
                     <span>Circle</span>
                   </Link>
                 </div>
-                <div class="col-lg-3 col-sm-10 hidden-xs">
-                  <ul class="list-inline menu">
-                    <li class="color-active">
+                <div className="col-lg-3 col-sm-10 hidden-xs">
+                  <ul className="list-inline menu">
+                    <li className="color-active">
                       <Link to="/#">Pages</Link>
                       <ul>
                         <li>
@@ -117,56 +122,66 @@ export default function Navbartr() {
                     </li>
                   </ul>
                 </div>
-                <div class="col-lg-6 col-sm-8 col-xs-3">
+                <div className="col-lg-6 col-sm-8 col-xs-3">
                   <form
                     action="http://azyrusthemes.com/circlevideo/search.html"
                     method="post"
                   >
-                    <div class="topsearch">
-                      <i class="cv cvicon-cv-cancel topsearch-close"></i>
-                      <div class="input-group">
-                        <span class="input-group-addon" id="sizing-addon2">
+                    <div className="topsearch">
+                      <i className="cv cvicon-cv-cancel topsearch-close"></i>
+                      <div className="input-group">
+                        <span className="input-group-addon" id="sizing-addon2">
                           {/* <i class="fa fa-search"></i> */}
-                          <FontAwesomeIcon icon="fa-solid fa-magnifying-glass" />
+                          <FontAwesomeIcon icon={faMagnifyingGlass} />
                         </span>
-                        {/* <input type="text" class="form-control" placeholder="Search" aria-describedby="sizing-addon2"> */}
-                        <div class="input-group-btn">
+                        <input
+                          type="text"
+                          className="form-control"
+                          placeholder="Search"
+                          aria-describedby="sizing-addon2"
+                        />
+                        <div className="input-group-btn">
                           <button
                             type="button"
-                            class="btn btn-default dropdown-toggle"
+                            className="btn btn-default dropdown-toggle"
                             data-toggle="dropdown"
                             aria-haspopup="true"
                             aria-expanded="false"
                           >
-                            <i class="cv cvicon-cv-video-file"></i>
-                            &nbsp;&nbsp;&nbsp;<span class="caret"></span>
+                            {/* <i class="cv cvicon-cv-video-file"></i> */}
+                            <FontAwesomeIcon icon={faVideo} />
+                            &nbsp;&nbsp;&nbsp;<span className="caret"></span>
                           </button>
                           /
-                          <ul class="dropdown-menu">
+                          <ul className="dropdown-menu">
                             <li>
-                              <a href="#">
-                                <i class="cv cvicon-cv-relevant"></i> Relevant
-                              </a>
+                              <Link to="/#">
+                                {/* <i class="cv cvicon-cv-relevant"></i>  */}
+                                <FontAwesomeIcon icon={faSortAmountDown} />
+                                Relevant
+                              </Link>
                             </li>
                             <li>
-                              <a href="#">
-                                <i class="cv cvicon-cv-calender"></i> Recent
-                              </a>
+                              <Link to="/#">
+                                <i className="cv cvicon-cv-calender"></i> Recent
+                              </Link>
                             </li>
                             <li>
-                              <a href="#">
-                                <i class="cv cvicon-cv-view-stats"></i> Viewed
-                              </a>
+                              <Link to="/#">
+                                <i className="cv cvicon-cv-view-stats"></i>{" "}
+                                Viewed
+                              </Link>
                             </li>
                             <li>
-                              <a href="#">
-                                <i class="cv cvicon-cv-star"></i> Top Rated
-                              </a>
+                              <Link to="/#">
+                                <i className="cv cvicon-cv-star"></i> Top Rated
+                              </Link>
                             </li>
                             <li>
-                              <a href="#">
-                                <i class="cv cvicon-cv-watch-later"></i> Longest
-                              </a>
+                              <Link to="/#">
+                                <i className="cv cvicon-cv-watch-later"></i>{" "}
+                                Longest
+                              </Link>
                             </li>
                           </ul>
                         </div>
@@ -174,19 +189,18 @@ export default function Navbartr() {
                     </div>
                   </form>
                 </div>
-                <div class="col-lg-2 col-sm-12 hidden-xs">
-                  <div class="loginsignup pull-right">
-                    <a href="login.html">Login</a> .{" "}
-                    <a href="signup.html">Signup</a>
+                <div className="col-lg-2 col-sm-12 hidden-xs">
+                  <div className="loginsignup pull-right">
+                    <Link href="login.html">Login</Link> .{" "}
+                    <Link href="signup.html">Signup</Link>
                   </div>
-                  <div class="clearfix"></div>
+                  <div className="clearfix"></div>
                 </div>
               </div>
             </div>
           </div>
         </div>
       </div>
-      <FontAwesomeIcon icon="fa-solid fa-magnifying-glass" />
     </>
   );
 }
