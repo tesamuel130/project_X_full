@@ -6,6 +6,10 @@ import "../assets/style/form-awesome.css";
 import "../assets/style/font-circle-video.css";
 import "../assets/bootstrap/css/bootstrap.min.css";
 
+//import fontawsome
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { fasolid, faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
+
 export default function Navbartr() {
   return (
     <>
@@ -19,7 +23,8 @@ export default function Navbartr() {
               <div class="row">
                 <div class="col-xs-3 visible-xs">
                   <Link class="btn-menu-toggle">
-                    <i class="cv cvicon-cv-menu"></i>
+                    {/* <i class="cv cvicon-cv-menu"></i> */}
+                    <FontAwesomeIcon icon="fa-solid fa-bars" />
                   </Link>
                 </div>
                 <div class="col-lg-1 col-sm-2 col-xs-6">
@@ -44,67 +49,71 @@ export default function Navbartr() {
                           <Link to="/single-video.html">Single Video Page</Link>
                         </li>
                         <li>
-                          <a href="single-video-youtube.html">
+                          <Link to="/single-video-youtube.html">
                             Single Video Youtube Embedded Page
-                          </a>
+                          </Link>
                         </li>
                         <li>
-                          <a href="single-video-vimeo.html">
+                          <Link to="/single-video-vimeo.html">
                             Single Video Vimeo Embedded Page
-                          </a>
+                          </Link>
                         </li>
                         <li>
-                          <a href="upload.html">Upload Video Page</a>
+                          <Link to="/upload.html">Upload Video Page</Link>
                         </li>
                         <li>
-                          <a href="upload-edit.html">Upload Video Edit Page</a>
+                          <Link to="/upload-edit.html">
+                            Upload Video Edit Page
+                          </Link>
                         </li>
                         <li>
-                          <a href="search.html">Searched Videos Page</a>
+                          <Link to="/search.html">Searched Videos Page</Link>
                         </li>
                         <li>
-                          <a href="channel.html">Single Channel Page</a>
+                          <Link to="/channel.html">Single Channel Page</Link>
                         </li>
                         <li>
-                          <a href="channels.html">Channels Page</a>
+                          <Link to="/channels.html">Channels Page</Link>
                         </li>
                         <li>
-                          <a href="single-video-tabs.html">
+                          <Link to="/single-video-tabs.html">
                             Single Videos Page With Tabs
-                          </a>
+                          </Link>
                         </li>
                         <li>
-                          <a href="single-video-playlist.html">
+                          <Link to="/single-video-playlist.html">
                             Single Videos Page With Playlist
-                          </a>
+                          </Link>
                         </li>
                         <li>
-                          <a href="history.html">History Page</a>
+                          <Link to="/history.html">History Page</Link>
                         </li>
                         <li>
-                          <a href="categories.html">Browse Categories Page</a>
+                          <Link to="/categories.html">
+                            Browse Categories Page
+                          </Link>
                         </li>
                         <li>
-                          <a href="categories_side_menu.html">
+                          <Link to="/categories_side_menu.html">
                             Browse Categories Side Menu Page
-                          </a>
+                          </Link>
                         </li>
                         <li>
-                          <a href="subscription.html">Subscription Page</a>
+                          <Link to="/subscription.html">Subscription Page</Link>
                         </li>
                         <li>
-                          <a href="login.html">Login Page</a>
+                          <Link to="/login.html">Login Page</Link>
                         </li>
                         <li>
-                          <a href="signup.html">Signup Page</a>
+                          <Link to="/signup.html">Signup Page</Link>
                         </li>
                       </ul>
                     </li>
                     <li>
-                      <a href="categories.html">Categories</a>
+                      <Link to="/categories.html">Categories</Link>
                     </li>
                     <li>
-                      <a href="channel.html">Channels</a>
+                      <Link to="/channel.html">Channels</Link>
                     </li>
                   </ul>
                 </div>
@@ -117,7 +126,8 @@ export default function Navbartr() {
                       <i class="cv cvicon-cv-cancel topsearch-close"></i>
                       <div class="input-group">
                         <span class="input-group-addon" id="sizing-addon2">
-                          <i class="fa fa-search"></i>
+                          {/* <i class="fa fa-search"></i> */}
+                          <FontAwesomeIcon icon="fa-solid fa-magnifying-glass" />
                         </span>
                         {/* <input type="text" class="form-control" placeholder="Search" aria-describedby="sizing-addon2"> */}
                         <div class="input-group-btn">
@@ -176,6 +186,7 @@ export default function Navbartr() {
           </div>
         </div>
       </div>
+      <FontAwesomeIcon icon="fa-solid fa-magnifying-glass" />
     </>
   );
 }
