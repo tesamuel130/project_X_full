@@ -17,6 +17,35 @@ import "../assets/js/jquery.min.js";
 import "../assets/bootstrap/js/bootstrap.min.js";
 
 export default function SignUp() {
+  const navigate = useNavigate();
+  const [data, setData] = useState({
+    name: "",
+    email: "",
+    password: "",
+  });
+
+  const registerUser = async (e) => {
+    e.preventDefault();
+    const { name, email, password } = data;
+    try {
+      const { data } = await axios.post("/register", {
+        name,
+        email,
+        password,
+      });
+
+      if (data.error) {
+        toast.error(data.error);
+      } else {
+        setData({});
+        toast.success("User registered successfully");
+        navigate("/login");
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   return (
     <div className="container-fluid bg-image">
       <div className="row">
@@ -42,11 +71,26 @@ export default function SignUp() {
           <div className="login-window">
             <div className="l-head">Sign Up for Free</div>
             <div className="l-form">
-              <form action="http://azyrusthemes.com/circlevideo/signup.html">
+              <form onSubmit={registerUser}>
+                <div className="form-group">
+                  <label htmlFor="exampleInputEmail1">FullName</label>
+                  <input
+                    type="text"
+                    value={data.name}
+                    onChange={(e) => setData({ ...data, name: e.target.value })}
+                    className="form-control"
+                    id="exampleInputEmail1"
+                    placeholder="Enter ur name..."
+                  />
+                </div>
                 <div className="form-group">
                   <label htmlFor="exampleInputEmail1">Email</label>
                   <input
                     type="email"
+                    value={data.email}
+                    onChange={(e) =>
+                      setData({ ...data, email: e.target.value })
+                    }
                     className="form-control"
                     id="exampleInputEmail1"
                     placeholder="sample@gmail.com"
@@ -56,6 +100,10 @@ export default function SignUp() {
                   <label htmlFor="exampleInputPassword1">Password</label>
                   <input
                     type="password"
+                    value={data.password}
+                    onChange={(e) =>
+                      setData({ ...data, password: e.target.value })
+                    }
                     className="form-control"
                     id="exampleInputPassword1"
                     placeholder="**********"
