@@ -1,4 +1,8 @@
 import React from "react";
+import { useState } from "react";
+import axios from "axios";
+import { toast } from "react-hot-toast";
+import { useNavigate } from "react-router-dom";
 
 //import the css asset
 import "../assets/style/style.css";
@@ -12,6 +16,31 @@ import "../assets/js/jquery.min.js";
 import "../assets/bootstrap/js/bootstrap.min.js";
 
 export default function Logintry() {
+  const navigate = useNavigate();
+  const [data, setData] = useState({
+    email: "",
+    password: "",
+  });
+
+  const loginUser = async (e) => {
+    e.preventDefault();
+    const { email, password } = data;
+    try {
+      const { data } = await axios.post("/login", {
+        email,
+        password,
+      });
+
+      //show the error on the ui
+      if (data.error) {
+        toast.error(data.error);
+      } else {
+        setData({});
+        navigate("/dashbord");
+      }
+    } catch (error) {}
+  };
+
   return (
     <div className="container-fluid bg-image">
       <div className="row">
@@ -37,11 +66,15 @@ export default function Logintry() {
           <div className="login-window">
             <div className="l-head">Log Into Your Circle Account</div>
             <div className="l-form">
-              <form action="http://azyrusthemes.com/circlevideo/login.html">
+              <form onSubmit={loginUser}>
                 <div className="form-group">
                   <label htmlFor="exampleInputEmail1">Email</label>
                   <input
                     type="email"
+                    value={data.email}
+                    onChange={(e) =>
+                      setData({ ...data, email: e.target.value })
+                    }
                     className="form-control"
                     id="exampleInputEmail1"
                     placeholder="sample@gmail.com"
@@ -51,6 +84,10 @@ export default function Logintry() {
                   <label htmlFor="exampleInputPassword1">Password</label>
                   <input
                     type="password"
+                    value={data.password}
+                    onChange={(e) =>
+                      setData({ ...data, password: e.target.value })
+                    }
                     className="form-control"
                     id="exampleInputPassword1"
                     placeholder="**********"
