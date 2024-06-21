@@ -15,6 +15,9 @@ import {
   faSortAmountDown,
 } from "@fortawesome/free-solid-svg-icons";
 
+//import image
+import logoimg from "../assets/images/ava1.png";
+
 export default function Navbartr() {
   return (
     <>
@@ -38,11 +41,7 @@ export default function Navbartr() {
                 </div>
                 <div className="col-lg-1 col-sm-2 col-xs-6">
                   <Link className="navbar-brand" to="/index-2.html">
-                    <img
-                      src="images/logo.svg"
-                      alt="Project name"
-                      className="logo"
-                    />
+                    <img src={logoimg} alt="Project name" className="logo" />
                     <span>Circle</span>
                   </Link>
                 </div>

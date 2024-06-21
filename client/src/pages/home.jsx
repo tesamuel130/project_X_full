@@ -1,11 +1,24 @@
 import React from "react";
+
+//import fontawsome
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
+import { faArrowRight, faArrowLeft } from "@fortawesome/free-solid-svg-icons";
 
 import NavBarTwo from "../components/NavBarTwo";
 
-//importing image file
-const images = "../assets/images";
+//import image
+import hadeHomeImg0 from "../assets/images/ava1.png";
+import hadeHomeImg1 from "../assets/images/ava3.png";
+import hadeHomeImg2 from "../assets/images/ava2.png";
+import hadeHomeImg3 from "../assets/images/ava4.png";
+import hadeHomeImg4 from "../assets/images/ava5.png";
+import hadeHomeImg5 from "../assets/images/ava6.png";
+import hadeHomeImg6 from "../assets/images/ava7.png";
+import hadeHomeImg7 from "../assets/images/ava8.png";
+import hadeHomeImg8 from "../assets/images/ava9.png";
+import hadeHomeImg9 from "../assets/images/ava10.png";
+import hadeHomeImg10 from "../assets/images/ava11.png";
+import hadeHomeImg11 from "../assets/images/ava12.png";
 
 export default function Home() {
   return (
@@ -75,73 +88,73 @@ export default function Home() {
                   <div className="row">
                     <div className="col-lg-1 col-sm-2 col-xs-3">
                       <a href="#">
-                        <img src={`../assets/images/ava2.png`} alt="" />
+                        <img src={hadeHomeImg0} alt="" />
                         <div className="note">1</div>
                       </a>
                     </div>
                     <div className="col-lg-1 col-sm-2 col-xs-3">
                       <a href="#">
-                        <img src="images/ava3.png" alt="" />
+                        <img src={hadeHomeImg1} alt="" />
                         <div className="note">03</div>
                       </a>
                     </div>
                     <div className="col-lg-1 col-sm-2 col-xs-3">
                       <a href="#">
-                        <img src="images/ava4.png" alt="" />
+                        <img src={hadeHomeImg2} alt="" />
                         <div className="note">10</div>
                       </a>
                     </div>
                     <div className="col-lg-1 col-sm-2 col-xs-3">
                       <a href="#">
-                        <img src="images/ava5.png" alt="" />
+                        <img src={hadeHomeImg3} alt="" />
                         <div className="note">56</div>
                       </a>
                     </div>
                     <div className="col-lg-1 col-sm-2 col-xs-3">
                       <a href="#">
-                        <img src="images/ava6.png" alt="" />
+                        <img src={hadeHomeImg4} alt="" />
                         <div className="note">6</div>
                       </a>
                     </div>
                     <div className="col-lg-1 col-sm-2 col-xs-3">
                       <a href="#">
-                        <img src="images/ava7.png" alt="" />
+                        <img src={hadeHomeImg5} alt="" />
                         <div className="note">25</div>
                       </a>
                     </div>
                     <div className="col-lg-1 col-sm-2 col-xs-3">
                       <a href="#">
-                        <img src="images/ava8.png" alt="" />
+                        <img src={hadeHomeImg6} alt="" />
                         <div className="note">23</div>
                       </a>
                     </div>
                     <div className="col-lg-1 col-sm-2 col-xs-3">
                       <a href="#">
-                        <img src="images/ava9.png" alt="" />
+                        <img src={hadeHomeImg7} alt="" />
                         <div className="note">16</div>
                       </a>
                     </div>
                     <div className="col-lg-1 col-sm-2 col-xs-3">
                       <a href="#">
-                        <img src="images/ava10.png" alt="" />
+                        <img src={hadeHomeImg8} alt="" />
                         <div className="note">3</div>
                       </a>
                     </div>
                     <div className="col-lg-1 col-sm-2 col-xs-3">
                       <a href="#">
-                        <img src="images/ava11.png" alt="" />
+                        <img src={hadeHomeImg9} alt="" />
                         <div className="note">6</div>
                       </a>
                     </div>
                     <div className="col-lg-1 col-sm-2 col-xs-3">
                       <a href="#">
-                        <img src="images/ava12.png" alt="" />
+                        <img src={hadeHomeImg10} alt="" />
                         <div className="note">98</div>
                       </a>
                     </div>
                     <div className="col-lg-1 col-sm-2 col-xs-3">
                       <a href="#">
-                        <img src="images/ava1.png" alt="" />
+                        <img src={hadeHomeImg11} alt="" />
                         <div className="note">125</div>
                       </a>
                     </div>
@@ -216,6 +229,7 @@ export default function Home() {
                 </div>
                 <div className="cb-content videolist">
                   <div className="row">
+                    {/* video list */}
                     <div className="col-lg-3 col-sm-6 videoitem">
                       <div className="b-video">
                         <div className="v-img">
@@ -1022,7 +1036,12 @@ export default function Home() {
                 <ul className="list-inline">
                   <li className="v-pagination-prev">
                     <a href="#">
-                      <i className="cv cvicon-cv-previous"></i>
+                      <i>
+                        <FontAwesomeIcon
+                          icon={faArrowLeft}
+                          className="cv cvicon-cv-previous"
+                        />
+                      </i>
                     </a>
                   </li>
                   <li className="v-pagination-first">
@@ -1051,7 +1070,12 @@ export default function Home() {
                   </li>
                   <li className="v-pagination-next">
                     <a href="#">
-                      <i className="cv cvicon-cv-next"></i>
+                      <i>
+                        <FontAwesomeIcon
+                          icon={faArrowRight}
+                          className="cv cvicon-cv-next"
+                        />
+                      </i>
                     </a>
                   </li>
                 </ul>
