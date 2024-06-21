@@ -31,7 +31,7 @@ export default function Navbartr() {
                     <i>
                       <FontAwesomeIcon
                         icon={faBars}
-                        class="cv cvicon-cv-menu"
+                        className="cv cvicon-cv-menu"
                       />
                     </i>
                   </Link>
@@ -135,7 +135,7 @@ export default function Navbartr() {
                       {/* <i className="cv cvicon-cv-cancel topsearch-close"></i> */}
                       <div className="input-group">
                         <span className="input-group-addon" id="sizing-addon2">
-                          <i class="fa fa-search">
+                          <i className="fa fa-search">
                             <FontAwesomeIcon icon={faMagnifyingGlass} />
                           </i>
                         </span>

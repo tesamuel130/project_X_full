@@ -999,12 +999,12 @@ export default function Home() {
                         </a>
                       </div>
                     </div>
-                    <div Name="col-lg-2 col-sm-4 col-xs-4">
+                    <div className="col-lg-2 col-sm-4 col-xs-4">
                       <div className="b-chanel">
                         <a href="#">
                           <img src="images/chanel-6.png" alt="" />
                           <div className="hover">
-                            <apan>Ray</apan>
+                            <span>Ray</span>
                             <span>
                               <i className="cv cvicon-cv-liked"></i> 265K
                             </span>
