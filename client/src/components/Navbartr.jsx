@@ -21,15 +21,19 @@ export default function Navbartr() {
       <div className="container-fluid">
         <div className="row">
           <div className="btn-color-toggle">
-            {/* <img src="images/icon_bulb_light.png" alt=""> */}
+            <img src="images/icon_bulb_light.png" alt="" />
           </div>
           <div className="navbar-container single">
             <div className="container">
               <div className="row">
                 <div className="col-xs-3 visible-xs">
                   <Link className="btn-menu-toggle">
-                    {/* <i class="cv cvicon-cv-menu"></i> */}
-                    <FontAwesomeIcon icon={faBars} />
+                    <i>
+                      <FontAwesomeIcon
+                        icon={faBars}
+                        class="cv cvicon-cv-menu"
+                      />
+                    </i>
                   </Link>
                 </div>
                 <div className="col-lg-1 col-sm-2 col-xs-6">
@@ -131,8 +135,9 @@ export default function Navbartr() {
                       {/* <i className="cv cvicon-cv-cancel topsearch-close"></i> */}
                       <div className="input-group">
                         <span className="input-group-addon" id="sizing-addon2">
-                          {/* <i class="fa fa-search"></i> */}
-                          <FontAwesomeIcon icon={faMagnifyingGlass} />
+                          <i class="fa fa-search">
+                            <FontAwesomeIcon icon={faMagnifyingGlass} />
+                          </i>
                         </span>
                         <input
                           type="text"
@@ -199,6 +204,156 @@ export default function Navbartr() {
               </div>
             </div>
           </div>
+        </div>
+      </div>
+
+      <div className="mobile-menu">
+        <div className="mobile-menu-head">
+          <Link to="/#" className="mobile-menu-close"></Link>
+          <Link className="navbar-brand" to="/index-2.html">
+            <img src="images/logo.svg" alt="Project name" className="logo" />
+            <span>Circle</span>
+          </Link>
+          <div className="mobile-menu-btn-color">
+            <img src="images/icon_bulb_light.png" alt="" />
+          </div>
+        </div>
+        <div className="mobile-menu-content">
+          <div className="mobile-menu-user">
+            <div className="mobile-menu-user-img">
+              <img src="images/ava11.png" alt="" />
+            </div>
+            <p>Bailey Fry </p>
+            <span className="caret"></span>
+          </div>
+          <Link to="/#" className="btn mobile-menu-upload">
+            {/* <i className="cv cvicon-cv-upload-video"></i> */}
+            <FontAwesomeIcon icon={faBars} />
+            <span>Upload Video</span>
+          </Link>
+          <div className="mobile-menu-list">
+            <ul>
+              <li>
+                <Link to="/#">
+                  {/* <i className="cv cvicon-cv-play-circle"></i> */}
+                  <FontAwesomeIcon icon={faBars} />
+                  <p>Popular Videos</p>
+                </Link>
+              </li>
+              <li>
+                <Link to="/#">
+                  {/* <i className="cv cvicon-cv-playlist"></i> */}
+                  <FontAwesomeIcon icon={faBars} />
+                  <p>Browse Categories</p>
+                  <span className="caret"></span>
+                </Link>
+                <ul className="mobile-menu-categories">
+                  <li className="color-active">
+                    <Link to="/#">
+                      Pages <span className="caret"></span>
+                    </Link>
+                    <ul>
+                      <li>
+                        <Link to="/index-2.html">Home Page</Link>
+                      </li>
+                      <li>
+                        <Link to="/single-video.html">Single Video Page</Link>
+                      </li>
+                      <li>
+                        <Link to="/single-video-youtube.html">
+                          Single Video Youtube Embedded Page
+                        </Link>
+                      </li>
+                      <li>
+                        <Link to="/single-video-vimeo.html">
+                          Single Video Vimeo Embedded Page
+                        </Link>
+                      </li>
+                      <li>
+                        <Link to="/upload.html">Upload Video Page</Link>
+                      </li>
+                      <li>
+                        <Link to="/upload-edit.html">
+                          Upload Video Edit Page
+                        </Link>
+                      </li>
+                      <li>
+                        <Link to="/search.html">Searched Videos Page</Link>
+                      </li>
+                      <li>
+                        <Link to="/channel.html">Single Channel Page</Link>
+                      </li>
+                      <li>
+                        <Link to="/channels.html">Channels Page</Link>
+                      </li>
+                      <li>
+                        <Link to="/single-video-tabs.html">
+                          Single Videos Page With Tabs
+                        </Link>
+                      </li>
+                      <li>
+                        <Link to="/single-video-playlist.html">
+                          Single Videos Page With Playlist
+                        </Link>
+                      </li>
+                      <li>
+                        <Link to="/history.html">History Page</Link>
+                      </li>
+                      <li>
+                        <Link to="/categories.html">
+                          Browse Categories Page
+                        </Link>
+                      </li>
+                      <li>
+                        <Link to="/categories_side_menu.html">
+                          Browse Categories Side Menu Page
+                        </Link>
+                      </li>
+                      <li>
+                        <Link to="/subscription.html">Subscription Page</Link>
+                      </li>
+                      <li>
+                        <Link to="/login.html">Login Page</Link>
+                      </li>
+                      <li>
+                        <Link to="/signup.html">Signup Page</Link>
+                      </li>
+                    </ul>
+                  </li>
+                  <li>
+                    <Link to="/categories.html">Categories</Link>
+                  </li>
+                  <li>
+                    <Link to="/channel.html">Channels</Link>
+                  </li>
+                </ul>
+              </li>
+              <li>
+                <Link to="/#">
+                  {/* <i className="cv cvicon-cv-liked"></i> */}
+                  <FontAwesomeIcon icon={faBars} />
+                  <p>Liked Videos</p>
+                </Link>
+              </li>
+              <li>
+                <Link link="/#">
+                  {/* <i className="cv cvicon-cv-history"></i> */}
+                  <FontAwesomeIcon icon={faBars} />
+                  <p>History</p>
+                </Link>
+              </li>
+              <li>
+                <Link link="/#">
+                  {/* <i className="cv cvicon-cv-purchased"></i> */}
+                  <FontAwesomeIcon icon={faBars} />
+                  <p>Purchased Videos</p>
+                </Link>
+              </li>
+            </ul>
+          </div>
+          <Link link="/#" className="btn mobile-menu-logout">
+            Log out
+          </Link>
         </div>
       </div>
     </>
