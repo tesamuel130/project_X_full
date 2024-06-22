@@ -1,8 +1,13 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 //import fontawsome
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faArrowRight, faArrowLeft } from "@fortawesome/free-solid-svg-icons";
+import {
+  faArrowRight,
+  faArrowLeft,
+  faCircleDot,
+} from "@fortawesome/free-solid-svg-icons";
 
 import NavBarTwo from "../components/NavBarTwo";
 
@@ -19,6 +24,9 @@ import hadeHomeImg8 from "../assets/images/ava9.png";
 import hadeHomeImg9 from "../assets/images/ava10.png";
 import hadeHomeImg10 from "../assets/images/ava11.png";
 import hadeHomeImg11 from "../assets/images/ava12.png";
+
+//import video img
+import vidImg0 from "../assets/images/chanel-2.png";
 
 export default function Home() {
   return (
@@ -164,22 +172,23 @@ export default function Home() {
               {/* <!-- /Updates from Subscriptions --> */}
 
               {/* <!-- Featured Videos --> */}
+
               <div className="content-block head-div">
+                <div>
+                  <h1 className="home-components-header">Chat</h1>
+                </div>
                 <div className="cb-header">
                   <div className="row">
                     <div className="col-lg-10 col-sm-10 col-xs-8">
                       <ul className="list-inline">
                         <li>
                           <a href="#" className="color-active">
-                            <span className="visible-xs">Featured</span>
-                            <span className="hidden-xs">Featured Videos</span>
+                            <span className="visible-xs">Most-Chat</span>
+                            <span className="hidden-xs">Most-Chat</span>
                           </a>
                         </li>
                         <li>
-                          <a href="#">New Videos</a>
-                        </li>
-                        <li className="hidden-xs">
-                          <a href="#">Recommended For You</a>
+                          <a href="#">New-Comer</a>
                         </li>
                       </ul>
                     </div>
@@ -197,28 +206,24 @@ export default function Home() {
                         <ul className="dropdown-menu">
                           <li>
                             <a href="#">
-                              <i className="cv cvicon-cv-relevant"></i> Relevant
+                              <i className="cv cvicon-cv-relevant"></i> Top
+                              Rated
                             </a>
                           </li>
                           <li>
                             <a href="#">
-                              <i className="cv cvicon-cv-calender"></i> Recent
+                              <i className="cv cvicon-cv-calender"></i> Most
+                              Chated
                             </a>
                           </li>
                           <li>
                             <a href="#">
-                              <i className="cv cvicon-cv-view-stats"></i> Viewed
+                              <i className="cv cvicon-cv-view-stats"></i> Cheap
                             </a>
                           </li>
                           <li>
                             <a href="#">
-                              <i className="cv cvicon-cv-star"></i> Top Rated
-                            </a>
-                          </li>
-                          <li>
-                            <a href="#">
-                              <i className="cv cvicon-cv-watch-later"></i>{" "}
-                              Longest
+                              <i className="cv cvicon-cv-star"></i> Expencive
                             </a>
                           </li>
                         </ul>
@@ -234,9 +239,12 @@ export default function Home() {
                       <div className="b-video">
                         <div className="v-img">
                           <a href="single-video-tabs.html">
-                            <img src="images/video1-1.png" alt="" />
+                            <img src={vidImg0} alt="" />
+                            <i className="v-online">
+                              <FontAwesomeIcon icon={faCircleDot} />
+                              offline
+                            </i>
                           </a>
-                          <div className="time">3:50</div>
                         </div>
                         <div className="v-desc">
                           <a href="single-video-tabs.html">
@@ -256,83 +264,20 @@ export default function Home() {
                       <div className="b-video">
                         <div className="v-img">
                           <a href="single-video-tabs.html">
-                            <img src="images/video1-2.png" alt="" />
+                            <img src={vidImg0} alt="" />
+                            <i className="v-online">
+                              <FontAwesomeIcon icon={faCircleDot} />
+                              offline
+                            </i>
                           </a>
-                          <div className="time">15:19</div>
                         </div>
                         <div className="v-desc">
                           <a href="single-video-tabs.html">
-                            GTA 5: Michael, Franklin, and Trevor in the Flesh
+                            Man's Sky: 21 Minutes of New Gameplay - IGN First
                           </a>
                         </div>
                         <div className="v-views">
-                          8,241,542 views.{" "}
-                          <span className="v-percent">
-                            <span className="v-circle"></span> 93%
-                          </span>
-                        </div>
-                      </div>
-                    </div>
-
-                    <div className="col-lg-3 col-sm-6 videoitem">
-                      <div className="b-video">
-                        <div className="v-img">
-                          <a href="single-video-tabs.html">
-                            <img src="images/video1-3.png" alt="" />
-                          </a>
-                          <div className="time">4:23</div>
-                        </div>
-                        <div className="v-desc">
-                          <a href="single-video-tabs.html">
-                            Battlefield 3: Official Fault Line Gameplay Trailer
-                          </a>
-                        </div>
-                        <div className="v-views">
-                          2,729,347 views .{" "}
-                          <span className="v-percent">
-                            <span className="v-circle"></span> 95%
-                          </span>
-                        </div>
-                      </div>
-                    </div>
-
-                    <div className="col-lg-3 col-sm-6 videoitem">
-                      <div className="b-video">
-                        <div className="v-img">
-                          <a href="single-video-tabs.html">
-                            <img src="images/video1-4.png" alt="" />
-                          </a>
-                          <div className="time">7:18</div>
-                        </div>
-                        <div className="v-desc">
-                          <a href="single-video-tabs.html">
-                            Batman Arkham City: Hugo Strange Trailer
-                          </a>
-                        </div>
-                        <div className="v-views">
-                          7,239,852 views.{" "}
-                          <span className="v-percent">
-                            <span className="v-circle"></span> 84%
-                          </span>
-                        </div>
-                      </div>
-                    </div>
-
-                    <div className="col-lg-3 col-sm-6 videoitem">
-                      <div className="b-video last-row">
-                        <div className="v-img">
-                          <a href="single-video-tabs.html">
-                            <img src="images/video1-5.png" alt="" />
-                          </a>
-                          <div className="time">23:57</div>
-                        </div>
-                        <div className="v-desc">
-                          <a href="single-video-tabs.html">
-                            BATTALION 1944: TAKING ON BATTLEFIELD 5
-                          </a>
-                        </div>
-                        <div className="v-views">
-                          19,130 views.{" "}
+                          27,548 views.{" "}
                           <span className="v-percent">
                             <span className="v-circle"></span> 78%
                           </span>
@@ -341,72 +286,34 @@ export default function Home() {
                     </div>
 
                     <div className="col-lg-3 col-sm-6 videoitem">
-                      <div className="b-video last-row">
+                      <div className="b-video">
                         <div className="v-img">
                           <a href="single-video-tabs.html">
-                            <img src="images/video1-6.png" alt="" />
-                            <div className="watched-mask"></div>
-                            <div className="watched">WATCHED</div>
-                            <div className="time">7:27</div>
+                            <img src={vidImg0} alt="" />
+                            <i className="v-online">
+                              <FontAwesomeIcon icon={faCircleDot} />
+                              offline
+                            </i>
                           </a>
                         </div>
                         <div className="v-desc">
                           <a href="single-video-tabs.html">
-                            Amazon Blocking VIDEO GAMES for Non-Prime...
+                            Man's Sky: 21 Minutes of New Gameplay - IGN First
                           </a>
                         </div>
                         <div className="v-views">
-                          185,525 views.{" "}
+                          27,548 views.{" "}
                           <span className="v-percent">
-                            <span className="v-circle"></span> 93%
+                            <span className="v-circle"></span> 78%
                           </span>
                         </div>
                       </div>
                     </div>
-
-                    <div className="col-lg-3 col-sm-6 videoitem">
-                      <div className="b-video last-row">
-                        <div className="v-img">
-                          <a href="single-video-tabs.html">
-                            <img src="images/video1-7.png" alt="" />
-                          </a>
-                          <div className="time">12:58</div>
-                        </div>
-                        <div className="v-desc">
-                          <a href="single-video-tabs.html">
-                            Amazing Facts About Nebulas Inside Deep Universe
-                          </a>
-                        </div>
-                        <div className="v-views">
-                          203,741 views.{" "}
-                          <span className="v-percent">
-                            <span className="v-circle"></span> 95%
-                          </span>
-                        </div>
-                      </div>
-                    </div>
-
-                    <div className="col-lg-3 col-sm-6 videoitem">
-                      <div className="b-video last-row">
-                        <div className="v-img">
-                          <a href="single-video-tabs.html">
-                            <img src="images/video1-8.png" alt="" />
-                          </a>
-                          <div className="time">9:47</div>
-                        </div>
-                        <div className="v-desc">
-                          <a href="single-video-tabs.html">
-                            Cornfield Chase - Outlast II Official Gameplay
-                          </a>
-                        </div>
-                        <div className="v-views">
-                          202,513 views.{" "}
-                          <span className="v-percent">
-                            <span className="v-circle"></span> 84%
-                          </span>
-                        </div>
-                      </div>
-                    </div>
+                  </div>
+                  <div>
+                    <Link to="/chat">
+                      <button>See More</button>
+                    </Link>
                   </div>
                 </div>
               </div>
@@ -414,6 +321,9 @@ export default function Home() {
 
               {/* <!-- New Videos in India --> */}
               <div className="content-block head-div head-arrow">
+                <div>
+                  <h1 className="home-components-header">Video</h1>
+                </div>
                 <div className="head-arrow-icon">
                   <i className="cv cvicon-cv-next"></i>
                 </div>
@@ -674,6 +584,9 @@ export default function Home() {
 
               {/* <!-- Popular Playlists --> */}
               <div className="content-block head-div head-arrow">
+                <div>
+                  <h1 className="home-components-header">Striming</h1>
+                </div>
                 <div className="head-arrow-icon">
                   <i className="cv cvicon-cv-next"></i>
                 </div>

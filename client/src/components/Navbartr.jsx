@@ -1,3 +1,4 @@
+import React from "react";
 import { Link } from "react-router-dom";
 
 //import the css asset
@@ -54,66 +55,30 @@ export default function Navbartr() {
                           <Link to="/index-2.html">Home Page</Link>
                         </li>
                         <li>
-                          <Link to="/single-video.html">Single Video Page</Link>
+                          <Link to="/single-video.html">About</Link>
                         </li>
                         <li>
-                          <Link to="/single-video-youtube.html">
-                            Single Video Youtube Embedded Page
-                          </Link>
+                          <Link to="/single-video.html">Video Page</Link>
+                        </li>
+                        <li>
+                          <Link to="/single-video-youtube.html">Live Chat</Link>
                         </li>
                         <li>
                           <Link to="/single-video-vimeo.html">
-                            Single Video Vimeo Embedded Page
+                            Live Striming
                           </Link>
                         </li>
                         <li>
-                          <Link to="/upload.html">Upload Video Page</Link>
+                          <Link to="/upload.html">Person Contact</Link>
                         </li>
                         <li>
-                          <Link to="/upload-edit.html">
-                            Upload Video Edit Page
-                          </Link>
+                          <Link to="/upload-edit.html">Help</Link>
                         </li>
                         <li>
-                          <Link to="/search.html">Searched Videos Page</Link>
+                          <Link to="/register">Sign Up</Link>
                         </li>
                         <li>
-                          <Link to="/channel.html">Single Channel Page</Link>
-                        </li>
-                        <li>
-                          <Link to="/channels.html">Channels Page</Link>
-                        </li>
-                        <li>
-                          <Link to="/single-video-tabs.html">
-                            Single Videos Page With Tabs
-                          </Link>
-                        </li>
-                        <li>
-                          <Link to="/single-video-playlist.html">
-                            Single Videos Page With Playlist
-                          </Link>
-                        </li>
-                        <li>
-                          <Link to="/history.html">History Page</Link>
-                        </li>
-                        <li>
-                          <Link to="/categories.html">
-                            Browse Categories Page
-                          </Link>
-                        </li>
-                        <li>
-                          <Link to="/categories_side_menu.html">
-                            Browse Categories Side Menu Page
-                          </Link>
-                        </li>
-                        <li>
-                          <Link to="/subscription.html">Subscription Page</Link>
-                        </li>
-                        <li>
-                          <Link to="/login.html">Login Page</Link>
-                        </li>
-                        <li>
-                          <Link to="/signup.html">Signup Page</Link>
+                          <Link to="/login">Sign In</Link>
                         </li>
                       </ul>
                     </li>
@@ -162,29 +127,23 @@ export default function Navbartr() {
                               <Link to="/#">
                                 {/* <i class="cv cvicon-cv-relevant"></i>  */}
                                 <FontAwesomeIcon icon={faSortAmountDown} />
-                                Relevant
+                                All
                               </Link>
                             </li>
                             <li>
                               <Link to="/#">
-                                <i className="cv cvicon-cv-calender"></i> Recent
+                                <i className="cv cvicon-cv-calender"></i> Video
                               </Link>
                             </li>
                             <li>
                               <Link to="/#">
-                                <i className="cv cvicon-cv-view-stats"></i>{" "}
-                                Viewed
+                                <i className="cv cvicon-cv-view-stats"></i> Chat
                               </Link>
                             </li>
                             <li>
                               <Link to="/#">
-                                <i className="cv cvicon-cv-star"></i> Top Rated
-                              </Link>
-                            </li>
-                            <li>
-                              <Link to="/#">
-                                <i className="cv cvicon-cv-watch-later"></i>{" "}
-                                Longest
+                                <i className="cv cvicon-cv-star"></i> Person
+                                contact
                               </Link>
                             </li>
                           </ul>
@@ -195,8 +154,8 @@ export default function Navbartr() {
                 </div>
                 <div className="col-lg-2 col-sm-12 hidden-xs">
                   <div className="loginsignup pull-right">
-                    <Link href="login.html">Login</Link> .{" "}
-                    <Link href="signup.html">Signup</Link>
+                    <Link href="/register">Login</Link> .{" "}
+                    <Link href="/login">Signup</Link>
                   </div>
                   <div className="clearfix"></div>
                 </div>
@@ -256,66 +215,28 @@ export default function Navbartr() {
                         <Link to="/index-2.html">Home Page</Link>
                       </li>
                       <li>
-                        <Link to="/single-video.html">Single Video Page</Link>
+                        <Link to="/single-video.html">About</Link>
                       </li>
                       <li>
-                        <Link to="/single-video-youtube.html">
-                          Single Video Youtube Embedded Page
-                        </Link>
+                        <Link to="/single-video.html">Video Page</Link>
                       </li>
                       <li>
-                        <Link to="/single-video-vimeo.html">
-                          Single Video Vimeo Embedded Page
-                        </Link>
+                        <Link to="/single-video-youtube.html">Live Chat</Link>
                       </li>
                       <li>
-                        <Link to="/upload.html">Upload Video Page</Link>
+                        <Link to="/single-video-vimeo.html">Live Striming</Link>
                       </li>
                       <li>
-                        <Link to="/upload-edit.html">
-                          Upload Video Edit Page
-                        </Link>
+                        <Link to="/upload.html">Person Contact</Link>
                       </li>
                       <li>
-                        <Link to="/search.html">Searched Videos Page</Link>
+                        <Link to="/upload-edit.html">Help</Link>
                       </li>
                       <li>
-                        <Link to="/channel.html">Single Channel Page</Link>
+                        <Link to="/register">Sign Up</Link>
                       </li>
                       <li>
-                        <Link to="/channels.html">Channels Page</Link>
-                      </li>
-                      <li>
-                        <Link to="/single-video-tabs.html">
-                          Single Videos Page With Tabs
-                        </Link>
-                      </li>
-                      <li>
-                        <Link to="/single-video-playlist.html">
-                          Single Videos Page With Playlist
-                        </Link>
-                      </li>
-                      <li>
-                        <Link to="/history.html">History Page</Link>
-                      </li>
-                      <li>
-                        <Link to="/categories.html">
-                          Browse Categories Page
-                        </Link>
-                      </li>
-                      <li>
-                        <Link to="/categories_side_menu.html">
-                          Browse Categories Side Menu Page
-                        </Link>
-                      </li>
-                      <li>
-                        <Link to="/subscription.html">Subscription Page</Link>
-                      </li>
-                      <li>
-                        <Link to="/login.html">Login Page</Link>
-                      </li>
-                      <li>
-                        <Link to="/signup.html">Signup Page</Link>
+                        <Link to="/login">Sign In</Link>
                       </li>
                     </ul>
                   </li>
