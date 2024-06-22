@@ -14,6 +14,7 @@ import Chat from "./pages/Chat";
 
 //trying search
 import TrySearch from "./components/TrySearch";
+import TableSearch from "./components/TableSearch";
 
 axios.defaults.baseURL = "http://localhost:8081";
 axios.defaults.withCredentials = true;
@@ -33,6 +34,7 @@ function App() {
 
         {/* try searching page */}
         <Route path="/trysearch" element={<TrySearch />} />
+        <Route path="/table" element={<TableSearch />} />
       </Routes>
     </UserContextProvider>
   );
