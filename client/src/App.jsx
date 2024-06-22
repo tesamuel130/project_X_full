@@ -26,7 +26,7 @@ function App() {
         <Route path="/register" element={<SignUp />} />
         <Route path="/login" element={<Login />} />
         <Route path="/dashbord" element={<Dashbord />} />
-        <Route path="/videos" element={<Videos />} />
+        <Route path="/video" element={<Videos />} />
         <Route path="/chat" element={<Chat />} />
       </Routes>
     </UserContextProvider>

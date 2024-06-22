@@ -52,27 +52,25 @@ export default function Navbartr() {
                       <Link to="/#">Pages</Link>
                       <ul>
                         <li>
-                          <Link to="/index-2.html">Home Page</Link>
+                          <Link to="/">Home Page</Link>
                         </li>
                         <li>
-                          <Link to="/single-video.html">About</Link>
+                          <Link to="/about">About</Link>
                         </li>
                         <li>
-                          <Link to="/single-video.html">Video Page</Link>
+                          <Link to="/video">Video Page</Link>
                         </li>
                         <li>
-                          <Link to="/single-video-youtube.html">Live Chat</Link>
+                          <Link to="/chat">Live Chat</Link>
                         </li>
                         <li>
-                          <Link to="/single-video-vimeo.html">
-                            Live Striming
-                          </Link>
+                          <Link to="/stream">Live Striming</Link>
                         </li>
                         <li>
-                          <Link to="/upload.html">Person Contact</Link>
+                          <Link to="/person%contact">Person Contact</Link>
                         </li>
                         <li>
-                          <Link to="/upload-edit.html">Help</Link>
+                          <Link to="/help">Help</Link>
                         </li>
                         <li>
                           <Link to="/register">Sign Up</Link>
