@@ -12,6 +12,9 @@ import SignUp from "./pages/SignUp";
 import Videos from "./pages/Video";
 import Chat from "./pages/Chat";
 
+//trying search
+import TrySearch from "./components/TrySearch";
+
 axios.defaults.baseURL = "http://localhost:8081";
 axios.defaults.withCredentials = true;
 
@@ -27,6 +30,9 @@ function App() {
         <Route path="/dashbord" element={<Dashbord />} />
         <Route path="/video" element={<Videos />} />
         <Route path="/chat" element={<Chat />} />
+
+        {/* try searching page */}
+        <Route path="/trysearch" element={<TrySearch />} />
       </Routes>
     </UserContextProvider>
   );
