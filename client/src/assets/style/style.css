@@ -1390,7 +1390,7 @@
     border-radius: 2px;
     position: relative;
   }
-  .b-video .v-img a img{
+  .b-video .v-img a .chaters-img{
     width: 100%;
     height: 35rem;
   }

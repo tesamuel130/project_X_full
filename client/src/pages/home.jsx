@@ -27,6 +27,7 @@ import hadeHomeImg11 from "../assets/images/ava12.png";
 
 //import video img
 import vidImg0 from "../assets/images/chanel-2.png";
+import vidImg1 from "../assets/images/video2-1.png";
 
 export default function Home() {
   return (
@@ -171,9 +172,10 @@ export default function Home() {
               </div>
               {/* <!-- /Updates from Subscriptions --> */}
 
-              {/* <!-- Featured Videos --> */}
+              {/* <!-- chater component --> */}
 
               <div className="content-block head-div">
+                {/* chaters list header component */}
                 <div>
                   <h1 className="home-components-header">Chat</h1>
                 </div>
@@ -234,12 +236,12 @@ export default function Home() {
                 </div>
                 <div className="cb-content videolist">
                   <div className="row">
-                    {/* video list */}
+                    {/* chater list */}
                     <div className="col-lg-3 col-sm-6 videoitem">
                       <div className="b-video">
                         <div className="v-img">
                           <a href="single-video-tabs.html">
-                            <img src={vidImg0} alt="" />
+                            <img className="chaters-img" src={vidImg0} alt="" />
                             <i className="v-online">
                               <FontAwesomeIcon icon={faCircleDot} />
                               offline
@@ -264,7 +266,7 @@ export default function Home() {
                       <div className="b-video">
                         <div className="v-img">
                           <a href="single-video-tabs.html">
-                            <img src={vidImg0} alt="" />
+                            <img className="chaters-img" src={vidImg0} alt="" />
                             <i className="v-online">
                               <FontAwesomeIcon icon={faCircleDot} />
                               offline
@@ -289,7 +291,7 @@ export default function Home() {
                       <div className="b-video">
                         <div className="v-img">
                           <a href="single-video-tabs.html">
-                            <img src={vidImg0} alt="" />
+                            <img className="chaters-img" src={vidImg0} alt="" />
                             <i className="v-online">
                               <FontAwesomeIcon icon={faCircleDot} />
                               offline
@@ -310,22 +312,22 @@ export default function Home() {
                       </div>
                     </div>
                   </div>
-                  <div>
+                  {/* see more butons for home suplay service component */}
+                  <div className="home-seeMore-button-container">
                     <Link to="/chat">
                       <button>See More</button>
                     </Link>
                   </div>
                 </div>
               </div>
-              {/* <!-- /Featured Videos --> */}
+              {/* <!-- / chater component --> */}
 
-              {/* <!-- New Videos in India --> */}
-              <div className="content-block head-div head-arrow">
+              {/* <!-- videos component --> */}
+
+              <div className="content-block head-div">
+                {/* videos list header component */}
                 <div>
-                  <h1 className="home-components-header">Video</h1>
-                </div>
-                <div className="head-arrow-icon">
-                  <i className="cv cvicon-cv-next"></i>
+                  <h1 className="home-components-header">Videos</h1>
                 </div>
                 <div className="cb-header">
                   <div className="row">
@@ -333,22 +335,12 @@ export default function Home() {
                       <ul className="list-inline">
                         <li>
                           <a href="#" className="color-active">
-                            <span className="hidden-xs">
-                              New Videos in India
-                            </span>
-                            <span className="visible-xs">New in India</span>
+                            <span className="visible-xs">Most-Viewd</span>
+                            <span className="hidden-xs">Most-Viewed</span>
                           </a>
-                        </li>
-                        <li className="hidden-xs">
-                          <a href="#">Most Viewed</a>
                         </li>
                         <li>
-                          <a href="#">
-                            <span className="hidden-xs">
-                              Featured This Week
-                            </span>
-                            <span className="visible-xs">Featured Videos</span>
-                          </a>
+                          <a href="#">New-Video</a>
                         </li>
                       </ul>
                     </div>
@@ -366,28 +358,24 @@ export default function Home() {
                         <ul className="dropdown-menu">
                           <li>
                             <a href="#">
-                              <i className="cv cvicon-cv-relevant"></i> Relevant
+                              <i className="cv cvicon-cv-relevant"></i> Top
+                              Rated
                             </a>
                           </li>
                           <li>
                             <a href="#">
-                              <i className="cv cvicon-cv-calender"></i> Recent
+                              <i className="cv cvicon-cv-calender"></i> Most
+                              Chated
                             </a>
                           </li>
                           <li>
                             <a href="#">
-                              <i className="cv cvicon-cv-view-stats"></i> Viewed
+                              <i className="cv cvicon-cv-view-stats"></i> Cheap
                             </a>
                           </li>
                           <li>
                             <a href="#">
-                              <i className="cv cvicon-cv-star"></i> Top Rated
-                            </a>
-                          </li>
-                          <li>
-                            <a href="#">
-                              <i className="cv cvicon-cv-watch-later"></i>{" "}
-                              Longest
+                              <i className="cv cvicon-cv-star"></i> Expencive
                             </a>
                           </li>
                         </ul>
@@ -398,11 +386,12 @@ export default function Home() {
                 </div>
                 <div className="cb-content videolist">
                   <div className="row">
+                    {/* video list */}
                     <div className="col-lg-3 col-sm-6 videoitem">
                       <div className="b-video">
                         <div className="v-img">
                           <a href="single-video-tabs.html">
-                            <img src="images/video2-1.png" alt="" />
+                            <img src={vidImg1} alt="" />
                           </a>
                           <div className="time">54:23</div>
                         </div>
@@ -424,87 +413,17 @@ export default function Home() {
                       <div className="b-video">
                         <div className="v-img">
                           <a href="single-video-tabs.html">
-                            <img src="images/video2-2.png" alt="" />
+                            <img src={vidImg1} alt="" />
                           </a>
-                          <div className="time">47:12</div>
+                          <div className="time">54:23</div>
                         </div>
                         <div className="v-desc">
                           <a href="single-video-tabs.html">
-                            Pokémon 3: The Movie - Spell Of The Unown: Entei
-                            HD...
+                            There Can Only Be One! Introducing Tanc & Hercules
                           </a>
                         </div>
                         <div className="v-views">
-                          18,241,542 views.{" "}
-                          <span className="v-percent">
-                            <span className="v-circle"></span> 93%
-                          </span>
-                        </div>
-                      </div>
-                    </div>
-
-                    <div className="col-lg-3 col-sm-6 videoitem">
-                      <div className="b-video">
-                        <div className="v-img">
-                          <a href="single-video-tabs.html">
-                            <img src="images/video2-3.png" alt="" />
-                          </a>
-                          <div className="watched-mask"></div>
-                          <div className="watched">WATCHED</div>
-                          <div className="time">19:23</div>
-                        </div>
-                        <div className="v-desc">
-                          <a href="single-video-tabs.html">
-                            Bullet Trains and Octopus Balls in South Korea
-                          </a>
-                        </div>
-                        <div className="v-views">
-                          729,347 views .{" "}
-                          <span className="v-percent">
-                            <span className="v-circle"></span> 95%
-                          </span>
-                        </div>
-                      </div>
-                    </div>
-
-                    <div className="col-lg-3 col-sm-6 videoitem">
-                      <div className="b-video">
-                        <div className="v-img">
-                          <a href="single-video-tabs.html">
-                            <img src="images/video2-4.png" alt="" />
-                          </a>
-                          <div className="time">21:18</div>
-                        </div>
-                        <div className="v-desc">
-                          <a href="#">
-                            Top 10 NEW 3DS Games Of 2016 that blew our mind
-                          </a>
-                        </div>
-                        <div className="v-views">
-                          79,239,852 views.{" "}
-                          <span className="v-percent">
-                            <span className="v-circle"></span> 84%
-                          </span>
-                        </div>
-                      </div>
-                    </div>
-
-                    <div className="col-lg-3 col-sm-6 videoitem">
-                      <div className="b-video last-row">
-                        <div className="v-img">
-                          <a href="single-video-tabs.html">
-                            <img src="images/video2-5.png" alt="" />
-                          </a>
-                          <div className="time">1:23:57</div>
-                        </div>
-                        <div className="v-desc">
-                          <a href="single-video-tabs.html">
-                            Mirror's Edge Catalyst Beta: PS4 vs Xbox One
-                            Frame-Rate...{" "}
-                          </a>
-                        </div>
-                        <div className="v-views">
-                          519,130 views.{" "}
+                          127,548 views.{" "}
                           <span className="v-percent">
                             <span className="v-circle"></span> 78%
                           </span>
@@ -513,82 +432,43 @@ export default function Home() {
                     </div>
 
                     <div className="col-lg-3 col-sm-6 videoitem">
-                      <div className="b-video last-row">
+                      <div className="b-video">
                         <div className="v-img">
                           <a href="single-video-tabs.html">
-                            <img src="images/video2-6.png" alt="" />
+                            <img src={vidImg1} alt="" />
                           </a>
-                          <div className="time">8:27</div>
+                          <div className="time">54:23</div>
                         </div>
                         <div className="v-desc">
                           <a href="single-video-tabs.html">
-                            THE MAGNIFICENT SEVEN - Teaser Trailer (HD)
+                            There Can Only Be One! Introducing Tanc & Hercules
                           </a>
                         </div>
                         <div className="v-views">
-                          15,525 views.{" "}
+                          127,548 views.{" "}
                           <span className="v-percent">
-                            <span className="v-circle"></span> 93%
-                          </span>
-                        </div>
-                      </div>
-                    </div>
-
-                    <div className="col-lg-3 col-sm-6 videoitem">
-                      <div className="b-video last-row">
-                        <div className="v-img">
-                          <a href="single-video-tabs.html">
-                            <img src="images/video2-7.png" alt="" />
-                          </a>
-                          <div className="time">6:58</div>
-                        </div>
-                        <div className="v-desc">
-                          <a href="single-video-tabs.html">
-                            Game of Thrones Season 6: Event Promo (HBO)
-                          </a>
-                        </div>
-                        <div className="v-views">
-                          43,741 views.{" "}
-                          <span className="v-percent">
-                            <span className="v-circle"></span> 95%
-                          </span>
-                        </div>
-                      </div>
-                    </div>
-
-                    <div className="col-lg-3 col-sm-6 videoitem">
-                      <div className="b-video last-row">
-                        <div className="v-img">
-                          <a href="single-video-tabs.html">
-                            <img src="images/video2-8.png" alt="" />
-                          </a>
-                          <div className="time">5:47</div>
-                        </div>
-                        <div className="v-desc">
-                          <a href="single-video-tabs.html">
-                            CHAPPIE Movie – Die Antwoord Featurette...
-                          </a>
-                        </div>
-                        <div className="v-views">
-                          3,202,513 views.{" "}
-                          <span className="v-percent">
-                            <span className="v-circle"></span> 84%
+                            <span className="v-circle"></span> 78%
                           </span>
                         </div>
                       </div>
                     </div>
                   </div>
+                  {/* see more butons for home suplay service component */}
+                  <div className="home-seeMore-button-container">
+                    <Link to="/chat">
+                      <button>See More</button>
+                    </Link>
+                  </div>
                 </div>
               </div>
-              {/* <!-- /New Videos in India --> */}
+              {/* <!-- / videos component --> */}
 
-              {/* <!-- Popular Playlists --> */}
-              <div className="content-block head-div head-arrow">
+              {/* <!-- live striming component --> */}
+
+              <div className="content-block head-div">
+                {/* live list header component */}
                 <div>
-                  <h1 className="home-components-header">Striming</h1>
-                </div>
-                <div className="head-arrow-icon">
-                  <i className="cv cvicon-cv-next"></i>
+                  <h1 className="home-components-header">Live stream</h1>
                 </div>
                 <div className="cb-header">
                   <div className="row">
@@ -596,11 +476,12 @@ export default function Home() {
                       <ul className="list-inline">
                         <li>
                           <a href="#" className="color-active">
-                            Popular Playlists
+                            <span className="visible-xs">Most-Viewd</span>
+                            <span className="hidden-xs">Most-Viewed</span>
                           </a>
                         </li>
                         <li>
-                          <a href="#">Recently Featured</a>
+                          <a href="#">New-Video</a>
                         </li>
                       </ul>
                     </div>
@@ -618,28 +499,24 @@ export default function Home() {
                         <ul className="dropdown-menu">
                           <li>
                             <a href="#">
-                              <i className="cv cvicon-cv-relevant"></i> Relevant
+                              <i className="cv cvicon-cv-relevant"></i> Top
+                              Rated
                             </a>
                           </li>
                           <li>
                             <a href="#">
-                              <i className="cv cvicon-cv-calender"></i> Recent
+                              <i className="cv cvicon-cv-calender"></i> Most
+                              Chated
                             </a>
                           </li>
                           <li>
                             <a href="#">
-                              <i className="cv cvicon-cv-view-stats"></i> Viewed
+                              <i className="cv cvicon-cv-view-stats"></i> Cheap
                             </a>
                           </li>
                           <li>
                             <a href="#">
-                              <i className="cv cvicon-cv-star"></i> Top Rated
-                            </a>
-                          </li>
-                          <li>
-                            <a href="#">
-                              <i className="cv cvicon-cv-watch-later"></i>{" "}
-                              Longest
+                              <i className="cv cvicon-cv-star"></i> Expencive
                             </a>
                           </li>
                         </ul>
@@ -648,27 +525,152 @@ export default function Home() {
                     </div>
                   </div>
                 </div>
-                <div className="cb-content">
+                <div className="cb-content videolist">
                   <div className="row">
+                    {/* video list */}
+                    <div className="col-lg-3 col-sm-6 videoitem">
+                      <div className="b-video">
+                        <div className="v-img">
+                          <a href="single-video-tabs.html">
+                            <img src={vidImg1} alt="" />
+                          </a>
+                        </div>
+                        <div className="v-desc">
+                          <a href="single-video-tabs.html">
+                            There Can Only Be One! Introducing Tanc & Hercules
+                          </a>
+                        </div>
+                        <div className="v-views">
+                          127,548 views.{" "}
+                          <span className="v-percent">
+                            <span className="v-circle"></span> 78%
+                          </span>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div className="col-lg-3 col-sm-6 videoitem">
+                      <div className="b-video">
+                        <div className="v-img">
+                          <a href="single-video-tabs.html">
+                            <img src={vidImg1} alt="" />
+                          </a>
+                        </div>
+                        <div className="v-desc">
+                          <a href="single-video-tabs.html">
+                            There Can Only Be One! Introducing Tanc & Hercules
+                          </a>
+                        </div>
+                        <div className="v-views">
+                          127,548 views.{" "}
+                          <span className="v-percent">
+                            <span className="v-circle"></span> 78%
+                          </span>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div className="col-lg-3 col-sm-6 videoitem">
+                      <div className="b-video">
+                        <div className="v-img">
+                          <a href="single-video-tabs.html">
+                            <img src={vidImg1} alt="" />
+                          </a>
+                        </div>
+                        <div className="v-desc">
+                          <a href="single-video-tabs.html">
+                            There Can Only Be One! Introducing Tanc & Hercules
+                          </a>
+                        </div>
+                        <div className="v-views">
+                          127,548 views.{" "}
+                          <span className="v-percent">
+                            <span className="v-circle"></span> 78%
+                          </span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  {/* see more butons for home suplay service component */}
+                  <div className="home-seeMore-button-container">
+                    <Link to="/chat">
+                      <button>See More</button>
+                    </Link>
+                  </div>
+                </div>
+              </div>
+              {/* <!-- / live striming component --> */}
+
+              {/* <!--  Person contact --> */}
+
+              <div className="content-block head-div">
+                {/* videos list header component */}
+                <div>
+                  <h1 className="home-components-header">Videos</h1>
+                </div>
+                <div className="cb-header">
+                  <div className="row">
+                    <div className="col-lg-10 col-sm-10 col-xs-8">
+                      <ul className="list-inline">
+                        <li>
+                          <a href="#" className="color-active">
+                            <span className="visible-xs">Most-Viewd</span>
+                            <span className="hidden-xs">Most-Viewed</span>
+                          </a>
+                        </li>
+                        <li>
+                          <a href="#">New-Video</a>
+                        </li>
+                      </ul>
+                    </div>
+                    <div className="col-lg-2 col-sm-2 col-xs-4">
+                      <div className="btn-group pull-right bg-clean">
+                        <button
+                          type="button"
+                          className="btn btn-default dropdown-toggle"
+                          data-toggle="dropdown"
+                          aria-haspopup="true"
+                          aria-expanded="false"
+                        >
+                          Sort by <span className="caret"></span>
+                        </button>
+                        <ul className="dropdown-menu">
+                          <li>
+                            <a href="#">
+                              <i className="cv cvicon-cv-relevant"></i> All
+                            </a>
+                          </li>
+                          <li>
+                            <a href="#">
+                              <i className="cv cvicon-cv-calender"></i> Older
+                            </a>
+                          </li>
+                          <li>
+                            <a href="#">
+                              <i className="cv cvicon-cv-view-stats"></i> Youth
+                            </a>
+                          </li>
+                          <li>
+                            <a href="#">
+                              <i className="cv cvicon-cv-star"></i> new
+                            </a>
+                          </li>
+                        </ul>
+                      </div>
+                      <div className="clearfix"></div>
+                    </div>
+                  </div>
+                </div>
+                <div className="cb-content videolist">
+                  <div className="row">
+                    {/* person list */}
                     <div className="col-lg-3 col-sm-6 col-xs-12">
                       <div className="b-playlist">
                         <div className="v-img">
-                          <img
-                            src="images/video1-1.png"
-                            alt=""
-                            className="l-1"
-                          />
-                          <img
-                            src="images/video1-2.png"
-                            alt=""
-                            className="l-2"
-                          />
+                          <img src={vidImg0} alt="" className="l-1" />
+                          <img src={vidImg0} alt="" className="l-2" />
                           <a href="single-video-tabs.html">
-                            <img
-                              src="images/playlist-1.png"
-                              alt=""
-                              className="l-3"
-                            />
+                            <img src={vidImg0} alt="" className="l-3" />
                           </a>
                           <div className="items">20</div>
                         </div>
@@ -689,22 +691,10 @@ export default function Home() {
                     <div className="col-lg-3 col-sm-6 col-xs-12">
                       <div className="b-playlist">
                         <div className="v-img">
-                          <img
-                            src="images/video2-1.png"
-                            alt=""
-                            className="l-1"
-                          />
-                          <img
-                            src="images/video2-2.png"
-                            alt=""
-                            className="l-2"
-                          />
+                          <img src={vidImg0} alt="" className="l-1" />
+                          <img src={vidImg0} alt="" className="l-2" />
                           <a href="single-video-tabs.html">
-                            <img
-                              src="images/playlist-2.png"
-                              alt=""
-                              className="l-3"
-                            />
+                            <img src={vidImg0} alt="" className="l-3" />
                           </a>
                           <div className="items">15</div>
                         </div>
@@ -722,278 +712,16 @@ export default function Home() {
                         </div>
                       </div>
                     </div>
-
-                    <div className="col-lg-3 col-sm-6 col-xs-12">
-                      <div className="b-playlist">
-                        <div className="v-img">
-                          <img
-                            src="images/video2-6.png"
-                            alt=""
-                            className="l-1"
-                          />
-                          <img
-                            src="images/video2-4.png"
-                            alt=""
-                            className="l-2"
-                          />
-                          <a href="single-video-tabs.html">
-                            <img
-                              src="images/playlist-3.png"
-                              alt=""
-                              className="l-3"
-                            />
-                          </a>
-                          <div className="items">7</div>
-                        </div>
-                        <div className="v-desc">
-                          <a href="#">
-                            Bullet Trains and Octopus Balls in South Korea
-                          </a>
-                        </div>
-                        <div className="v-views">
-                          729,347 views .{" "}
-                          <span className="v-percent">
-                            <span className="v-circle"></span> 95%
-                          </span>
-                        </div>
-                      </div>
-                    </div>
-
-                    <div className="col-lg-3 col-sm-6 col-xs-12">
-                      <div className="b-playlist">
-                        <div className="v-img">
-                          <img
-                            src="images/video1-6.png"
-                            alt=""
-                            className="l-1"
-                          />
-                          <img
-                            src="images/video1-4.png"
-                            alt=""
-                            className="l-2"
-                          />
-                          <a href="single-video-tabs.html">
-                            <img
-                              src="images/playlist-4.png"
-                              alt=""
-                              className="l-3"
-                            />
-                          </a>
-                          <div className="items">27</div>
-                        </div>
-                        <div className="v-desc">
-                          <a href="#">
-                            Top 10 NEW 3DS Games Of 2016 that blew our mind
-                          </a>
-                        </div>
-                        <div className="v-views">
-                          79,239,852 views.{" "}
-                          <span className="v-percent">
-                            <span className="v-circle"></span> 84%
-                          </span>
-                        </div>
-                      </div>
-                    </div>
+                  </div>
+                  {/* see more butons for home suplay service component */}
+                  <div className="home-seeMore-button-container">
+                    <Link to="/chat">
+                      <button>See More</button>
+                    </Link>
                   </div>
                 </div>
               </div>
-              {/* <!-- /Popular Playlists --> */}
-
-              {/* <!-- Popular Channels --> */}
-              <div className="content-block head-div head-arrow">
-                <div className="head-arrow-icon">
-                  <i className="cv cvicon-cv-next"></i>
-                </div>
-                <div className="cb-header">
-                  <div className="row">
-                    <div className="col-lg-10 col-sm-10 col-xs-8">
-                      <ul className="list-inline">
-                        <li>
-                          <a href="#" className="color-active">
-                            Popular Channels
-                          </a>
-                        </li>
-                      </ul>
-                    </div>
-                    <div className="col-lg-2 col-sm-2 col-xs-4">
-                      <div className="btn-group pull-right bg-clean">
-                        <button
-                          type="button"
-                          className="btn btn-default dropdown-toggle"
-                          data-toggle="dropdown"
-                          aria-haspopup="true"
-                          aria-expanded="false"
-                        >
-                          More <span className="caret"></span>
-                        </button>
-                        <ul className="dropdown-menu">
-                          <li>
-                            <a href="#">
-                              <i className="cv cvicon-cv-relevant"></i> Relevant
-                            </a>
-                          </li>
-                          <li>
-                            <a href="#">
-                              <i className="cv cvicon-cv-calender"></i> Recent
-                            </a>
-                          </li>
-                          <li>
-                            <a href="#">
-                              <i className="cv cvicon-cv-view-stats"></i> Viewed
-                            </a>
-                          </li>
-                          <li>
-                            <a href="#">
-                              <i className="cv cvicon-cv-star"></i> Top Rated
-                            </a>
-                          </li>
-                          <li>
-                            <a href="#">
-                              <i className="cv cvicon-cv-watch-later"></i>{" "}
-                              Longest
-                            </a>
-                          </li>
-                        </ul>
-                      </div>
-                      <div className="clearfix"></div>
-                    </div>
-                  </div>
-                </div>
-                <div className="cb-content chanels-row">
-                  <div className="row">
-                    <div className="col-lg-2 col-sm-4 col-xs-4">
-                      <div className="b-chanel">
-                        <a href="#">
-                          <img src="images/chanel-1.png" alt="" />
-                          <div className="hover">
-                            <span>Ray Simpson</span>
-                            <span>
-                              <i className="cv cvicon-cv-liked"></i> 5K
-                            </span>
-                          </div>
-                        </a>
-                      </div>
-                    </div>
-                    <div className="col-lg-2 col-sm-4 col-xs-4">
-                      <div className="b-chanel">
-                        <a href="#">
-                          <img src="images/chanel-2.png" alt="" />
-                          <div className="hover">
-                            <span>Ray</span>
-                            <span>
-                              <i className="cv cvicon-cv-liked"></i> 215K
-                            </span>
-                          </div>
-                        </a>
-                      </div>
-                    </div>
-                    <div className="col-lg-2 col-sm-4 col-xs-4">
-                      <div className="b-chanel">
-                        <a href="#">
-                          <img src="images/chanel-3.png" alt="" />
-                          <div className="hover">
-                            <span>Simpson</span>
-                            <span>
-                              <i className="cv cvicon-cv-liked"></i> 21
-                            </span>
-                          </div>
-                        </a>
-                      </div>
-                    </div>
-                    <div className="col-lg-2 col-sm-4 col-xs-4">
-                      <div className="b-chanel">
-                        <a href="#">
-                          <img src="images/chanel-4.png" alt="" />
-                          <div className="hover">
-                            <span>Ray Simpson</span>
-                            <span>
-                              <i className="cv cvicon-cv-liked"></i> 134
-                            </span>
-                          </div>
-                        </a>
-                      </div>
-                    </div>
-                    <div className="col-lg-2 col-sm-4 col-xs-4">
-                      <div className="b-chanel">
-                        <a href="#">
-                          <img src="images/chanel-5.png" alt="" />
-                          <div className="hover">
-                            <span>Simpson</span>
-                            <span>
-                              <i className="cv cvicon-cv-liked"></i> 1.6M
-                            </span>
-                          </div>
-                        </a>
-                      </div>
-                    </div>
-                    <div className="col-lg-2 col-sm-4 col-xs-4">
-                      <div className="b-chanel">
-                        <a href="#">
-                          <img src="images/chanel-6.png" alt="" />
-                          <div className="hover">
-                            <span>Ray</span>
-                            <span>
-                              <i className="cv cvicon-cv-liked"></i> 265K
-                            </span>
-                          </div>
-                        </a>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              {/* <!-- /Popular Channels --> */}
-
-              {/* <!-- pagination --> */}
-              <div className="v-pagination">
-                <ul className="list-inline">
-                  <li className="v-pagination-prev">
-                    <a href="#">
-                      <i>
-                        <FontAwesomeIcon
-                          icon={faArrowLeft}
-                          className="cv cvicon-cv-previous"
-                        />
-                      </i>
-                    </a>
-                  </li>
-                  <li className="v-pagination-first">
-                    <a href="#">1</a>
-                  </li>
-                  <li>
-                    <a href="#">2</a>
-                  </li>
-                  <li>
-                    <a href="#">3</a>
-                  </li>
-                  <li>
-                    <a href="#">4</a>
-                  </li>
-                  <li>
-                    <a href="#">5</a>
-                  </li>
-                  <li>
-                    <a href="#">...</a>
-                  </li>
-                  <li>
-                    <a href="#">10</a>
-                  </li>
-                  <li className="v-pagination-skin visible-xs">
-                    <a href="#">Skip 5 Pages</a>
-                  </li>
-                  <li className="v-pagination-next">
-                    <a href="#">
-                      <i>
-                        <FontAwesomeIcon
-                          icon={faArrowRight}
-                          className="cv cvicon-cv-next"
-                        />
-                      </i>
-                    </a>
-                  </li>
-                </ul>
-              </div>
-              {/* <!-- /pagination --> */}
+              {/* <!-- / Person contact --> */}
             </div>
           </div>
         </div>
