@@ -10,6 +10,7 @@ import Home from "./pages/Home";
 import Login from "./pages/Login";
 import SignUp from "./pages/SignUp";
 import Videos from "./pages/Video";
+import Chat from "./pages/Chat";
 
 axios.defaults.baseURL = "http://localhost:8081";
 axios.defaults.withCredentials = true;
@@ -26,6 +27,7 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/dashbord" element={<Dashbord />} />
         <Route path="/videos" element={<Videos />} />
+        <Route path="/chat" element={<Chat />} />
       </Routes>
     </UserContextProvider>
   );
