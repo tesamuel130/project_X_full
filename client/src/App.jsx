@@ -9,6 +9,7 @@ import Navbartr from "./components/Navbartr";
 import Home from "./pages/Home";
 import Login from "./pages/Login";
 import SignUp from "./pages/SignUp";
+import Videos from "./pages/Video";
 
 axios.defaults.baseURL = "http://localhost:8081";
 axios.defaults.withCredentials = true;
@@ -24,8 +25,7 @@ function App() {
         <Route path="/register" element={<SignUp />} />
         <Route path="/login" element={<Login />} />
         <Route path="/dashbord" element={<Dashbord />} />
-        //cheack the pages
-        <Route path="/navbar" element={<Navbartr />} />
+        <Route path="/videos" element={<Videos />} />
       </Routes>
     </UserContextProvider>
   );
