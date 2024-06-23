@@ -4,6 +4,16 @@ import { users } from "../tryusers";
 export default function TableSearch() {
   const [query, setQuery] = useState("");
 
+  const keys = ["id", "name", "email", "gender"];
+
+  //   this method used to search from all string letters
+  const tbSearchM2 = (data) => {
+    return data.filter((item) =>
+      keys.some((key) => item[key].toLowerCase().includes(query))
+    );
+  };
+
+  //   this method used to search the strign starting letter
   const tbSearch = (data) => {
     return data.filter(
       (items) =>
@@ -30,7 +40,7 @@ export default function TableSearch() {
             <th>gender</th>
           </tr>
 
-          {tbSearch(users).map((item) => (
+          {tbSearchM2(users).map((item) => (
             <tr key={item.id}>
               <td>{item.id}</td>
               <td>{item.name}</td>
