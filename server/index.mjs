@@ -1,7 +1,7 @@
 import express from "express";
 import dotenv from "dotenv";
 import cors from "cors";
-import mongoose from "mongoose";
+import { dbConnection } from "./models/DbConnection.mjs";
 import cookieParser from "cookie-parser";
 
 //import router
@@ -13,10 +13,7 @@ const app = express();
 const PORT = process.env.PORT || 8081;
 
 //database connection
-mongoose
-  .connect(process.env.MONGO_URL)
-  .then(() => console.log(`database connected`))
-  .catch((err) => console.log("databse is not connected", err));
+dbConnection();
 
 //middleware
 app.use(express.json());
