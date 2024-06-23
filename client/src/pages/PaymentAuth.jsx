@@ -51,7 +51,21 @@ export default function () {
               </a>
             </div>
           </div>
-          <div className="col-md-6">asdf</div>
+          <div className="col-md-6">
+            <div className="container mt-4 d-flex justify-content-center main">
+              <div className="card">
+                <div className="d-flex justify-content-between px-3 pt-4">
+                  <span className="pay">Pay Amount</span>
+                  <div className="amount">
+                    <div className="inner">
+                      <span className="dollar">$</span>
+                      <span className="total">999</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </>
