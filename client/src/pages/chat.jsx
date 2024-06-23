@@ -92,13 +92,13 @@ export default function Chat() {
                     <div className="col-lg-3 col-sm-6 videoitem">
                       <div className="b-video">
                         <div className="v-img">
-                          <a href="single-video-tabs.html">
+                          <Link to="/paymentauth">
                             <img className="chaters-img" src={vidImg0} alt="" />
                             <i className="v-online">
                               <FontAwesomeIcon icon={faCircleDot} />
                               offline
                             </i>
-                          </a>
+                          </Link>
                         </div>
                         <div className="v-desc">
                           <button
