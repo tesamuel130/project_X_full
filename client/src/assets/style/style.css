@@ -5874,3 +5874,34 @@
     line-height: 0;
     margin-bottom: -2px;
   }
+
+  .call-btn{
+    width: 100%;
+    font-size: 18px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  }
+
+  .price-for-call{
+    font-size: 18px;
+    font-weight: 700;
+    font-style: normal;
+    font-family: 'Courier New', Courier, monospace;
+    text-decoration: none;
+    line-height: 30px;
+  }
+
+  .price-for-call span{
+    color: #28b47e;
+  }
+
+  .call-card-icon{
+    color: #28b47e;
+    font-size: 18px;
+    margin-left: 5px;
+    margin-right: 10px;
+  }
+
+  .username-for-call{
+    font-size: 18px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  }
