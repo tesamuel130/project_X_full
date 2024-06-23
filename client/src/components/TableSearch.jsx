@@ -3,6 +3,15 @@ import { users } from "../tryusers";
 
 export default function TableSearch() {
   const [query, setQuery] = useState("");
+
+  const tbSearch = (data) => {
+    return data.filter(
+      (items) =>
+        items.name.toLowerCase().includes(query) ||
+        items.name.toLowerCase().includes(query) ||
+        items.name.toLowerCase().includes(query)
+    );
+  };
   return (
     <div className="app">
       <input
