@@ -7,9 +7,10 @@ export default function TableSearch() {
   const tbSearch = (data) => {
     return data.filter(
       (items) =>
+        items.id.toLowerCase().includes(query) ||
         items.name.toLowerCase().includes(query) ||
-        items.name.toLowerCase().includes(query) ||
-        items.name.toLowerCase().includes(query)
+        items.email.toLowerCase().includes(query) ||
+        items.gender.toLowerCase().includes(query)
     );
   };
   return (
@@ -29,7 +30,7 @@ export default function TableSearch() {
             <th>gender</th>
           </tr>
 
-          {users.map((item) => (
+          {tbSearch(users).map((item) => (
             <tr key={item.id}>
               <td>{item.id}</td>
               <td>{item.name}</td>
