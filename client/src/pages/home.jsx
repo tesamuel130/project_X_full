@@ -4,11 +4,8 @@ import { Link } from "react-router-dom";
 //import fontawsome
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
-  faArrowRight,
-  faArrowLeft,
   faCircleDot,
   faDollarSign,
-  faHistory,
   faPhone,
 } from "@fortawesome/free-solid-svg-icons";
 
@@ -376,7 +373,12 @@ export default function Home() {
                   {/* see more butons for home suplay service component */}
                   <div className="home-seeMore-button-container">
                     <Link to="/chat">
-                      <button>See More</button>
+                      <button
+                        type="submit"
+                        className="btn btn-primary bg-success"
+                      >
+                        See More
+                      </button>
                     </Link>
                   </div>
                 </div>
@@ -517,7 +519,12 @@ export default function Home() {
                   {/* see more butons for home suplay service component */}
                   <div className="home-seeMore-button-container">
                     <Link to="/chat">
-                      <button>See More</button>
+                      <button
+                        type="submit"
+                        className="btn btn-primary bg-success"
+                      >
+                        See More
+                      </button>
                     </Link>
                   </div>
                 </div>
@@ -655,7 +662,12 @@ export default function Home() {
                   {/* see more butons for home suplay service component */}
                   <div className="home-seeMore-button-container">
                     <Link to="/chat">
-                      <button>See More</button>
+                      <button
+                        type="submit"
+                        className="btn btn-primary bg-success"
+                      >
+                        See More
+                      </button>
                     </Link>
                   </div>
                 </div>
@@ -777,7 +789,12 @@ export default function Home() {
                   {/* see more butons for home suplay service component */}
                   <div className="home-seeMore-button-container">
                     <Link to="/chat">
-                      <button>See More</button>
+                      <button
+                        type="submit"
+                        className="btn btn-primary bg-success"
+                      >
+                        See More
+                      </button>
                     </Link>
                   </div>
                 </div>

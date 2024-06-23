@@ -10,6 +10,8 @@ import {
   faArrowRight,
   faArrowLeft,
   faCircleDot,
+  faDollarSign,
+  faPhone,
 } from "@fortawesome/free-solid-svg-icons";
 
 //import video img
@@ -99,15 +101,34 @@ export default function Chat() {
                           </a>
                         </div>
                         <div className="v-desc">
+                          <button
+                            type="submit"
+                            className="btn btn-primary bg-success call-btn"
+                          >
+                            Call
+                          </button>
+                        </div>
+                        <div className="v-desc">
                           <a href="single-video-tabs.html">
-                            Man's Sky: 21 Minutes of New Gameplay - IGN First
+                            <span className="username-for-call">
+                              User Name:
+                            </span>{" "}
+                            SMAN
                           </a>
                         </div>
                         <div className="v-views">
-                          27,548 views.{" "}
-                          <span className="v-percent">
-                            <span className="v-circle"></span> 78%
-                          </span>
+                          <FontAwesomeIcon
+                            className="call-card-icon"
+                            icon={faPhone}
+                          />
+                          0 CALLS <br />
+                          <i className="price-for-call">
+                            <FontAwesomeIcon
+                              className="call-card-icon"
+                              icon={faDollarSign}
+                            />
+                            <span>PRICE: </span>110/M
+                          </i>
                         </div>
                       </div>
                     </div>
@@ -124,15 +145,34 @@ export default function Chat() {
                           </a>
                         </div>
                         <div className="v-desc">
+                          <button
+                            type="submit"
+                            className="btn btn-primary bg-success call-btn"
+                          >
+                            Call
+                          </button>
+                        </div>
+                        <div className="v-desc">
                           <a href="single-video-tabs.html">
-                            Man's Sky: 21 Minutes of New Gameplay - IGN First
+                            <span className="username-for-call">
+                              User Name:
+                            </span>{" "}
+                            SMAN
                           </a>
                         </div>
                         <div className="v-views">
-                          27,548 views.{" "}
-                          <span className="v-percent">
-                            <span className="v-circle"></span> 78%
-                          </span>
+                          <FontAwesomeIcon
+                            className="call-card-icon"
+                            icon={faPhone}
+                          />
+                          0 CALLS <br />
+                          <i className="price-for-call">
+                            <FontAwesomeIcon
+                              className="call-card-icon"
+                              icon={faDollarSign}
+                            />
+                            <span>PRICE: </span>110/M
+                          </i>
                         </div>
                       </div>
                     </div>
@@ -149,15 +189,34 @@ export default function Chat() {
                           </a>
                         </div>
                         <div className="v-desc">
+                          <button
+                            type="submit"
+                            className="btn btn-primary bg-success call-btn"
+                          >
+                            Call
+                          </button>
+                        </div>
+                        <div className="v-desc">
                           <a href="single-video-tabs.html">
-                            Man's Sky: 21 Minutes of New Gameplay - IGN First
+                            <span className="username-for-call">
+                              User Name:
+                            </span>{" "}
+                            SMAN
                           </a>
                         </div>
                         <div className="v-views">
-                          27,548 views.{" "}
-                          <span className="v-percent">
-                            <span className="v-circle"></span> 78%
-                          </span>
+                          <FontAwesomeIcon
+                            className="call-card-icon"
+                            icon={faPhone}
+                          />
+                          0 CALLS <br />
+                          <i className="price-for-call">
+                            <FontAwesomeIcon
+                              className="call-card-icon"
+                              icon={faDollarSign}
+                            />
+                            <span>PRICE: </span>110/M
+                          </i>
                         </div>
                       </div>
                     </div>
