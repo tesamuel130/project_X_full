@@ -5,6 +5,8 @@ import cookieParser from "cookie-parser";
 
 //import router
 import router from "./routes/router.mjs";
+import { homeSearch } from "./controllers/homeSearchControllers.mjs";
+import { users } from "./tryusers.js";
 
 dotenv.config();
 
@@ -20,6 +22,9 @@ app.use(cookieParser());
 app.use(express.urlencoded({ extended: false }));
 
 app.use(router);
+
+//try api
+app.get("/tryuser", homeSearch);
 
 app.listen(PORT, () => {
   console.log(`it is running on port ${PORT}`);

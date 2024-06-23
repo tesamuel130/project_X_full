@@ -1,8 +1,18 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { users } from "../tryusers";
+import axios from "axios";
 
 export default function TableSearch() {
   const [query, setQuery] = useState("");
+  const [data, setData] = useState([]);
+
+  useEffect(() => {
+    const featchUsers = async () => {
+      const res = await axios.get("/tabeltry");
+      setData(res.data);
+    };
+    featchUsers();
+  }, []);
 
   const keys = ["id", "name", "email", "gender"];
 
@@ -40,7 +50,7 @@ export default function TableSearch() {
             <th>gender</th>
           </tr>
 
-          {tbSearchM2(users).map((item) => (
+          {tbSearchM2(data).map((item) => (
             <tr key={item.id}>
               <td>{item.id}</td>
               <td>{item.name}</td>
