@@ -20,6 +20,10 @@ import {
 import logoimg from "../assets/images/ava1.png";
 
 export default function Navbartr() {
+  const mobileNavMenu = () => {
+    alert("hello world");
+  };
+
   return (
     <>
       <div className="container-fluid">
@@ -31,7 +35,7 @@ export default function Navbartr() {
             <div className="container">
               <div className="row">
                 <div className="col-xs-3 visible-xs">
-                  <Link className="btn-menu-toggle">
+                  <Link onClick={mobileNavMenu} className="btn-menu-toggle">
                     <i>
                       <FontAwesomeIcon
                         icon={faBars}

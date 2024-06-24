@@ -5907,7 +5907,10 @@
   }
 
   /* ================== payAuth style ================ */
-  
+  .person-detail-container{
+    margin-top: -30px;
+  }
+
   .person-detail-container div .person-pic-slide{
     height: 40%;
   }
@@ -5923,7 +5926,7 @@
   }
 
   .payed-call-btn{
-    width: 30%;
+    width: 40%;
   }
   
   
