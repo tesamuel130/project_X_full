@@ -7,6 +7,7 @@ import {
   faCircleDot,
   faDollarSign,
   faPhone,
+  faStar,
 } from "@fortawesome/free-solid-svg-icons";
 
 import NavBarTwo from "../components/NavBarTwo";
@@ -277,6 +278,13 @@ export default function Home() {
                             />
                             <span>PRICE: </span>110/M
                           </i>
+                          <div className="call-reating">
+                            <FontAwesomeIcon icon={faStar} />
+                            <FontAwesomeIcon icon={faStar} />
+                            <FontAwesomeIcon icon={faStar} />
+                            <FontAwesomeIcon icon={faStar} />
+                            <FontAwesomeIcon icon={faStar} />
+                          </div>
                         </div>
                       </div>
                     </div>
@@ -322,6 +330,13 @@ export default function Home() {
                             />
                             <span>PRICE: </span>110/M
                           </i>
+                          <div className="call-reating">
+                            <FontAwesomeIcon icon={faStar} />
+                            <FontAwesomeIcon icon={faStar} />
+                            <FontAwesomeIcon icon={faStar} />
+                            <FontAwesomeIcon icon={faStar} />
+                            <FontAwesomeIcon icon={faStar} />
+                          </div>
                         </div>
                       </div>
                     </div>
@@ -366,6 +381,13 @@ export default function Home() {
                             />
                             <span>PRICE: </span>110/M
                           </i>
+                          <div className="call-reating">
+                            <FontAwesomeIcon icon={faStar} />
+                            <FontAwesomeIcon icon={faStar} />
+                            <FontAwesomeIcon icon={faStar} />
+                            <FontAwesomeIcon icon={faStar} />
+                            <FontAwesomeIcon icon={faStar} />
+                          </div>
                         </div>
                       </div>
                     </div>

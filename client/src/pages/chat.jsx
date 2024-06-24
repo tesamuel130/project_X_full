@@ -12,6 +12,7 @@ import {
   faCircleDot,
   faDollarSign,
   faPhone,
+  faStar,
 } from "@fortawesome/free-solid-svg-icons";
 
 //import video img
@@ -129,6 +130,13 @@ export default function Chat() {
                             />
                             <span>PRICE: </span>110/M
                           </i>
+                          <div className="call-reating">
+                            <FontAwesomeIcon icon={faStar} />
+                            <FontAwesomeIcon icon={faStar} />
+                            <FontAwesomeIcon icon={faStar} />
+                            <FontAwesomeIcon icon={faStar} />
+                            <FontAwesomeIcon icon={faStar} />
+                          </div>
                         </div>
                       </div>
                     </div>
@@ -173,6 +181,13 @@ export default function Chat() {
                             />
                             <span>PRICE: </span>110/M
                           </i>
+                          <div className="call-reating">
+                            <FontAwesomeIcon icon={faStar} />
+                            <FontAwesomeIcon icon={faStar} />
+                            <FontAwesomeIcon icon={faStar} />
+                            <FontAwesomeIcon icon={faStar} />
+                            <FontAwesomeIcon icon={faStar} />
+                          </div>
                         </div>
                       </div>
                     </div>
@@ -217,6 +232,13 @@ export default function Chat() {
                             />
                             <span>PRICE: </span>110/M
                           </i>
+                          <div className="call-reating">
+                            <FontAwesomeIcon icon={faStar} />
+                            <FontAwesomeIcon icon={faStar} />
+                            <FontAwesomeIcon icon={faStar} />
+                            <FontAwesomeIcon icon={faStar} />
+                            <FontAwesomeIcon icon={faStar} />
+                          </div>
                         </div>
                       </div>
                     </div>

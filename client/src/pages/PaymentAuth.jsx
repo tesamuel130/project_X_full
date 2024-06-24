@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 //import fontawsome
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCopy } from "@fortawesome/free-solid-svg-icons";
+import { faCopy, faPhone, faStar } from "@fortawesome/free-solid-svg-icons";
 
 //import video img
 import vidImg0 from "../assets/images/chanel-2.png";
@@ -13,20 +13,57 @@ export default function () {
     <>
       <div className="container">
         <div className="row">
-          <div className="col-md-6"></div>
+          <div className="col-md-6">
+            <div className="person-detail-container">
+              <div className="person-pic-slide"></div>
+              <div className="person-detail">
+                <div className="person-name">
+                  <h3>
+                    <span>Nick Name:</span> SMAN
+                  </h3>
+                </div>
+                <div className="person-discription">
+                  <h3 className="person-discription-header">Discription</h3>
+                  <div className="person-discription-detail">
+                    <p>faceCollor: dark</p>
+                    <p>bodyType: </p>
+                    <p>some detail: ******88</p>
+                  </div>
+                </div>
+                <div className="person-reating-history">
+                  <p className="call-history">
+                    <FontAwesomeIcon icon={faPhone} />
+                    <span> calls:</span> 120
+                  </p>
+                  <div className="call-reating">
+                    <FontAwesomeIcon icon={faStar} />
+                    <FontAwesomeIcon icon={faStar} />
+                    <FontAwesomeIcon icon={faStar} />
+                    <FontAwesomeIcon icon={faStar} />
+                    <FontAwesomeIcon icon={faStar} />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
           <div className="col-md-6 pay-form-cont">
             <div className="pay-form-cont">
               <form action="post" className="pay-form">
-                <label htmlFor="name">Name</label>
-                <input
-                  type="text"
-                  placeholder="please enter your account name..."
-                />
-                <label htmlFor="name">Account</label>
-                <input
-                  type="text"
-                  placeholder="pleace enter your account No."
-                />
+                <div className="form-out-input">
+                  <label htmlFor="name">Name</label>
+                  <input
+                    type="text"
+                    placeholder="please enter your account name..."
+                  />
+                </div>
+                <div className="form-out-input">
+                  <label htmlFor="name">Account</label>
+                  <input
+                    type="text"
+                    placeholder="pleace enter your account No."
+                  />
+                </div>
+
                 <div className="amount-input">
                   <select name="paymentOption" id="">
                     <option value="selectPaymentCurrency">Currency</option>
@@ -47,7 +84,7 @@ export default function () {
 
                 <div className="payment-method">
                   <select name="payment" id="">
-                    <option value="">Select Payment Method</option>
+                    <option value="">Payment Method</option>
                     <option value="CBE">CBE</option>
                     <option value="BOA">BOA</option>
                     <option value="COOP">COOP</option>
@@ -57,13 +94,19 @@ export default function () {
                     <option value="paypal">PAYPAL</option>
                   </select>
                   <div className="account-numb">
+                    <input type="text" placeholder="name" />
                     <input type="text" placeholder="1000*****12" />
                     <FontAwesomeIcon className="copy-account" icon={faCopy} />
                   </div>
                 </div>
-                <label htmlFor="img">Input Recite</label>
-                <input type="file" />
-                <button type="submit">Submit</button>
+                <div className="form-out-input">
+                  <label htmlFor="img">Recite</label>
+                  <input type="file" className="imgInp" />
+                </div>
+
+                <button className="btn btn-primary pay-btn" type="submit">
+                  Submit
+                </button>
               </form>
             </div>
           </div>
