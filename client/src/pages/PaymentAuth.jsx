@@ -14,34 +14,46 @@ export default function () {
       <div className="container">
         <div className="row">
           <div className="col-md-6">
-            <div className="person-detail-container">
-              <div className="person-pic-slide"></div>
-              <div className="person-detail">
-                <div className="person-name">
-                  <h3>
-                    <span>Nick Name:</span> SMAN
-                  </h3>
+            <div className="person-detail-container pay-form-cont">
+              <div className="pay-form">
+                <div className="person-pic-slide">
+                  <img src={vidImg0} alt="" />
                 </div>
-                <div className="person-discription">
-                  <h3 className="person-discription-header">Discription</h3>
-                  <div className="person-discription-detail">
-                    <p>faceCollor: dark</p>
-                    <p>bodyType: </p>
-                    <p>some detail: ******88</p>
+                <div className="person-detail">
+                  <div className="person-name">
+                    <h3>
+                      <span>Nick Name:</span> SMAN
+                    </h3>
+                  </div>
+                  <div className="person-discription">
+                    <h3 className="person-discription-header">Discription</h3>
+                    <div className="person-discription-detail">
+                      <p>faceCollor: dark</p>
+                      <p>bodyType: </p>
+                      <p>some detail: ******88</p>
+                    </div>
+                  </div>
+                  <div className="person-reating-history">
+                    <p className="call-history">
+                      <FontAwesomeIcon icon={faPhone} />
+                      <span> calls:</span> 120
+                    </p>
+                    <div className="call-reating">
+                      <FontAwesomeIcon icon={faStar} />
+                      <FontAwesomeIcon icon={faStar} />
+                      <FontAwesomeIcon icon={faStar} />
+                      <FontAwesomeIcon icon={faStar} />
+                      <FontAwesomeIcon icon={faStar} />
+                    </div>
                   </div>
                 </div>
-                <div className="person-reating-history">
-                  <p className="call-history">
-                    <FontAwesomeIcon icon={faPhone} />
-                    <span> calls:</span> 120
-                  </p>
-                  <div className="call-reating">
-                    <FontAwesomeIcon icon={faStar} />
-                    <FontAwesomeIcon icon={faStar} />
-                    <FontAwesomeIcon icon={faStar} />
-                    <FontAwesomeIcon icon={faStar} />
-                    <FontAwesomeIcon icon={faStar} />
-                  </div>
+                <div className="call-btn">
+                  <button
+                    className="btn btn-primary payed-call-btn"
+                    type="call"
+                  >
+                    Call
+                  </button>
                 </div>
               </div>
             </div>
