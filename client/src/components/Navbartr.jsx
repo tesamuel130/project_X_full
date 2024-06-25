@@ -18,10 +18,8 @@ import {
   faHome,
   faQuestion,
   faPhone,
-  faStream,
   faTv,
   faContactBook,
-  faInfo,
   faCircleInfo,
   faSignIn,
 } from "@fortawesome/free-solid-svg-icons";

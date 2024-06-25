@@ -10,6 +10,7 @@ import {
   faStar,
 } from "@fortawesome/free-solid-svg-icons";
 
+//import the navbar
 import NavBarTwo from "../components/NavBarTwo";
 
 //import image
