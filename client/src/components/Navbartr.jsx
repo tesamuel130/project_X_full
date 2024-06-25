@@ -182,50 +182,52 @@ export default function Navbartr() {
       {/* ============================mobile nav bar list================================ */}
       <div ref={mobileNavMenuRef}>
         <div className="mobile-menu-content">
-          <Link to="/#" className="btn mobile-menu-upload">
-            <FontAwesomeIcon icon={faHome} />
-            <span>Upload Video</span>
-          </Link>
           <div className="mobile-menu-list">
             <ul>
               <li>
-                <Link to="/#">
+                <Link to="/">
+                  <FontAwesomeIcon icon={faHome} />
+                  <p>Home Page</p>
+                </Link>
+              </li>
+              <li>
+                <Link to="/about">
                   <FontAwesomeIcon icon={faQuestion} />
                   <p>About</p>
                 </Link>
               </li>
               <li>
-                <Link to="/#">
+                <Link to="/video">
                   <FontAwesomeIcon icon={faVideo} />
                   <p>Video Page</p>
                 </Link>
               </li>
               <li>
-                <Link to="/#">
+                <Link to="/chat">
                   <FontAwesomeIcon icon={faPhone} />
                   <p>Live Chat</p>
                 </Link>
               </li>
               <li>
-                <Link link="/#">
+                <Link link="/stream">
                   <FontAwesomeIcon icon={faTv} />
                   <p>Live Steram</p>
                 </Link>
               </li>
               <li>
-                <Link link="/#">
+                <Link link="/person%contact">
                   <FontAwesomeIcon icon={faContactBook} />
                   <p>Person Contact</p>
                 </Link>
               </li>
               <li>
-                <Link link="/#">
+                <Link link="/help">
                   <FontAwesomeIcon icon={faCircleInfo} />
                   <p>Help</p>
                 </Link>
               </li>
               <li>
-                <Link link="/#">
+                <Link link="/login">
                   <FontAwesomeIcon icon={faSignIn} />
                   <p>SignIn</p>
                 </Link>

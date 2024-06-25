@@ -1217,6 +1217,7 @@
   }
   .mobile-menu-list > ul > li > a > p {
     margin: 0;
+    margin-left: 15px;
     margin-top: 4px;
     color: #7e7e7e;
   }
