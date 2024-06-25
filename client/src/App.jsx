@@ -32,7 +32,7 @@ function App() {
         <Route path="/dashbord" element={<Dashbord />} />
         <Route path="/video" element={<Videos />} />
         <Route path="/chat" element={<Chat />} />
-        <Route path="/paymentauth" element={<PaymentAuth />} />
+        <Route path="/chat/paymentauth" element={<PaymentAuth />} />
 
         {/* try searching page */}
         <Route path="/trysearch" element={<TrySearch />} />

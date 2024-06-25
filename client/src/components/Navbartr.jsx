@@ -1,4 +1,5 @@
 import React from "react";
+import { useRef } from "react";
 import { Link } from "react-router-dom";
 
 //import the css asset
@@ -14,14 +15,25 @@ import {
   faMagnifyingGlass,
   faVideo,
   faSortAmountDown,
+  faHome,
+  faQuestion,
+  faPhone,
+  faStream,
+  faTv,
+  faContactBook,
+  faInfo,
+  faCircleInfo,
+  faSignIn,
 } from "@fortawesome/free-solid-svg-icons";
 
 //import image
 import logoimg from "../assets/images/ava1.png";
 
 export default function Navbartr() {
-  const mobileNavMenu = () => {
-    alert("hello world");
+  const mobileNavMenuRef = useRef();
+
+  const showNavList = () => {
+    mobileNavMenuRef.current.classList.toggle("mobile-menu");
   };
 
   return (
@@ -35,7 +47,7 @@ export default function Navbartr() {
             <div className="container">
               <div className="row">
                 <div className="col-xs-3 visible-xs">
-                  <Link onClick={mobileNavMenu} className="btn-menu-toggle">
+                  <Link onClick={showNavList} className="btn-menu-toggle">
                     <i>
                       <FontAwesomeIcon
                         icon={faBars}
@@ -167,28 +179,12 @@ export default function Navbartr() {
         </div>
       </div>
 
-      <div className="mobile-menu">
-        <div className="mobile-menu-head">
-          <Link to="/#" className="mobile-menu-close"></Link>
-          <Link className="navbar-brand" to="/index-2.html">
-            <img src="images/logo.svg" alt="Project name" className="logo" />
-            <span>Circle</span>
-          </Link>
-          <div className="mobile-menu-btn-color">
-            <img src="images/icon_bulb_light.png" alt="" />
-          </div>
-        </div>
+      {/* ============================mobile nav bar list================================ */}
+      <div ref={mobileNavMenuRef}>
         <div className="mobile-menu-content">
-          <div className="mobile-menu-user">
-            <div className="mobile-menu-user-img">
-              <img src="images/ava11.png" alt="" />
-            </div>
-            <p>Bailey Fry </p>
-            <span className="caret"></span>
-          </div>
           <Link to="/#" className="btn mobile-menu-upload">
             {/* <i className="cv cvicon-cv-upload-video"></i> */}
-            <FontAwesomeIcon icon={faBars} />
+            <FontAwesomeIcon icon={faHome} />
             <span>Upload Video</span>
           </Link>
           <div className="mobile-menu-list">
@@ -196,79 +192,50 @@ export default function Navbartr() {
               <li>
                 <Link to="/#">
                   {/* <i className="cv cvicon-cv-play-circle"></i> */}
-                  <FontAwesomeIcon icon={faBars} />
-                  <p>Popular Videos</p>
+                  <FontAwesomeIcon icon={faQuestion} />
+                  <p>About</p>
                 </Link>
               </li>
               <li>
                 <Link to="/#">
                   {/* <i className="cv cvicon-cv-playlist"></i> */}
-                  <FontAwesomeIcon icon={faBars} />
-                  <p>Browse Categories</p>
-                  <span className="caret"></span>
+                  <FontAwesomeIcon icon={faVideo} />
+                  <p>Video Page</p>
                 </Link>
-                <ul className="mobile-menu-categories">
-                  <li className="color-active">
-                    <Link to="/#">
-                      Pages <span className="caret"></span>
-                    </Link>
-                    <ul>
-                      <li>
-                        <Link to="/index-2.html">Home Page</Link>
-                      </li>
-                      <li>
-                        <Link to="/single-video.html">About</Link>
-                      </li>
-                      <li>
-                        <Link to="/single-video.html">Video Page</Link>
-                      </li>
-                      <li>
-                        <Link to="/single-video-youtube.html">Live Chat</Link>
-                      </li>
-                      <li>
-                        <Link to="/single-video-vimeo.html">Live Striming</Link>
-                      </li>
-                      <li>
-                        <Link to="/upload.html">Person Contact</Link>
-                      </li>
-                      <li>
-                        <Link to="/upload-edit.html">Help</Link>
-                      </li>
-                      <li>
-                        <Link to="/register">Sign Up</Link>
-                      </li>
-                      <li>
-                        <Link to="/login">Sign In</Link>
-                      </li>
-                    </ul>
-                  </li>
-                  <li>
-                    <Link to="/categories.html">Categories</Link>
-                  </li>
-                  <li>
-                    <Link to="/channel.html">Channels</Link>
-                  </li>
-                </ul>
               </li>
               <li>
                 <Link to="/#">
                   {/* <i className="cv cvicon-cv-liked"></i> */}
-                  <FontAwesomeIcon icon={faBars} />
-                  <p>Liked Videos</p>
+                  <FontAwesomeIcon icon={faPhone} />
+                  <p>Live Chat</p>
                 </Link>
               </li>
               <li>
                 <Link link="/#">
                   {/* <i className="cv cvicon-cv-history"></i> */}
-                  <FontAwesomeIcon icon={faBars} />
-                  <p>History</p>
+                  <FontAwesomeIcon icon={faTv} />
+                  <p>Live Steram</p>
                 </Link>
               </li>
               <li>
                 <Link link="/#">
-                  {/* <i className="cv cvicon-cv-purchased"></i> */}
-                  <FontAwesomeIcon icon={faBars} />
-                  <p>Purchased Videos</p>
+                  {/* <i className="cv cvicon-cv-history"></i> */}
+                  <FontAwesomeIcon icon={faContactBook} />
+                  <p>Person Contact</p>
+                </Link>
+              </li>
+              <li>
+                <Link link="/#">
+                  {/* <i className="cv cvicon-cv-history"></i> */}
+                  <FontAwesomeIcon icon={faCircleInfo} />
+                  <p>Help</p>
+                </Link>
+              </li>
+              <li>
+                <Link link="/#">
+                  {/* <i className="cv cvicon-cv-history"></i> */}
+                  <FontAwesomeIcon icon={faSignIn} />
+                  <p>SignIn</p>
                 </Link>
               </li>
             </ul>
