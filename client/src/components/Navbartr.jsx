@@ -183,7 +183,6 @@ export default function Navbartr() {
       <div ref={mobileNavMenuRef}>
         <div className="mobile-menu-content">
           <Link to="/#" className="btn mobile-menu-upload">
-            {/* <i className="cv cvicon-cv-upload-video"></i> */}
             <FontAwesomeIcon icon={faHome} />
             <span>Upload Video</span>
           </Link>
@@ -191,49 +190,42 @@ export default function Navbartr() {
             <ul>
               <li>
                 <Link to="/#">
-                  {/* <i className="cv cvicon-cv-play-circle"></i> */}
                   <FontAwesomeIcon icon={faQuestion} />
                   <p>About</p>
                 </Link>
               </li>
               <li>
                 <Link to="/#">
-                  {/* <i className="cv cvicon-cv-playlist"></i> */}
                   <FontAwesomeIcon icon={faVideo} />
                   <p>Video Page</p>
                 </Link>
               </li>
               <li>
                 <Link to="/#">
-                  {/* <i className="cv cvicon-cv-liked"></i> */}
                   <FontAwesomeIcon icon={faPhone} />
                   <p>Live Chat</p>
                 </Link>
               </li>
               <li>
                 <Link link="/#">
-                  {/* <i className="cv cvicon-cv-history"></i> */}
                   <FontAwesomeIcon icon={faTv} />
                   <p>Live Steram</p>
                 </Link>
               </li>
               <li>
                 <Link link="/#">
-                  {/* <i className="cv cvicon-cv-history"></i> */}
                   <FontAwesomeIcon icon={faContactBook} />
                   <p>Person Contact</p>
                 </Link>
               </li>
               <li>
                 <Link link="/#">
-                  {/* <i className="cv cvicon-cv-history"></i> */}
                   <FontAwesomeIcon icon={faCircleInfo} />
                   <p>Help</p>
                 </Link>
               </li>
               <li>
                 <Link link="/#">
-                  {/* <i className="cv cvicon-cv-history"></i> */}
                   <FontAwesomeIcon icon={faSignIn} />
                   <p>SignIn</p>
                 </Link>
