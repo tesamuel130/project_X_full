@@ -10,7 +10,6 @@ import { Server as SocketIoServer } from "socket.io";
 //import router
 import router from "./routes/router.mjs";
 import { homeSearch } from "./controllers/homeSearchControllers.mjs";
-import { users } from "./tryusers.js";
 
 dotenv.config();
 
@@ -19,7 +18,12 @@ const PORT = process.env.PORT || 8081;
 
 //assign the variable used for the video call
 const server = http.createServer(app);
-const io = new SocketIoServer(server);
+const io = new SocketIoServer(server, {
+  cors: {
+    origin: "http://localhost:5173",
+    methods: ["GET", "POST"],
+  },
+});
 //socket.io config
 import { socketConfig } from "./config/socketConfig.mjs";
 socketConfig(io);
