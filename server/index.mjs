@@ -17,6 +17,13 @@ dotenv.config();
 const app = express();
 const PORT = process.env.PORT || 8081;
 
+//assign the variable used for the video call
+const server = http.createServer(app);
+const io = new SocketIoServer(server);
+//socket.io config
+import { socketConfig } from "./config/socketConfig.mjs";
+socketConfig(io);
+
 //database connection
 dbConnection();
 
@@ -26,13 +33,6 @@ app.use(cookieParser());
 app.use(express.urlencoded({ extended: false }));
 
 app.use(router);
-
-//assign the variable used for the video call
-const server = http.createServer(app);
-const io = new SocketIoServer(server);
-//socket.io config
-import { socketConfig } from "./config/socketConfig.mjs";
-socketConfig(io);
 
 //try api
 app.get("/tryuser", homeSearch);
