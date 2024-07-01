@@ -6,12 +6,6 @@ import cookieParser from "cookie-parser";
 //import pkgs used for the video call
 import http from "http";
 import { Server as SocketIoServer } from "socket.io";
-//socket.io config
-import { socketConfig } from "./config/socketConfig.mjs";
-socketConfig(io);
-
-const server = http.createServer(app);
-const io = new SocketIoServer(server);
 
 //import router
 import router from "./routes/router.mjs";
@@ -32,6 +26,13 @@ app.use(cookieParser());
 app.use(express.urlencoded({ extended: false }));
 
 app.use(router);
+
+//assign the variable used for the video call
+const server = http.createServer(app);
+const io = new SocketIoServer(server);
+//socket.io config
+import { socketConfig } from "./config/socketConfig.mjs";
+socketConfig(io);
 
 //try api
 app.get("/tryuser", homeSearch);
