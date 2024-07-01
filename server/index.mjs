@@ -1,7 +1,17 @@
 import express from "express";
 import dotenv from "dotenv";
-import { dbConnection } from "./DbConnection.mjs";
+import { dbConnection } from "./config/DbConnection.mjs";
 import cookieParser from "cookie-parser";
+
+//import pkgs used for the video call
+import http from "http";
+import { Server as SocketIoServer } from "socket.io";
+//socket.io config
+import { socketConfig } from "./config/socketConfig.mjs";
+socketConfig(io);
+
+const server = http.createServer(app);
+const io = new SocketIoServer(server);
 
 //import router
 import router from "./routes/router.mjs";
