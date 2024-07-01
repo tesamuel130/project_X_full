@@ -3,7 +3,7 @@ export const socketConfig = (io) => {
     socket.emit("me", socket.id);
 
     socket.on("disconnect", () => {
-      socket.brodcast.emit("callEnded");
+      socket.broadcast.emit("callEnded");
     });
 
     socket.on("callUser", (data) => {
