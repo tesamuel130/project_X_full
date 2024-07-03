@@ -5,9 +5,9 @@ import { TextField } from "@material-ui/core";
 import AssignmentIcon from "@material-ui/icons/Assignment";
 import PhoneIcon from "@material-ui/icons/Phone";
 import { CopyToClipboard } from "react-copy-to-clipboard";
-import peer from "simple-peer";
+// import peer from "simple-peer";
 import io from "socket.io-client";
-// import "../assets/style/clientCall.css";
+import "../assets/style/clientCall.css";
 
 const socket = io.connect("http://localhost:5000");
 

@@ -3,10 +3,6 @@ import dotenv from "dotenv";
 import { dbConnection } from "./config/DbConnection.mjs";
 import cookieParser from "cookie-parser";
 
-//fix the browser error
-import global from "global";
-window.global = global;
-
 //import pkgs used for the video call
 import http from "http";
 import { Server as SocketIoServer } from "socket.io";
