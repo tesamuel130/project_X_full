@@ -12,7 +12,9 @@ import io from "socket.io-client";
 export default function ClientCall() {
   return (
     <>
-      <div></div>
+      <div>
+        <dic className="container"></dic>
+      </div>
     </>
   );
 }
