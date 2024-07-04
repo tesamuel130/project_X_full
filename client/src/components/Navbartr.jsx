@@ -25,7 +25,7 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 
 //import image
-import logoimg from "../assets/images/ava1.png";
+import logoimg from "../assets/images/lingChatLogoOnly.png";
 
 export default function Navbartr() {
   const mobileNavMenuRef = useRef();
@@ -57,7 +57,7 @@ export default function Navbartr() {
                 <div className="col-lg-1 col-sm-2 col-xs-6">
                   <Link className="navbar-brand" to="/index-2.html">
                     <img src={logoimg} alt="Project name" className="logo" />
-                    <span>Circle</span>
+                    <span>Ling Chat</span>
                   </Link>
                 </div>
                 <div className="col-lg-3 col-sm-10 hidden-xs">
