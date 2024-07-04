@@ -20,7 +20,7 @@ const PORT = process.env.PORT || 8081;
 const server = http.createServer(app);
 const io = new SocketIoServer(server, {
   cors: {
-    origin: "http://localhost:8081",
+    origin: "*",
     methods: ["GET", "POST"],
   },
 });
