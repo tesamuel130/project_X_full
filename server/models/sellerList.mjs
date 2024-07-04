@@ -1,6 +1,7 @@
 import mongoose from "mongoose";
+const Schema = mongoose.Schema;
 
-export const sellerList = new mongoose.Schema({
+export const sellerList = new Schema({
   name: {
     type: String,
     required: true,

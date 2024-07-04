@@ -1,6 +1,7 @@
 import mongoose from "mongoose";
+const Schema = mongoose.Schema;
 
-const brokerSchema = new mongoose.Schema({
+const brokerSchema = new Schema({
   name: String,
   email: {
     type: String,
