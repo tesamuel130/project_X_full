@@ -7,9 +7,10 @@ const brokerSchema = new Schema({
     type: String,
     unique: true,
   },
+  PhoneNumber: Number,
   password: String,
 });
 
-const BrokerList = mongoose.model("User", brokerSchema);
+const Broker = mongoose.model("Broker", brokerSchema);
 
-export default BrokerList;
+export default Broker;
