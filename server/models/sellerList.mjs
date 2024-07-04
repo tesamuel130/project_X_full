@@ -1,6 +1,6 @@
 import mongoose from "mongoose";
 
-export const homeDataFeatch = new mongoose.Schema({
+export const sellerList = new mongoose.Schema({
   name: {
     type: String,
     required: true,
@@ -13,8 +13,8 @@ export const homeDataFeatch = new mongoose.Schema({
     type: String,
     required: true,
   },
-  gener: {
-    type: String,
-    required: true,
-  },
 });
+
+const sellerListItem = mongoose.model("Item", sellerList);
+
+export default sellerListItem;
