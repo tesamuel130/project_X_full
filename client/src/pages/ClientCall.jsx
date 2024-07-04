@@ -2,6 +2,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import io from "socket.io-client";
 import Peer from "peerjs";
+import "../assets/style/clientCall.css";
 
 const socket = io("http://localhost:5000");
 
@@ -63,10 +64,15 @@ const ClientCall = () => {
         <div className="callDetailContainer">
           <div className="videoContainer">
             <div className="callerStream">
-              <video ref={userVideo} />
+              <video className="callerStream" ref={userVideo} />
             </div>
             <div className="localStream">
-              <video ref={myVideo} autoPlay playsInline muted></video>
+              <video
+                className="localStream"
+                ref={myVideo}
+                autoPlay
+                playsInline
+              ></video>
             </div>
           </div>
           <div className="callButtonsContainer"></div>

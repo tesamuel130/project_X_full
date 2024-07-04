@@ -1,43 +1,32 @@
-/* .container{
-    display: grid;
-    grid-template-columns: 7fr 3fr;
+.mainContainer{
+    width: 100%;
+    height: 85vh;
+    background-color: aqua;
 }
 
-.myId{
-    margin-right: 5rem;
-    border-radius: 5px;
-    background-color: blueviolet;
-    background: linear-gradient(
-        to right,
-        #e2e2e2,
-        #c9d6ff
-    );
-    padding: 2rem;
-    display: grid;
+.callDetailContainer{
+    width: 100%;
+    height: 100vh;
+}
+
+.videoContainer{
+    width: 100%;
+    height: 80vh;
+    display: flex;
     justify-content: center;
-    align-content: center;
 }
 
-.call_button{
-    text-align: center;
-    margin-top: 2rem;
+.callerStream{
+    width: 100%;
+    height: 100%;
+    background-color: black;
 }
 
-.video_container{
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    justify-content: center;
-    align-content: center;
-    margin-top: 10rem;
-    margin-left: 10rem;
+.localStream{
+    width: 40%;
+    height: 50%;
+    right: 5px;
+    margin-top: 5px;
+    position: absolute;
 }
 
-.caller{
-    text-align: center;
-    color: white;
-}
-
-body{
-    background: #4776e6;
-    
-} */
