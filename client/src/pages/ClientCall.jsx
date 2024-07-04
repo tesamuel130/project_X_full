@@ -58,10 +58,21 @@ const ClientCall = () => {
   };
 
   return (
-    <div className="App">
-      <video ref={myVideo} muted />
-      <video ref={userVideo} />
-    </div>
+    <>
+      <div className="mainContainer">
+        <div className="callDetailContainer">
+          <div className="videoContainer">
+            <div className="callerStream">
+              <video ref={userVideo} />
+            </div>
+            <div className="localStream">
+              <video ref={myVideo} autoPlay playsInline muted></video>
+            </div>
+          </div>
+          <div className="callButtonsContainer"></div>
+        </div>
+      </div>
+    </>
   );
 };
 
