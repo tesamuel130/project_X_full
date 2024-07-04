@@ -4,6 +4,14 @@ import io from "socket.io-client";
 import Peer from "peerjs";
 import "../assets/style/clientCall.css";
 
+//import fontawsome
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faMicrophoneLinesSlash,
+  faPhoneSlash,
+  faCameraRotate,
+} from "@fortawesome/free-solid-svg-icons";
+
 const socket = io("http://localhost:5000");
 
 const ClientCall = () => {
@@ -75,7 +83,34 @@ const ClientCall = () => {
               ></video>
             </div>
           </div>
-          <div className="callButtonsContainer"></div>
+          <div className="callButtonsContainer">
+            <div className="buttonsDepOnCall">
+              <button className="muteBtn">
+                <FontAwesomeIcon icon={faMicrophoneLinesSlash} />
+              </button>
+              <button className="callEndBtn">
+                <FontAwesomeIcon
+                  className="callEndBtnIcon"
+                  icon={faPhoneSlash}
+                />
+              </button>
+              <button className="muteBtn">
+                <FontAwesomeIcon icon={faCameraRotate} />
+              </button>
+            </div>
+            <div className="reportCont">
+              <select name="report" id="reportList">
+                <option value="none">Report</option>
+                <option value="providerScam">Provider Scam</option>
+                <option value="providerNotWorking">
+                  Provider is not Working
+                </option>
+                <option value=""></option>
+                <option value=""></option>
+                <option value=""></option>
+              </select>
+            </div>
+          </div>
         </div>
       </div>
     </>
