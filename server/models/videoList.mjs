@@ -1,6 +1,6 @@
 import mongoose from "mongoose";
 
-const brokerSchema = new mongoose.Schema({
+const videoSchema = new mongoose.Schema({
   name: String,
   email: {
     type: String,
@@ -9,6 +9,6 @@ const brokerSchema = new mongoose.Schema({
   password: String,
 });
 
-const BrokerList = mongoose.model("User", brokerSchema);
+const videoList = mongoose.model("User", videoSchema);
 
-export default BrokerList;
+export default videoList;
