@@ -81,3 +81,20 @@ export const updateBrokerById = async (req, res) => {
       });
     });
 };
+
+//delate a broker
+export const deleteBrokerById = async (req, res) => {
+  const { id } = req.params;
+  await Broker.findByIdAndRemove({ id })
+    .then(() => {
+      res.json({
+        message: "broker deleted seccucefully",
+      });
+    })
+    .catch((err) => {
+      res.json({
+        message: "an error occured",
+        err: err,
+      });
+    });
+};
