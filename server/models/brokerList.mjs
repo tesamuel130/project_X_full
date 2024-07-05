@@ -16,6 +16,9 @@ const brokerSchema = new Schema(
     password: {
       type: String,
     },
+    avater: {
+      type: String,
+    },
   },
   { timestamps: true }
 );
