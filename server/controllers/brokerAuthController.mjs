@@ -55,3 +55,25 @@ export const addBroker = async (req, res) => {
       });
     });
 };
+
+//update a broker by id
+export const updateBrokerById = async (req, res) => {
+  const { id } = req.params;
+  let updateData = {
+    name: req.body.name,
+    PhoneNumber: req.body.PhoneNumber,
+    password: req.body.password,
+  };
+
+  await Broker.findByIdAndUpdate({ id }, { $set: updateData })
+    .then((response) => {
+      res.json({
+        message: "broker updated seccucefully",
+      });
+    })
+    .catch((err) => {
+      res.json({
+        message: "an error occured",
+      });
+    });
+};
