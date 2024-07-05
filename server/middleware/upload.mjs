@@ -1,7 +1,7 @@
 import path from "path";
 import multer from "multer";
 
-var storate = multer.diskStorage({
+var store = multer.diskStorage({
   destination: (req, file, cb) => {
     cb(null, "uploads/");
   },
@@ -12,7 +12,7 @@ var storate = multer.diskStorage({
 });
 
 var upload = multer({
-  storage: storage,
+  storage: store,
   fileFilter: (req, file, callback) => {
     if (
       file.mimetype == "image/png" ||

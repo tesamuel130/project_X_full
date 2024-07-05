@@ -44,6 +44,9 @@ export const addBroker = async (req, res) => {
     PhoneNumber: req.body.PhoneNumber,
     password: req.body.password,
   });
+  if (req.file) {
+    broker.avater = req.file.path;
+  }
   await broker
     .save()
     .then(() => {
