@@ -14,7 +14,7 @@ import { homeSearch } from "./controllers/homeSearchControllers.mjs";
 dotenv.config();
 
 const app = express();
-const PORT = process.env.PORT || 8081;
+const PORT = process.env.PORT || 1081;
 
 //assign the variable used for the video call
 const server = http.createServer(app);
@@ -40,6 +40,10 @@ app.use(router);
 
 //try api
 app.get("/tryuser", homeSearch);
+
+app.get("/tro", (req, res) => {
+  res.send("hello world");
+});
 
 app.listen(PORT, () => {
   console.log(`it is running on port ${PORT}`);
