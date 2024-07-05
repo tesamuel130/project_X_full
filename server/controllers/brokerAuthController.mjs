@@ -14,6 +14,7 @@ export const showAllBrokers = async (req, res) => {
     .catch((err) => {
       res.json({
         message: "an error occured",
+        err: err,
       });
     });
 };
@@ -30,6 +31,7 @@ export const showBrokerById = async (req, res) => {
     .catch((err) => {
       res.json({
         message: "an error occured",
+        err: err,
       });
     });
 };
@@ -44,7 +46,7 @@ export const addBroker = async (req, res) => {
   });
   await broker
     .save()
-    .then((response) => {
+    .then(() => {
       res.json({
         message: "broker added seccucefully",
       });
@@ -52,6 +54,7 @@ export const addBroker = async (req, res) => {
     .catch((err) => {
       res.json({
         message: "an error occured",
+        err: err,
       });
     });
 };
@@ -66,7 +69,7 @@ export const updateBrokerById = async (req, res) => {
   };
 
   await Broker.findByIdAndUpdate({ id }, { $set: updateData })
-    .then((response) => {
+    .then(() => {
       res.json({
         message: "broker updated seccucefully",
       });
@@ -74,6 +77,7 @@ export const updateBrokerById = async (req, res) => {
     .catch((err) => {
       res.json({
         message: "an error occured",
+        err: err,
       });
     });
 };
