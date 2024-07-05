@@ -41,10 +41,6 @@ app.use(router);
 //try api
 app.get("/tryuser", homeSearch);
 
-app.get("/tro", (req, res) => {
-  res.send("hello world");
-});
-
 app.listen(PORT, () => {
   console.log(`it is running on port ${PORT}`);
 });
