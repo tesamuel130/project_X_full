@@ -16,4 +16,8 @@ import userProfile from "./userProfile.mjs";
 router.use("/", authRout);
 router.use("/", userProfile);
 
+//try broker
+import checkBroker from "./checkBroker.mjs";
+router.use("/", checkBroker);
+
 export default router;
