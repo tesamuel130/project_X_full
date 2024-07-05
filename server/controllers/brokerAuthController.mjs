@@ -34,4 +34,24 @@ export const showBrokerById = async (req, res) => {
     });
 };
 
-//
+//add a broker into the database
+export const addBroker = async (req, res) => {
+  let broker = new Broker({
+    name: req.body.name,
+    email: req.body.email,
+    PhoneNumber: req.body.PhoneNumber,
+    password: req.body.password,
+  });
+  await broker
+    .save()
+    .then((response) => {
+      res.json({
+        message: "broker added seccucefully",
+      });
+    })
+    .catch((err) => {
+      res.json({
+        message: "an error occured",
+      });
+    });
+};
