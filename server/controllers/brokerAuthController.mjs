@@ -21,8 +21,8 @@ export const showAllBrokers = async (req, res) => {
 
 //show a broker by id
 export const showBrokerById = async (req, res) => {
-  const { id } = req.params;
-  await Broker.findById({ id })
+  const brokerId = req.body.id;
+  await Broker.findById(brokerId)
     .then((response) => {
       res.json({
         response,

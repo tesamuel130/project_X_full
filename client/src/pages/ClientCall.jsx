@@ -46,7 +46,7 @@ const ClientCall = () => {
     navigator.mediaDevices
       .getUserMedia({
         video: true,
-        audio: true,
+        audio: false,
       })
       .then((stream) => {
         myVideo.current.srcObject = stream;
