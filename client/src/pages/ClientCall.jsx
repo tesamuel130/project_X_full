@@ -47,7 +47,8 @@ const ClientCall = () => {
     socket.on("callUser", (data) => {
       setReceivingCall(true);
       setCaller(data.from);
-      setName();
+      setName(data.name);
+      setCallerSignal(data.signal);
     });
   }, []);
 
