@@ -12,10 +12,20 @@ import {
   faCameraRotate,
 } from "@fortawesome/free-solid-svg-icons";
 
-const socket = io("http://localhost:5000");
+const socket = io("http://localhost:1081");
 
 const ClientCall = () => {
-  const [myId, setMyId] = useState("");
+  const [me, setMe] = useState("");
+  const [stream, setStream] = useState();
+  const [receivingCall, setReceivingCall] = useState(false);
+  const [caller, setCaller] = useState("");
+  const [callerSignal, setCallerSignal] = useState();
+  const [callAccepted, setCallAccepted] = useState(false);
+  const [idToCall, setIdToCall] = useState("");
+  const [callEnded, setCallEnded] = useState("");
+  const [name, setName] = useState("");
+
+  //referece on the call page
   const myVideo = useRef();
   const userVideo = useRef();
   const peerInstance = useRef();
@@ -28,7 +38,7 @@ const ClientCall = () => {
     peerInstance.current = peer;
 
     peer.on("open", (id) => {
-      setMyId(id);
+      setMe(id);
       socket.emit("join-room", "room-id", id);
     });
 
