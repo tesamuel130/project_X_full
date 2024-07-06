@@ -28,53 +28,74 @@ const ClientCall = () => {
   //referece on the call page
   const myVideo = useRef();
   const userVideo = useRef();
+  const connectionRef = useRef();
   const peerInstance = useRef();
 
+  //add a use effect fuction
   useEffect(() => {
-    const peer = new Peer(undefined, {
-      host: "/",
-      port: "3001",
-    });
-    peerInstance.current = peer;
-
-    peer.on("open", (id) => {
-      setMe(id);
-      socket.emit("join-room", "room-id", id);
-    });
-
-    peer.on("call", (call) => {
-      call.answer(myVideo.current.srcObject);
-      call.on("stream", (userVideoStream) => {
-        userVideo.current.srcObject = userVideoStream;
-      });
-    });
-
-    socket.on("user-connected", (userId) => {
-      connectToNewUser(userId);
-    });
-
     navigator.mediaDevices
-      .getUserMedia({
-        video: true,
-        audio: false,
-      })
+      .getUserMedia({ video: true, audio: false })
       .then((stream) => {
+        setStream(stream);
         myVideo.current.srcObject = stream;
-        myVideo.current.play();
       });
 
-    return () => {
-      socket.disconnect();
-      peer.disconnect();
-    };
+    socket.on("me", (id) => {
+      setMe(id);
+    });
+
+    socket.on("callUser", (data) => {
+      setReceivingCall(true);
+      setCaller(data.from);
+      setName();
+    });
   }, []);
 
-  const connectToNewUser = (userId) => {
-    const call = peerInstance.current.call(userId, myVideo.current.srcObject);
-    call.on("stream", (userVideoStream) => {
-      userVideo.current.srcObject = userVideoStream;
-    });
-  };
+  // useEffect(() => {
+  //   const peer = new Peer(undefined, {
+  //     host: "/",
+  //     port: "3001",
+  //   });
+  //   peerInstance.current = peer;
+
+  //   peer.on("open", (id) => {
+  //     setMe(id);
+  //     socket.emit("join-room", "room-id", id);
+  //   });
+
+  //   peer.on("call", (call) => {
+  //     call.answer(myVideo.current.srcObject);
+  //     call.on("stream", (userVideoStream) => {
+  //       userVideo.current.srcObject = userVideoStream;
+  //     });
+  //   });
+
+  //   socket.on("user-connected", (userId) => {
+  //     connectToNewUser(userId);
+  //   });
+
+  //   navigator.mediaDevices
+  //     .getUserMedia({
+  //       video: true,
+  //       audio: false,
+  //     })
+  //     .then((stream) => {
+  //       myVideo.current.srcObject = stream;
+  //       myVideo.current.play();
+  //     });
+
+  //   return () => {
+  //     socket.disconnect();
+  //     peer.disconnect();
+  //   };
+  // }, []);
+
+  // const connectToNewUser = (userId) => {
+  //   const call = peerInstance.current.call(userId, myVideo.current.srcObject);
+  //   call.on("stream", (userVideoStream) => {
+  //     userVideo.current.srcObject = userVideoStream;
+  //   });
+  // };
 
   return (
     <>
