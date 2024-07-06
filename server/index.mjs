@@ -20,7 +20,7 @@ const PORT = process.env.PORT || 1081;
 const server = http.createServer(app);
 const io = new SocketIoServer(server, {
   cors: {
-    origin: "*",
+    origin: "http://localhost:5173/videocall",
     methods: ["GET", "POST"],
   },
 });
