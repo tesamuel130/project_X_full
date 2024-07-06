@@ -100,6 +100,11 @@ const ClientCall = () => {
     connectionRef.current = peer;
   };
 
+  const leaceCall = () => {
+    setCallEnded(true);
+    connectionRef.current.destroy();
+  };
+
   // useEffect(() => {
   //   const peer = new Peer(undefined, {
   //     host: "/",
@@ -152,15 +157,32 @@ const ClientCall = () => {
         <div className="callDetailContainer">
           <div className="videoContainer">
             <div className="callerStream">
-              <video className="callerStream" ref={userVideo} />
+              {/* <video className="callerStream" ref={userVideo} /> */}
+              {callAccepted && !callEnded ? (
+                <video
+                  className="callerStream"
+                  playsInline
+                  ref={userVideo}
+                  autoPlay
+                />
+              ) : null}
             </div>
             <div className="localStream">
-              <video
+              {/* <video
                 className="localStream"
                 ref={myVideo}
                 autoPlay
                 playsInline
-              ></video>
+              ></video> */}
+              {stream && (
+                <video
+                  className="localStream"
+                  playsInline
+                  muted
+                  ref={myVideo}
+                  autoPlay
+                />
+              )}
             </div>
           </div>
           <div className="callButtonsContainer">
@@ -191,6 +213,40 @@ const ClientCall = () => {
               </select>
             </div>
           </div>
+        </div>
+      </div>
+
+      <div className="tryingSome">
+        <input
+          type="text"
+          id="filled-basic"
+          placeholder="name"
+          value={name}
+          onChange={(e) => setName(e.target.value)}
+        />
+
+        <input
+          type="text"
+          placeholder="call to"
+          value={idToCall}
+          onChange={(e) => setIdToCall(e.target.value)}
+        />
+
+        <div className="tryCallBtn">
+          {callAccepted && !callEnded ? (
+            <button onClick={leaceCall}>End call</button>
+          ) : (
+            <button onClick={() => callUser(idToCall)}>dd</button>
+          )}
+          {idToCall}
+        </div>
+        <div className="try2b">
+          {receivingCall && !callAccepted ? (
+            <div className="caller">
+              <h1>{name} is calling</h1>
+              <button onClick={answerCall}>answercall</button>
+            </div>
+          ) : null}
         </div>
       </div>
     </>
