@@ -877,6 +877,46 @@ export default function Home() {
                 <div className="cb-content videolist">
                   <div className="row">
                     {/* person list */}
+                    <ul>
+                      {contactInPerson.map((seller) => {
+                        <li key={seller._id}>
+                          <div className="col-lg-3 col-sm-6 col-xs-12">
+                            <div className="b-playlist">
+                              <div className="v-img">
+                                <img
+                                  src={seller.image}
+                                  alt=""
+                                  className="l-1"
+                                />
+                                <img
+                                  src={seller.image}
+                                  alt=""
+                                  className="l-2"
+                                />
+                                <a href="single-video-tabs.html">
+                                  <img
+                                    src={seller.image}
+                                    alt=""
+                                    className="l-3"
+                                  />
+                                </a>
+                                <div className="items">{seller.imageItem}</div>
+                              </div>
+                              <div className="v-desc">
+                                <a href="#">UserName: {seller.nickName}</a>
+                              </div>
+                              <div className="v-views">
+                                {seller.NoOfContact} contacts.{" "}
+                                <span className="v-percent">
+                                  <span className="v-circle"></span> 78%
+                                </span>
+                              </div>
+                            </div>
+                          </div>
+                        </li>;
+                      })}
+                    </ul>
+
                     <div className="col-lg-3 col-sm-6 col-xs-12">
                       <div className="b-playlist">
                         <div className="v-img">
