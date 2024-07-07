@@ -1,6 +1,7 @@
 import Video from "../models/video.mjs";
 
-export default allVideoList = async (req, res) => {
+//filter video for the home page
+export const allVideoList = async (req, res) => {
   try {
     const allVideo = await Video.find();
     res.json(allVideo);

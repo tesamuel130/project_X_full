@@ -16,6 +16,10 @@ import userProfile from "./userProfile.mjs";
 router.use("/", authRout);
 router.use("/", userProfile);
 
+//home router pages
+import home from "./home.mjs";
+router.use("/", home);
+
 //try broker
 import checkBroker from "./checkBroker.mjs";
 router.use("/", checkBroker);
