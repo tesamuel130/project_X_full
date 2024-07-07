@@ -1,5 +1,6 @@
 import "./App.css";
-import { Routes, Route } from "react-router-dom";
+import React from "react";
+import { Routes, Route, Link } from "react-router-dom";
 import NavBar from "../src/components/NavBar";
 import axios from "axios";
 import { Toaster } from "react-hot-toast";
@@ -33,6 +34,9 @@ function App() {
         <Route path="/dashbord" element={<Dashbord />} />
         <Route path="/video" element={<Videos />} />
         <Route path="/chat" element={<Chat />} />
+        <Route path="/chat/payment%auth/:id" element={<PaymentAuth />} />
+
+        {/* try to see the paymentauth style */}
         <Route path="/chat/paymentauth" element={<PaymentAuth />} />
 
         {/* try searching page */}

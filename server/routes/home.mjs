@@ -16,6 +16,7 @@ router.use(
   })
 );
 
+//featch some listes on the home page
 router.get("/home/public%chat%list", publicChatServiceSeller);
 router.get("/home/all%video%list", allVideoList);
 router.get("/home/contact%in%person", contctInPersonServiceSeller);

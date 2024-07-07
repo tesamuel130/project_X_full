@@ -270,61 +270,63 @@ export default function Home() {
                     <ul>
                       {publicChatPerson.map((seller) => {
                         <li key={seller._id}>
-                          <div className="col-lg-3 col-sm-6 videoitem">
-                            <div className="b-video">
-                              <div className="v-img">
-                                <a href="single-video-tabs.html">
-                                  <img
-                                    className="chaters-img"
-                                    src={seller.image}
-                                    alt=""
-                                  />
-                                  <i className="v-online">
-                                    <FontAwesomeIcon icon={faCircleDot} />
-                                    offline
-                                  </i>
-                                </a>
-                              </div>
-                              <div className="v-desc">
-                                <button
-                                  type="submit"
-                                  className="btn btn-primary bg-success call-btn"
-                                >
-                                  Call
-                                </button>
-                              </div>
-                              <div className="v-desc">
-                                <a href="single-video-tabs.html">
-                                  <span className="username-for-call">
-                                    User Name:
-                                  </span>{" "}
-                                  {seller.nickName}
-                                </a>
-                              </div>
-                              <div className="v-views">
-                                <FontAwesomeIcon
-                                  className="call-card-icon"
-                                  icon={faPhone}
-                                />
-                                {seller.NoOfContact} CALLS <br />
-                                <i className="price-for-call">
+                          <Link to={`/chat/payment%auth/${seller._id}`}>
+                            <div className="col-lg-3 col-sm-6 videoitem">
+                              <div className="b-video">
+                                <div className="v-img">
+                                  <a href="single-video-tabs.html">
+                                    <img
+                                      className="chaters-img"
+                                      src={seller.image}
+                                      alt=""
+                                    />
+                                    <i className="v-online">
+                                      <FontAwesomeIcon icon={faCircleDot} />
+                                      offline
+                                    </i>
+                                  </a>
+                                </div>
+                                <div className="v-desc">
+                                  <button
+                                    type="submit"
+                                    className="btn btn-primary bg-success call-btn"
+                                  >
+                                    Call
+                                  </button>
+                                </div>
+                                <div className="v-desc">
+                                  <a href="single-video-tabs.html">
+                                    <span className="username-for-call">
+                                      User Name:
+                                    </span>{" "}
+                                    {seller.nickName}
+                                  </a>
+                                </div>
+                                <div className="v-views">
                                   <FontAwesomeIcon
                                     className="call-card-icon"
-                                    icon={faDollarSign}
+                                    icon={faPhone}
                                   />
-                                  <span>PRICE: </span>
-                                  {seller.price}/M
-                                </i>
-                                <div className="call-reating">
-                                  <FontAwesomeIcon icon={faStar} />
-                                  <FontAwesomeIcon icon={faStar} />
-                                  <FontAwesomeIcon icon={faStar} />
-                                  <FontAwesomeIcon icon={faStar} />
-                                  <FontAwesomeIcon icon={faStar} />
+                                  {seller.NoOfContact} CALLS <br />
+                                  <i className="price-for-call">
+                                    <FontAwesomeIcon
+                                      className="call-card-icon"
+                                      icon={faDollarSign}
+                                    />
+                                    <span>PRICE: </span>
+                                    {seller.price}/M
+                                  </i>
+                                  <div className="call-reating">
+                                    <FontAwesomeIcon icon={faStar} />
+                                    <FontAwesomeIcon icon={faStar} />
+                                    <FontAwesomeIcon icon={faStar} />
+                                    <FontAwesomeIcon icon={faStar} />
+                                    <FontAwesomeIcon icon={faStar} />
+                                  </div>
                                 </div>
                               </div>
                             </div>
-                          </div>
+                          </Link>
                         </li>;
                       })}
                     </ul>
