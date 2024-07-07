@@ -1,7 +1,7 @@
 import mongoose from "mongoose";
 const Schema = mongoose.Schema;
 
-export const sellerList = new Schema({
+const sellerSchema = new Schema({
   nickName: {
     type: String,
     required: true,
@@ -58,6 +58,6 @@ export const sellerList = new Schema({
   },
 });
 
-const sellerListItem = mongoose.model("Item", sellerList);
+const Seller = mongoose.model("Seller", sellerSchema);
 
-export default sellerListItem;
+export default Seller;
