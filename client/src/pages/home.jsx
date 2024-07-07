@@ -328,6 +328,7 @@ export default function Home() {
                         </li>;
                       })}
                     </ul>
+
                     <div className="col-lg-3 col-sm-6 videoitem">
                       <div className="b-video">
                         <div className="v-img">
