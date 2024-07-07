@@ -1,5 +1,3 @@
-import { users } from "../tryusers.js";
-
 export const homeSearch = (req, res) => {
   const { homeQuery } = req.query;
 
