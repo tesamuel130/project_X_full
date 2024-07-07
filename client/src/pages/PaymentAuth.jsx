@@ -16,7 +16,7 @@ export default function () {
 
   useEffect(() => {
     axios
-      .get(`/api/people/${id}`)
+      .get(`/chat/public%chat%seller/payment%auth/${id}`)
       .then((response) => {
         setSeller(response.data);
       })

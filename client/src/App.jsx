@@ -34,7 +34,7 @@ function App() {
         <Route path="/dashbord" element={<Dashbord />} />
         <Route path="/video" element={<Videos />} />
         <Route path="/chat" element={<Chat />} />
-        <Route path="/chat/payment%auth/:id" element={<PaymentAuth />} />
+        <Route path="/chat/paymentauth/:id" element={<PaymentAuth />} />
 
         {/* try to see the paymentauth style */}
         <Route path="/chat/paymentauth" element={<PaymentAuth />} />
