@@ -40,6 +40,9 @@ const ClientCall = () => {
       .then((stream) => {
         setStream(stream);
         myVideo.current.srcObject = stream;
+      })
+      .catch((error) => {
+        console.log("error accessing on the media device", error);
       });
 
     socket.on("me", (id) => {
