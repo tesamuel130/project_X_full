@@ -24,8 +24,8 @@ router.use("/", homeRout);
 import chaterList from "./chatListRout.mjs";
 router.use("/", chaterList);
 
-//try broker
-import checkBroker from "./checkBroker.mjs";
-router.use("/", checkBroker);
+//video list page
+import videoList from "./videoListRout.mjs";
+router.use("/", videoList);
 
 export default router;
