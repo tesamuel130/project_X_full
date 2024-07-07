@@ -56,6 +56,9 @@ const sellerSchema = new Schema({
   reating: {
     type: String,
   },
+  socketId: {
+    type: String,
+  },
 });
 
 const Seller = mongoose.model("Seller", sellerSchema);
