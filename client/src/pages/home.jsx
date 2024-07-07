@@ -562,6 +562,34 @@ export default function Home() {
                 <div className="cb-content videolist">
                   <div className="row">
                     {/* video list */}
+                    <ul>
+                      {someVideoList.map((video) => {
+                        <li key={video._id}>
+                          <div className="col-lg-3 col-sm-6 videoitem">
+                            <div className="b-video">
+                              <div className="v-img">
+                                <a href="single-video-tabs.html">
+                                  <img src={video.thumbnail} alt="" />
+                                </a>
+                                <div className="time">{video.videoMin}</div>
+                              </div>
+                              <div className="v-desc">
+                                <a href="single-video-tabs.html">
+                                  {video.name}
+                                </a>
+                              </div>
+                              <div className="v-views">
+                                {video.views} views.{" "}
+                                <span className="v-percent">
+                                  <span className="v-circle"></span> 78%
+                                </span>
+                              </div>
+                            </div>
+                          </div>
+                        </li>;
+                      })}
+                    </ul>
+
                     <div className="col-lg-3 col-sm-6 videoitem">
                       <div className="b-video">
                         <div className="v-img">

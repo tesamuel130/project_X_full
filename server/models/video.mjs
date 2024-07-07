@@ -14,6 +14,9 @@ const videoSchema = new Schema({
   thumbnail: {
     type: String,
   },
+  videoMin: {
+    type: String,
+  },
   category: {
     type: String,
   },
