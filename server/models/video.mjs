@@ -10,6 +10,6 @@ const videoSchema = new Schema({
   password: String,
 });
 
-const videoList = mongoose.model("User", videoSchema);
+const Video = mongoose.model("Video", videoSchema);
 
-export default videoList;
+export default Video;
