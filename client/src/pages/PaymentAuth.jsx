@@ -53,15 +53,21 @@ export default function () {
                   <div className="person-discription">
                     <h3 className="person-discription-header">Discription</h3>
                     <div className="person-discription-detail">
-                      <p>faceCollor: {seller}</p>
-                      <p>bodyType: </p>
-                      <p>some detail: ******88</p>
+                      <ul>
+                        {seller.personDetail.map((details, index) => (
+                          <li key={index}>
+                            <p>faceCollor: {details.bodyColor}</p>
+                            <p>bodyType: {details.bodyType}</p>
+                            <p>some detail: ******88</p>
+                          </li>
+                        ))}
+                      </ul>
                     </div>
                   </div>
                   <div className="person-reating-history">
                     <p className="call-history">
                       <FontAwesomeIcon icon={faPhone} />
-                      <span> calls:</span> 120
+                      <span> calls:</span> {seller.NoOfContact}
                     </p>
                     <div className="call-reating">
                       <FontAwesomeIcon icon={faStar} />
