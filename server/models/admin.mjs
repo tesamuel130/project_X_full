@@ -13,11 +13,38 @@ const adminSchema = new Schema(
     bankAccountNumber: {
       type: String,
     },
-    email: {
-      type: String,
-      unique: true,
-    },
-    password: String,
+    contactAccounts: [
+      {
+        telegram: {
+          type: String,
+        },
+        whatsapp: {
+          type: String,
+        },
+        email: {
+          type: String,
+        },
+      },
+    ],
+    userGuide: [
+      {
+        video: {
+          type: String,
+        },
+        title: {
+          type: String,
+        },
+        description: {
+          type: String,
+        },
+        audio: {
+          type: String,
+        },
+        image: {
+          type: String,
+        },
+      },
+    ],
   },
   { timestamps: true }
 );
