@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
+import axios from "axios";
 
 //import fontawsome
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -10,6 +11,29 @@ import { faCopy, faPhone, faStar } from "@fortawesome/free-solid-svg-icons";
 import vidImg0 from "../assets/images/chanel-2.png";
 
 export default function () {
+  const { id } = useParams();
+  const [seller, setSeller] = useState(null);
+
+  useEffect(() => {
+    axios
+      .get(`/api/people/${id}`)
+      .then((response) => {
+        setSeller(response.data);
+      })
+      .catch((error) => {
+        console.error("Error fetching seller details:", error);
+      });
+  }, [id]);
+
+  if (!seller) {
+    return (
+      <div>
+        Loading...
+        <p>work on the 404 page</p>
+      </div>
+    );
+  }
+
   return (
     <>
       <div className="container">
@@ -18,18 +42,18 @@ export default function () {
             <div className="person-detail-container pay-form-cont">
               <div className="pay-form">
                 <div className="person-pic-slide">
-                  <img src={vidImg0} alt="" />
+                  <img src={seller.image} alt="" />
                 </div>
                 <div className="person-detail">
                   <div className="person-name">
                     <h3>
-                      <span>Nick Name:</span> SMAN
+                      <span>Nick Name:</span> {seller.name}
                     </h3>
                   </div>
                   <div className="person-discription">
                     <h3 className="person-discription-header">Discription</h3>
                     <div className="person-discription-detail">
-                      <p>faceCollor: dark</p>
+                      <p>faceCollor: {seller}</p>
                       <p>bodyType: </p>
                       <p>some detail: ******88</p>
                     </div>
