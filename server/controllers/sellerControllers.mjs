@@ -33,3 +33,14 @@ export const contctInPersonServiceSeller = async (req, res) => {
     res.status(500).send(error);
   }
 };
+
+//filter one person by id
+export const getOneSellerDetail = async (req, res) => {
+  const { id } = req.params.id;
+  try {
+    const seller = await Seller.findById({ id });
+    res.status(200).json(seller);
+  } catch (error) {
+    res.status(500).send(error);
+  }
+};
