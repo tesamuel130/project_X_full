@@ -13,23 +13,32 @@ import vidImg0 from "../assets/images/chanel-2.png";
 export default function () {
   const { id } = useParams();
   const [seller, setSeller] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
     axios
-      .get(`/chat/public%chat%seller/payment%auth/${id}`)
+      .get(`/chat/public/chatseller/paymentauth/${id}`)
       .then((response) => {
         setSeller(response.data);
+        setLoading(false);
       })
       .catch((error) => {
         console.error("Error fetching seller details:", error);
+        setError(error);
+        setLoading(false);
       });
   }, [id]);
 
-  if (!seller) {
+  if (loading) {
+    return <div>Loading...</div>;
+  }
+
+  if (error) {
     return (
       <div>
-        Loading...
-        <p>work on the 404 page</p>
+        <h1>404 - Seller Not Found</h1>
+        <p>We couldn't find the seller you're looking for.</p>
       </div>
     );
   }

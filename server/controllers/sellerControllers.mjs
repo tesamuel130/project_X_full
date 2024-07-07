@@ -36,11 +36,20 @@ export const contctInPersonServiceSeller = async (req, res) => {
 
 //filter one person by id
 export const getOneSellerDetail = async (req, res) => {
-  const { id } = req.params.id;
   try {
+    const { id } = req.params.id;
+    if (!id || !mongoose.Types.ObjectId.isValid(id)) {
+      return res.status(400).json({ message: "Invalid or missing seller id" });
+    }
+
     const seller = await Seller.findById({ id });
+
+    if (!seller) {
+      return res.status(404).json({ error: "Seller not found" });
+    }
     res.status(200).json(seller);
   } catch (error) {
+    console.error("Error fetching seller details:", error);
     res.status(500).send(error);
   }
 };

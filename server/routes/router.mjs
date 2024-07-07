@@ -24,6 +24,10 @@ router.use("/", homeRout);
 import chaterList from "./chatListRout.mjs";
 router.use("/", chaterList);
 
+//public chat auth page
+import chatPaymentAuth from "./chatPaymentAuth.mjs";
+router.use("/", chatPaymentAuth);
+
 //video list page
 import videoList from "./videoListRout.mjs";
 router.use("/", videoList);

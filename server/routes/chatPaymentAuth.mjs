@@ -13,6 +13,6 @@ router.use(
 );
 
 //featch payment auth on the payment auth page
-router.get("/chat/public%chat%seller/payment%auth/:id", getOneSellerDetail);
+router.get("/chat/public/chatseller/paymentauth/:id", getOneSellerDetail);
 
 export default router;
