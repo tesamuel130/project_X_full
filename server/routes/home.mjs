@@ -16,8 +16,8 @@ router.use(
   })
 );
 
-router.get("/home/public%chat%List", publicChatServiceSeller);
-router.post("/home/video", allVideoList);
+router.get("/home/public%chat%list", publicChatServiceSeller);
+router.post("/home/all%video%list", allVideoList);
 router.post("/home/contact%in%person", contctInPersonServiceSeller);
 
 export default router;

@@ -17,8 +17,8 @@ router.use("/", authRout);
 router.use("/", userProfile);
 
 //home router pages
-import home from "./home.mjs";
-router.use("/", home);
+import homeRout from "./home.mjs";
+router.use("/", homeRout);
 
 //try broker
 import checkBroker from "./checkBroker.mjs";
