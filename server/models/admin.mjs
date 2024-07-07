@@ -4,15 +4,20 @@ const Schema = mongoose.Schema;
 const adminSchema = new Schema(
   {
     name: String,
-    bankAccountUserName: {
-      type: String,
-    },
-    bankAccountType: {
-      type: String,
-    },
-    bankAccountNumber: {
-      type: String,
-    },
+    bankAccountDetail: [
+      {
+        bankAccountUserName: {
+          type: String,
+        },
+        bankAccountType: {
+          type: String,
+        },
+        bankAccountNumber: {
+          type: String,
+        },
+      },
+    ],
+
     contactAccounts: [
       {
         telegram: {
