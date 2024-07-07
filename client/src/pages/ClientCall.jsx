@@ -12,7 +12,9 @@ import {
   faCameraRotate,
 } from "@fortawesome/free-solid-svg-icons";
 
-const socket = io("http://localhost:1081");
+const socket = io("http://localhost:1081", {
+  autoConnect: false,
+});
 
 const ClientCall = () => {
   const [me, setMe] = useState("");
@@ -223,6 +225,7 @@ const ClientCall = () => {
           placeholder="name"
           value={name}
           onChange={(e) => setName(e.target.value)}
+          style={{ marginTop: "50px" }}
         />
 
         <input
@@ -230,21 +233,31 @@ const ClientCall = () => {
           placeholder="call to"
           value={idToCall}
           onChange={(e) => setIdToCall(e.target.value)}
+          style={{ marginTop: "50px" }}
         />
 
         <div className="tryCallBtn">
           {callAccepted && !callEnded ? (
-            <button onClick={leaceCall}>End call</button>
+            <button onClick={leaceCall} style={{ marginTop: "50px" }}>
+              End call
+            </button>
           ) : (
-            <button onClick={() => callUser(idToCall)}>dd</button>
+            <button
+              onClick={() => callUser(idToCall)}
+              style={{ marginTop: "50px" }}
+            >
+              dd
+            </button>
           )}
           {idToCall}
         </div>
         <div className="try2b">
           {receivingCall && !callAccepted ? (
-            <div className="caller">
-              <h1>{name} is calling</h1>
-              <button onClick={answerCall}>answercall</button>
+            <div className="ca">
+              <h1 style={{ marginTop: "50px" }}>{name} is calling</h1>
+              <button onClick={answerCall} style={{ marginTop: "50px" }}>
+                answercall
+              </button>
             </div>
           ) : null}
         </div>
