@@ -110,59 +110,12 @@ const ClientCall = () => {
     connectionRef.current.destroy();
   };
 
-  // useEffect(() => {
-  //   const peer = new Peer(undefined, {
-  //     host: "/",
-  //     port: "3001",
-  //   });
-  //   peerInstance.current = peer;
-
-  //   peer.on("open", (id) => {
-  //     setMe(id);
-  //     socket.emit("join-room", "room-id", id);
-  //   });
-
-  //   peer.on("call", (call) => {
-  //     call.answer(myVideo.current.srcObject);
-  //     call.on("stream", (userVideoStream) => {
-  //       userVideo.current.srcObject = userVideoStream;
-  //     });
-  //   });
-
-  //   socket.on("user-connected", (userId) => {
-  //     connectToNewUser(userId);
-  //   });
-
-  //   navigator.mediaDevices
-  //     .getUserMedia({
-  //       video: true,
-  //       audio: false,
-  //     })
-  //     .then((stream) => {
-  //       myVideo.current.srcObject = stream;
-  //       myVideo.current.play();
-  //     });
-
-  //   return () => {
-  //     socket.disconnect();
-  //     peer.disconnect();
-  //   };
-  // }, []);
-
-  // const connectToNewUser = (userId) => {
-  //   const call = peerInstance.current.call(userId, myVideo.current.srcObject);
-  //   call.on("stream", (userVideoStream) => {
-  //     userVideo.current.srcObject = userVideoStream;
-  //   });
-  // };
-
   return (
     <>
       <div className="mainContainer">
         <div className="callDetailContainer">
           <div className="videoContainer">
             <div className="callerStream">
-              {/* <video className="callerStream" ref={userVideo} /> */}
               {callAccepted && !callEnded ? (
                 <video
                   className="callerStream"
@@ -173,12 +126,6 @@ const ClientCall = () => {
               ) : null}
             </div>
             <div className="localStream">
-              {/* <video
-                className="localStream"
-                ref={myVideo}
-                autoPlay
-                playsInline
-              ></video> */}
               {stream && (
                 <video
                   className="localStream"
