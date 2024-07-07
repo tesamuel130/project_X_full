@@ -26,7 +26,7 @@ export default function Chat() {
     const fetchData = async () => {
       try {
         const [publicChatPersonResponse] = await Promise.all([
-          axios.get("/home/public%chat%list"),
+          axios.get("/chat%list/public%chat%list"),
         ]);
         setPublicChatPerson(publicChatPersonResponse.data);
       } catch (error) {

@@ -20,6 +20,10 @@ router.use("/", userProfile);
 import homeRout from "./home.mjs";
 router.use("/", homeRout);
 
+//public chat list page
+import chaterList from "./chatListRout.mjs";
+router.use("/", chaterList);
+
 //try broker
 import checkBroker from "./checkBroker.mjs";
 router.use("/", checkBroker);
