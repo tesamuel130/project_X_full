@@ -2,12 +2,27 @@ import mongoose from "mongoose";
 const Schema = mongoose.Schema;
 
 const videoSchema = new Schema({
-  name: String,
-  email: {
+  name: {
     type: String,
-    unique: true,
   },
-  password: String,
+  description: {
+    type: String,
+  },
+  url: {
+    type: String,
+  },
+  thumbnail: {
+    type: String,
+  },
+  category: {
+    type: String,
+  },
+  reating: {
+    type: Number,
+  },
+  views: {
+    type: Number,
+  },
 });
 
 const Video = mongoose.model("Video", videoSchema);
