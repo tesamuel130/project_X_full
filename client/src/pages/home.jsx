@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import axios from "axios";
 
 //import fontawsome
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -32,6 +33,33 @@ import vidImg0 from "../assets/images/chanel-2.png";
 import vidImg1 from "../assets/images/video2-1.png";
 
 export default function Home() {
+  const [publicChatPerson, setPublicChatPerson] = useState([]);
+  const [someVideoList, setSomeVideoList] = useState([]);
+  const [contactInPerson, setContactInPerson] = useState([]);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const [
+          publicChatPersonResponse,
+          someVideoListResponse,
+          contactInPersonResponse,
+        ] = await Promise.all([
+          axios.get("/home/public%chat%list"),
+          axios.get("/home/all%video%list"),
+          axios.get("/home/contact%in%person"),
+        ]);
+        setPublicChatPerson(publicChatPersonResponse.data);
+        setSomeVideoList(someVideoListResponse.data);
+        setContactInPerson(contactInPersonResponse.data);
+      } catch (error) {
+        console.error("Error fetching data:", error);
+      }
+    };
+
+    fetchData();
+  }, []);
+
   return (
     <>
       <NavBarTwo />
@@ -239,6 +267,67 @@ export default function Home() {
                 <div className="cb-content videolist">
                   <div className="row">
                     {/* chater list */}
+                    <ul>
+                      {publicChatPerson.map((seller) => {
+                        <li key={seller._id}>
+                          <div className="col-lg-3 col-sm-6 videoitem">
+                            <div className="b-video">
+                              <div className="v-img">
+                                <a href="single-video-tabs.html">
+                                  <img
+                                    className="chaters-img"
+                                    src={seller.image}
+                                    alt=""
+                                  />
+                                  <i className="v-online">
+                                    <FontAwesomeIcon icon={faCircleDot} />
+                                    offline
+                                  </i>
+                                </a>
+                              </div>
+                              <div className="v-desc">
+                                <button
+                                  type="submit"
+                                  className="btn btn-primary bg-success call-btn"
+                                >
+                                  Call
+                                </button>
+                              </div>
+                              <div className="v-desc">
+                                <a href="single-video-tabs.html">
+                                  <span className="username-for-call">
+                                    User Name:
+                                  </span>{" "}
+                                  {seller.nickName}
+                                </a>
+                              </div>
+                              <div className="v-views">
+                                <FontAwesomeIcon
+                                  className="call-card-icon"
+                                  icon={faPhone}
+                                />
+                                {seller.NoOfContact} CALLS <br />
+                                <i className="price-for-call">
+                                  <FontAwesomeIcon
+                                    className="call-card-icon"
+                                    icon={faDollarSign}
+                                  />
+                                  <span>PRICE: </span>
+                                  {seller.price}/M
+                                </i>
+                                <div className="call-reating">
+                                  <FontAwesomeIcon icon={faStar} />
+                                  <FontAwesomeIcon icon={faStar} />
+                                  <FontAwesomeIcon icon={faStar} />
+                                  <FontAwesomeIcon icon={faStar} />
+                                  <FontAwesomeIcon icon={faStar} />
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </li>;
+                      })}
+                    </ul>
                     <div className="col-lg-3 col-sm-6 videoitem">
                       <div className="b-video">
                         <div className="v-img">

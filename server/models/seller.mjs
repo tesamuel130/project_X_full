@@ -10,6 +10,9 @@ const sellerSchema = new Schema({
     type: String,
     required: true,
   },
+  price: {
+    type: Number,
+  },
   personDetail: [
     {
       age: {
@@ -58,6 +61,9 @@ const sellerSchema = new Schema({
   },
   socketId: {
     type: String,
+  },
+  NoOfContact: {
+    type: Number,
   },
 });
 
