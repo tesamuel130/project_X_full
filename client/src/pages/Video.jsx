@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import axios from "axios";
 
 //import a navbar
 import NavBarTwo from "../components/NavBarTwo";
@@ -12,6 +13,33 @@ import { faArrowRight, faArrowLeft } from "@fortawesome/free-solid-svg-icons";
 import vidImg1 from "../assets/images/video2-1.png";
 
 export default function Videos() {
+  const [publicChatPerson, setPublicChatPerson] = useState([]);
+  const [someVideoList, setSomeVideoList] = useState([]);
+  const [contactInPerson, setContactInPerson] = useState([]);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const [
+          publicChatPersonResponse,
+          someVideoListResponse,
+          contactInPersonResponse,
+        ] = await Promise.all([
+          axios.get("/home/public%chat%list"),
+          axios.get("/home/all%video%list"),
+          axios.get("/home/contact%in%person"),
+        ]);
+        setPublicChatPerson(publicChatPersonResponse.data);
+        setSomeVideoList(someVideoListResponse.data);
+        setContactInPerson(contactInPersonResponse.data);
+      } catch (error) {
+        console.error("Error fetching data:", error);
+      }
+    };
+
+    fetchData();
+  }, []);
+
   return (
     <>
       <NavBarTwo />
@@ -159,6 +187,34 @@ export default function Videos() {
                 <div className="cb-content videolist">
                   <div className="row">
                     {/* video list */}
+                    <ul>
+                      {someVideoList.map((video) => {
+                        <li key={video._id}>
+                          <div className="col-lg-3 col-sm-6 videoitem">
+                            <div className="b-video">
+                              <div className="v-img">
+                                <a href="single-video-tabs.html">
+                                  <img src={video.thumbnail} alt="" />
+                                </a>
+                                <div className="time">{video.videoMin}</div>
+                              </div>
+                              <div className="v-desc">
+                                <a href="single-video-tabs.html">
+                                  {video.name}
+                                </a>
+                              </div>
+                              <div className="v-views">
+                                {video.views} views.{" "}
+                                <span className="v-percent">
+                                  <span className="v-circle"></span> 78%
+                                </span>
+                              </div>
+                            </div>
+                          </div>
+                        </li>;
+                      })}
+                    </ul>
+
                     <div className="col-lg-3 col-sm-6 videoitem">
                       <div className="b-video">
                         <div className="v-img">
