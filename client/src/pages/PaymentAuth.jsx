@@ -12,23 +12,38 @@ import vidImg0 from "../assets/images/chanel-2.png";
 
 export default function () {
   const { id } = useParams();
+  const history = useHistory();
   const [seller, setSeller] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    axios
-      .get(`/chat/public/chatseller/paymentauth/${id}`)
-      .then((response) => {
+    const fetchData = async () => {
+      const token = localStorage.getItem("token");
+
+      if (!token) {
+        history.push("/signin");
+        return;
+      }
+
+      try {
+        const response = await axios.get(
+          `/chat/public/chatseller/paymentauth/${id}`,
+          {
+            headers: { Authorization: `Bearer ${token}` },
+          }
+        );
         setSeller(response.data);
-        setLoading(false);
-      })
-      .catch((error) => {
+      } catch (error) {
         console.error("Error fetching seller details:", error);
         setError(error);
+      } finally {
         setLoading(false);
-      });
-  }, [id]);
+      }
+    };
+
+    fetchData();
+  }, [id, history]);
 
   if (loading) {
     return <div>Loading...</div>;

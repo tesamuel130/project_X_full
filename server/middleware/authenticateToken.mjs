@@ -1,8 +1,11 @@
 import jwt from "jsonwebtoken";
 
-export const authenticateToken = (req, res, next) => {
+const JWT_SECRET = "your_jwt_secret"; // Replace with your actual secret
+
+const authenticateToken = (req, res, next) => {
   const authHeader = req.headers["authorization"];
   const token = authHeader && authHeader.split(" ")[1];
+
   if (!token) {
     return res.sendStatus(401); // Unauthorized if no token provided
   }
@@ -15,3 +18,5 @@ export const authenticateToken = (req, res, next) => {
     next(); // Proceed to next middleware or route handler
   });
 };
+
+export default authenticateToken;
