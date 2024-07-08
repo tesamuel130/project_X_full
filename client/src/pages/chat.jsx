@@ -170,7 +170,7 @@ export default function Chat() {
                       })}
                     </ul>
 
-                    <Link to={`/chat/public/chatseller/paymentauth/${1212}`}>
+                    <Link to={`/chat/paymentauth/${1212}`}>
                       <div className="col-lg-3 col-sm-6 videoitem">
                         <div className="b-video">
                           <div className="v-img">

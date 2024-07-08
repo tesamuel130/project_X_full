@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 import axios from "axios";
 
@@ -12,7 +12,7 @@ import vidImg0 from "../assets/images/chanel-2.png";
 
 export default function () {
   const { id } = useParams();
-  const history = useHistory();
+  const navigate = useNavigate();
   const [seller, setSeller] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -22,7 +22,7 @@ export default function () {
       const token = localStorage.getItem("token");
 
       if (!token) {
-        history.push("/signin");
+        navigate("/login");
         return;
       }
 
@@ -43,7 +43,7 @@ export default function () {
     };
 
     fetchData();
-  }, [id, history]);
+  }, [id, navigate]);
 
   if (loading) {
     return <div>Loading...</div>;
