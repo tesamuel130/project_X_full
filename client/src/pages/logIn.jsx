@@ -37,6 +37,7 @@ export default function Login() {
         toast.error(data.error);
       } else {
         setData({});
+        localStorage.setItem("token", res.data.token);
         navigate("/");
       }
     } catch (error) {}

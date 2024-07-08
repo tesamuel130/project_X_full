@@ -30,7 +30,7 @@ export default function () {
         const response = await axios.get(
           `/chat/public/chatseller/paymentauth/${id}`,
           {
-            headers: { Authorization: `Bearer ${token}` },
+            headers: { "access-token": localStorage.getItem("token") },
           }
         );
         setSeller(response.data);

@@ -3,8 +3,8 @@ import jwt from "jsonwebtoken";
 const JWT_SECRET = process.env.JWT_SECRET; // Replace with your actual secret
 
 const authenticateToken = (req, res, next) => {
-  const authHeader = req.headers["authorization"];
-  const token = authHeader && authHeader.split(" ")[1];
+  const token = req.headers["access-token"];
+  const authHeader = authHeader && authHeader.split(" ")[1];
 
   if (!token) {
     return res.sendStatus(401); // Unauthorized if no token provided
@@ -14,7 +14,7 @@ const authenticateToken = (req, res, next) => {
     if (err) {
       return res.sendStatus(403); // Forbidden if token is invalid
     }
-    req.user = user;
+    req.userId = user.id;
     next(); // Proceed to next middleware or route handler
   });
 };
