@@ -8,6 +8,25 @@ const userSchema = new Schema({
     unique: true,
   },
   password: String,
+  transaction: [
+    {
+      accountUserName: {
+        type: String,
+      },
+      accountNumber: {
+        type: String,
+      },
+      currency: {
+        type: String,
+      },
+      amount: {
+        type: Number,
+      },
+      paymentMethod: {
+        type: String,
+      },
+    },
+  ],
 });
 
 const User = mongoose.model("User", userSchema);
