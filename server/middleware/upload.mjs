@@ -1,7 +1,7 @@
 import path from "path";
 import multer from "multer";
 
-var store = multer.diskStorage({
+const storeage = multer.diskStorage({
   destination: (req, file, cb) => {
     cb(null, "uploads/");
   },
@@ -11,7 +11,7 @@ var store = multer.diskStorage({
   },
 });
 
-var upload = multer({
+const upload = multer({
   storage: store,
   fileFilter: (req, file, callback) => {
     if (
