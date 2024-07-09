@@ -26,6 +26,19 @@ const videoSchema = new Schema({
   views: {
     type: Number,
   },
+  video: [
+    {
+      filename: {
+        type: String
+      },
+      path: {
+        type: String
+      },
+      mimetype: {
+        type: String
+      }
+    }
+  ]
 });
 
 const Video = mongoose.model("Video", videoSchema);
