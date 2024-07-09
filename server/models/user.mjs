@@ -27,6 +27,19 @@ const userSchema = new Schema({
       },
     },
   ],
+  recietImage: [
+    {
+      filename: {
+        type: String,
+      },
+      path: {
+        type: String,
+      },
+      mimetype: {
+        type: String,
+      },
+    },
+  ],
 });
 
 const User = mongoose.model("User", userSchema);
