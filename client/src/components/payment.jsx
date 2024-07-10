@@ -17,11 +17,16 @@ export default function Payment() {
     paymentMethod: "",
   });
   const [user, setUser] = useState(null);
+  const [currencies, setCurrencies] = useState([]);
+  const [paymentMethods, setPaymentMethods] = useState([]);
+  const [chatMin, setChatMin] = useState("");
 
   useEffect(() => {
     if (userId) {
       featchUser(userId);
     }
+    fetchCurrencies();
+    fetchPaymentMethods();
   }, [userId]);
 
   const fetchUser = async (id) => {
@@ -30,6 +35,24 @@ export default function Payment() {
       setUser(res.data);
     } catch (error) {
       console.error("Error fetching user:", error);
+    }
+  };
+
+  const fetchCurrencies = async () => {
+    try {
+      const res = await axios.get("http://localhost:5000/currencies");
+      setCurrencies(res.data);
+    } catch (error) {
+      console.error("Error fetching currencies:", error);
+    }
+  };
+
+  const fetchPaymentMethods = async () => {
+    try {
+      const res = await axios.get("http://localhost:5000/payment-options");
+      setPaymentMethods(res.data);
+    } catch (error) {
+      console.error("Error fetching payment methods:", error);
     }
   };
 
@@ -81,6 +104,13 @@ export default function Payment() {
     }
   };
 
+  const handleChatMinChange = (e) => {
+    const value = e.target.value;
+    setChatMin(value);
+    const calculatedAmount = value * 5; // Example calculation, adjust as necessary
+    setNewTransaction((prev) => ({ ...prev, amount: calculatedAmount }));
+  };
+
   return (
     <div className="pay-form-cont">
       <form action="post" className="pay-form" onSubmit={handleFileUpload}>
@@ -92,6 +122,7 @@ export default function Payment() {
             value={newTransaction.accountUserName}
             onChange={handleTransactionChange}
             placeholder="please enter your account user name..."
+            required
           />
         </div>
         <div className="form-out-input">
@@ -106,16 +137,24 @@ export default function Payment() {
         </div>
 
         <div className="amount-input">
-          <select name="paymentOption" id="">
-            <option value="selectPaymentCurrency">Currency</option>
-            <option value="ETB">ETB</option>
-            <option value="USD">USD</option>
-            <option value="CAD">CAD</option>
-            <option value="BTC">BTC</option>
+          <select name="currency" value={newTransaction.currency}>
+            <option value="">Currency</option>
+            {currencies.map((currency) => (
+              <option key={currency} value={currency}>
+                {currency}
+              </option>
+            ))}
           </select>
           <div className="input-min">
             <label htmlFor="chatMin">Input Chat/Min</label>
-            <input type="text" placeholder="Minimum 5M" />
+            <input
+              type="number"
+              name="chatMin"
+              value={chatMin}
+              onChange={handleChatMinChange}
+              placeholder="Minimum 5M"
+              required
+            />
           </div>
           <div className="total-amount">
             <label htmlFor="name">Total Amount</label>
@@ -125,20 +164,26 @@ export default function Payment() {
               value={newTransaction.amount}
               onChange={handleTransactionChange}
               placeholder="999"
+              readOnly
+              required
             />
           </div>
         </div>
 
         <div className="payment-method">
-          <select name="payment" id="">
+          <select
+            name="paymentMethod"
+            value={newTransaction.paymentMethod}
+            onChange={handleTransactionChange}
+            required
+          >
             <option value="">Payment Method</option>
             <option value="CBE">CBE</option>
-            <option value="BOA">BOA</option>
-            <option value="COOP">COOP</option>
-            <option value="telebirr">TeleBirr</option>
-            <option value="AWASH">AWASH</option>
-            <option value="BINANCE">BINANCE</option>
-            <option value="paypal">PAYPAL</option>
+            {paymentMethods.map((method) => (
+              <option key={method} value={method}>
+                {method}
+              </option>
+            ))}
           </select>
           <div className="account-numb">
             <input type="text" placeholder="name" />

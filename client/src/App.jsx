@@ -17,6 +17,7 @@ import PaymentAuth from "./pages/PaymentAuth";
 //trying search
 import TrySearch from "./components/TrySearch";
 import TableSearch from "./components/TableSearch";
+import Payment from "./components/payment";
 import ClientCall from "./pages/ClientCall";
 
 axios.defaults.baseURL = "http://localhost:1081";
@@ -37,7 +38,7 @@ function App() {
         <Route path="/chat/paymentauth/:id" element={<PaymentAuth />} />
 
         {/* try to see the paymentauth style */}
-        <Route path="/chat/paymentauth" element={<PaymentAuth />} />
+        <Route path="/chat/paymentauth" element={<Payment />} />
 
         {/* try searching page */}
         <Route path="/trysearch" element={<TrySearch />} />
