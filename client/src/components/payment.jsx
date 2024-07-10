@@ -1,7 +1,5 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-
-//import fontawsome
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCopy } from "@fortawesome/free-solid-svg-icons";
 
@@ -23,7 +21,7 @@ export default function Payment() {
 
   useEffect(() => {
     if (userId) {
-      featchUser(userId);
+      fetchUser(userId);
     }
     fetchCurrencies();
     fetchPaymentMethods();
@@ -40,7 +38,9 @@ export default function Payment() {
 
   const fetchCurrencies = async () => {
     try {
-      const res = await axios.get("http://localhost:5000/currencies");
+      const res = await axios.get(
+        "/chat/public/chatseller/paymentauth/currency-options"
+      );
       setCurrencies(res.data);
     } catch (error) {
       console.error("Error fetching currencies:", error);
@@ -49,7 +49,9 @@ export default function Payment() {
 
   const fetchPaymentMethods = async () => {
     try {
-      const res = await axios.get("http://localhost:5000/payment-options");
+      const res = await axios.get(
+        "/chat/public/chatseller/paymentauth/payment-options"
+      );
       setPaymentMethods(res.data);
     } catch (error) {
       console.error("Error fetching payment methods:", error);
@@ -121,23 +123,29 @@ export default function Payment() {
             name="accountUserName"
             value={newTransaction.accountUserName}
             onChange={handleTransactionChange}
-            placeholder="please enter your account user name..."
+            placeholder="Please enter your account user name..."
             required
           />
         </div>
         <div className="form-out-input">
-          <label htmlFor="name">Account</label>
+          <label htmlFor="accountNumber">Account</label>
           <input
             type="text"
             name="accountNumber"
             value={newTransaction.accountNumber}
             onChange={handleTransactionChange}
-            placeholder="pleace enter your account No."
+            placeholder="Please enter your account number"
+            required
           />
         </div>
 
         <div className="amount-input">
-          <select name="currency" value={newTransaction.currency}>
+          <select
+            name="currency"
+            value={newTransaction.currency}
+            onChange={handleTransactionChange}
+            required
+          >
             <option value="">Currency</option>
             {currencies.map((currency) => (
               <option key={currency} value={currency}>
@@ -157,7 +165,7 @@ export default function Payment() {
             />
           </div>
           <div className="total-amount">
-            <label htmlFor="name">Total Amount</label>
+            <label htmlFor="amount">Total Amount</label>
             <input
               type="number"
               name="amount"
@@ -178,7 +186,6 @@ export default function Payment() {
             required
           >
             <option value="">Payment Method</option>
-            <option value="CBE">CBE</option>
             {paymentMethods.map((method) => (
               <option key={method} value={method}>
                 {method}
@@ -192,7 +199,7 @@ export default function Payment() {
           </div>
         </div>
         <div className="form-out-input">
-          <label htmlFor="img">Recite</label>
+          <label htmlFor="img">Receipt</label>
           <input
             type="file"
             multiple

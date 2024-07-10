@@ -27,3 +27,25 @@ export const paymentStatusSender = async (req, res) => {
     res.status(500).json({ error: "Error saving file" });
   }
 };
+
+//get payment options function
+export const paymentOptions = async (req, res) => {
+  try {
+    const paymentOptions = ["cbe", "boa", "coop"];
+    res.status(200).json(paymentOptions);
+  } catch (error) {
+    console.error("Error fetching payment options:", error);
+    res.status(500).json({ error: "Error fetching payment options" });
+  }
+};
+
+//get currency options function
+export const currencyOptions = async (req, res) => {
+  try {
+    const currencies = ["etb", "usd", "cad"];
+    res.status(200).json(currencies);
+  } catch (error) {
+    console.error("Error fetching currencies:", error);
+    res.status(500).json({ error: "Error fetching currencies" });
+  }
+};

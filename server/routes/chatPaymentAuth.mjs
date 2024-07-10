@@ -3,7 +3,11 @@ import cors from "cors";
 import authenticateToken from "../middleware/authenticateToken.mjs";
 import { getOneSellerDetail } from "../controllers/sellerControllers.mjs";
 import upload from "../middleware/upload.mjs";
-import { paymentStatusSender } from "../controllers/paymentControllers.mjs";
+import {
+  paymentStatusSender,
+  paymentOptions,
+  currencyOptions,
+} from "../controllers/paymentControllers.mjs";
 
 const router = Router();
 
@@ -20,6 +24,18 @@ router.get(
   "/chat/public/chatseller/paymentauth/:id",
   authenticateToken,
   getOneSellerDetail
+);
+
+//get the payment options
+router.get(
+  "/chat/public/chatseller/paymentauth/payment-options",
+  paymentOptions
+);
+
+//get the currency options
+router.get(
+  "/chat/public/chatseller/paymentauth/currency-options",
+  paymentOptions
 );
 
 router.post(
