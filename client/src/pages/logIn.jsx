@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { useState } from "react";
 import axios from "axios";
+import Cookies from "js-cookie";
 import { toast } from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
 
@@ -37,7 +38,9 @@ export default function Login() {
         toast.error(data.error);
       } else {
         setData({});
-        localStorage.setItem("token", res.data.token);
+        //set cookies
+        Cookies.set("token", res.data.token, { expires: 1 });
+        toast.success("User login successfully");
         navigate("/");
       }
     } catch (error) {}
