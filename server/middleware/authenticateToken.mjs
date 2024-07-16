@@ -1,7 +1,6 @@
 import jwt from "jsonwebtoken";
-import User from "../models/user.mjs";
 
-const JWT_SECRET = process.env.JWT_SECRET; // Replace with your actual secret
+const JWT_SECRET = process.env.JWT_SECRET;
 
 const authenticateToken = (req, res, next) => {
   const token = req.cookies.token;
