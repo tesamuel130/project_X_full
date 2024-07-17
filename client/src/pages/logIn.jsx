@@ -19,14 +19,11 @@ import "../assets/bootstrap/js/bootstrap.min.js";
 
 export default function Login() {
   const navigate = useNavigate();
-  const [data, setData] = useState({
-    email: "",
-    password: "",
-  });
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
 
   const loginUser = async (e) => {
     e.preventDefault();
-    const { email, password } = data;
     try {
       const { data } = await axios.post("/login", {
         email,
@@ -37,11 +34,13 @@ export default function Login() {
       if (data.error) {
         toast.error(data.error);
       } else {
-        setData({});
-        //set cookies
-        Cookies.set("token", res.data.token, { expires: 1 });
         toast.success("User login successfully");
         navigate("/");
+
+        setEmail("");
+        setPassword("");
+        //set cookies
+        Cookies.set("token", res.data.token, { expires: 1 });
       }
     } catch (error) {}
   };
@@ -76,10 +75,8 @@ export default function Login() {
                   <label htmlFor="exampleInputEmail1">Email</label>
                   <input
                     type="email"
-                    value={data.email}
-                    onChange={(e) =>
-                      setData({ ...data, email: e.target.value })
-                    }
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
                     className="form-control"
                     id="exampleInputEmail1"
                     placeholder="sample@gmail.com"
@@ -89,10 +86,8 @@ export default function Login() {
                   <label htmlFor="exampleInputPassword1">Password</label>
                   <input
                     type="password"
-                    value={data.password}
-                    onChange={(e) =>
-                      setData({ ...data, password: e.target.value })
-                    }
+                    value={password}
+                    onChange={(e) => setPassword(e.target.value)}
                     className="form-control"
                     id="exampleInputPassword1"
                     placeholder="**********"

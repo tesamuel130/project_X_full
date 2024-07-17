@@ -1,4 +1,4 @@
-import mongoose from "mongoose";
+import mongoose, { isObjectIdOrHexString, isValidObjectId } from "mongoose";
 const Schema = mongoose.Schema;
 
 const userSchema = new Schema(
