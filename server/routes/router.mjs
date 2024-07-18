@@ -11,10 +11,13 @@ router.use(
   })
 );
 
+//auth router for signin, signup and logout endpoint
 import authRout from "./authRout.mjs";
 import userProfile from "./userProfile.mjs";
+import logoutHandler from "./logOurEndpointRout.mjs";
 router.use("/", authRout);
 router.use("/", userProfile);
+router.use("/", logoutHandler);
 
 //home router pages
 import homeRout from "./home.mjs";
