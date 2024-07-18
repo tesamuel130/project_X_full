@@ -28,10 +28,26 @@ import {
 import logoimg from "../assets/images/lingChatLogoOnly.png";
 
 export default function Navbartr() {
+  const navigate = useNavigate();
   const mobileNavMenuRef = useRef();
 
   const showNavList = () => {
     mobileNavMenuRef.current.classList.toggle("mobile-menu");
+  };
+
+  const handleLogout = async () => {
+    try {
+      await axios.post("/logout");
+      toast.success("LogOuted");
+
+      // Remove token from cookies
+      Cookies.remove("token");
+
+      // Redirect to login page
+      navigate.push("/login");
+    } catch (error) {
+      console.error("Error logging out:", error);
+    }
   };
 
   return (
@@ -87,10 +103,10 @@ export default function Navbartr() {
                           <Link to="/help">Help</Link>
                         </li>
                         <li>
-                          <Link to="/register">Sign Up</Link>
+                          <Link to="/login">Sign In</Link>
                         </li>
                         <li>
-                          <Link to="/login">Sign In</Link>
+                          <Link onClick={handleLogout}>LogOut</Link>
                         </li>
                       </ul>
                     </li>
@@ -232,7 +248,7 @@ export default function Navbartr() {
               </li>
             </ul>
           </div>
-          <Link link="/#" className="btn mobile-menu-logout">
+          <Link onClick={handleLogout} className="btn mobile-menu-logout">
             Log out
           </Link>
         </div>
