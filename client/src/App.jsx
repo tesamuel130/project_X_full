@@ -29,9 +29,12 @@ function App() {
       <Navbartr />
       <Toaster position="top-right" toastOptions={{ duration: 3000 }} />
       <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/register" element={<SignUp />} />
         <Route path="/login" element={<Login />} />
+        <Route path="/register" element={<SignUp />} />
+        <Route path="/forgot-password" element={<ForgotPassword />} />
+        <Route path="/reset-password/:token" element={<RecetPassword />} />
+
+        <Route path="/" element={<Home />} />
         <Route path="/dashbord" element={<Dashbord />} />
         <Route path="/video" element={<Videos />} />
         <Route path="/chat" element={<Chat />} />
