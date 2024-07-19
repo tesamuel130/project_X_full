@@ -22,11 +22,16 @@ export default function SignUp() {
     name: "",
     email: "",
     password: "",
+    confirmPassword: "",
   });
 
   const registerUser = async (e) => {
     e.preventDefault();
     const { name, email, password } = data;
+    if (data.password !== data.confirmPassword) {
+      toast.error("Passwords do not match");
+      return;
+    }
     try {
       const { data } = await axios.post("/register", {
         name,
@@ -115,6 +120,10 @@ export default function SignUp() {
                   </label>
                   <input
                     type="password"
+                    value={data.confirmPassword}
+                    onChange={(e) =>
+                      setData({ ...data, confirmPassword: e.target.value })
+                    }
                     className="form-control"
                     id="exampleInputPassword2"
                     placeholder="**********"
