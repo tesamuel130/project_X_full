@@ -9,6 +9,8 @@ const userSchema = new Schema(
       unique: true,
     },
     password: String,
+    resetToken: String,
+    resetTokenExpiration: Date,
     transaction: [
       {
         accountUserName: {

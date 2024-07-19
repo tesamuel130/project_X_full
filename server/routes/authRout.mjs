@@ -20,4 +20,12 @@ router.get("/", test);
 router.post("/register", registerCustomer);
 router.post("/login", loginUser);
 
+//forget password
+import {
+  forgetPassword,
+  resetPassword,
+} from "../controller/forgetPassController.mjs";
+router.post("/user/forgetpassword", forgetPassword);
+router.post("/user/reset-password/:token", resetPassword);
+
 export default router;
