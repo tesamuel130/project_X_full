@@ -120,13 +120,13 @@ export default function Login() {
                 </div>
                 <div className="row hidden-xs">
                   <div className="col-lg-12 forgottext">
-                    <Link href="#">Forgot Username or Password?</Link>
+                    <Link to={"/forgot-password"}>Forgot Password?</Link>
                   </div>
                 </div>
                 <div className="row visible-xs">
                   <div className="col-xs-6">
                     <div className="forgottext">
-                      <Link href="#">Forgot Password?</Link>
+                      <Link to={"/forgot-password"}>Forgot Password?</Link>
                     </div>
                   </div>
                   <div className="col-xs-6">
