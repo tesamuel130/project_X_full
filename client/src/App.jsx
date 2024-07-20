@@ -10,6 +10,8 @@ import Navbartr from "./components/Navbartr";
 import Home from "./pages/Home";
 import Login from "./pages/Login";
 import SignUp from "./pages/SignUp";
+import ForgotPassword from "./pages/ForgotPassword";
+import RecetPassword from "./pages/RecetPassword";
 import Videos from "./pages/Video";
 import Chat from "./pages/Chat";
 import PaymentAuth from "./pages/PaymentAuth";
@@ -31,8 +33,8 @@ function App() {
       <Routes>
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<SignUp />} />
-        {/* <Route path="/forgot-password" element={<ForgotPassword />} /> */}
-        {/* <Route path="/reset-password/:token" element={<RecetPassword />} /> */}
+        <Route path="/forgot-password" element={<ForgotPassword />} />
+        <Route path="/reset-password/:token" element={<RecetPassword />} />
 
         <Route path="/" element={<Home />} />
         <Route path="/dashbord" element={<Dashbord />} />

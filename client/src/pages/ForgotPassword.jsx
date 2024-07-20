@@ -7,8 +7,8 @@ import { toast } from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
 
 //import the components
-import Footer from "../includes/Footer";
-import Navbar from "../includes/Navbar";
+import Footer from "../components/footer";
+import Navbartr from "../components/Navbartr";
 
 export default function ForgotPassword() {
   const [email, setEmail] = useState("");
@@ -25,7 +25,7 @@ export default function ForgotPassword() {
 
   return (
     <div className="container-fluid bg-image">
-      <Navbar />
+      <Navbartr />
       <div className="row">
         <div className="login-wraper">
           <div className="hidden-xs">

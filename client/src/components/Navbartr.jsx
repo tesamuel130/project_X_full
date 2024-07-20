@@ -46,7 +46,7 @@ export default function Navbartr() {
       Cookies.remove("token");
 
       // Redirect to login page
-      navigate.push("/login");
+      navigate("/login");
     } catch (error) {
       console.error("Error logging out:", error);
     }

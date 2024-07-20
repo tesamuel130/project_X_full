@@ -4,9 +4,9 @@ import axios from "axios";
 import Cookies from "js-cookie";
 import { toast } from "react-hot-toast";
 
-//add some components
-import Footer from "../includes/Footer";
-import Navbar from "../includes/Navbar";
+//import the components
+import Footer from "../components/footer";
+import Navbartr from "../components/Navbartr";
 
 export default function RecetPassword() {
   const { token } = useParams();
@@ -33,7 +33,7 @@ export default function RecetPassword() {
 
   return (
     <div className="container-fluid bg-image">
-      <Navbar />
+      <Navbartr />
       <div className="row">
         <div className="login-wraper">
           <div className="hidden-xs">
