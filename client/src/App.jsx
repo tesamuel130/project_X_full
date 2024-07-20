@@ -1,7 +1,7 @@
 import "./App.css";
 import React from "react";
 import { Routes, Route, Link } from "react-router-dom";
-import NavBar from "../src/components/NavBar";
+// import NavBar from "../src/components/NavBar";
 import axios from "axios";
 import { Toaster } from "react-hot-toast";
 import { UserContextProvider } from "../context/userContext";
@@ -31,8 +31,8 @@ function App() {
       <Routes>
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<SignUp />} />
-        <Route path="/forgot-password" element={<ForgotPassword />} />
-        <Route path="/reset-password/:token" element={<RecetPassword />} />
+        {/* <Route path="/forgot-password" element={<ForgotPassword />} /> */}
+        {/* <Route path="/reset-password/:token" element={<RecetPassword />} /> */}
 
         <Route path="/" element={<Home />} />
         <Route path="/dashbord" element={<Dashbord />} />

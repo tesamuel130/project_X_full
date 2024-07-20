@@ -3,7 +3,7 @@ import User from "../models/user.mjs";
 import bycrypt from "bcrypt";
 import crypto from "crypto";
 import nodemailer from "nodemailer";
-import { hashPassword, comparePassword } from "../helper/auth.mjs";
+import { hashPassword, comparePassword } from "../helpers/auth.mjs";
 import jwt from "jsonwebtoken";
 import dotenv from "dotenv";
 

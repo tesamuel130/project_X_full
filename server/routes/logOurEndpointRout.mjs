@@ -1,6 +1,6 @@
 import { Router } from "express";
 import cors from "cors";
-import { logOutHandler } from "../controller/logOutController.mjs";
+import { logOutHandler } from "../controllers/logOutController.mjs";
 
 const router = Router();
 

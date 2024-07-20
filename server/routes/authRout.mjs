@@ -24,7 +24,7 @@ router.post("/login", loginUser);
 import {
   forgetPassword,
   resetPassword,
-} from "../controller/forgetPassController.mjs";
+} from "../controllers/forgetPassController.mjs";
 router.post("/user/forgetpassword", forgetPassword);
 router.post("/user/reset-password/:token", resetPassword);
 
