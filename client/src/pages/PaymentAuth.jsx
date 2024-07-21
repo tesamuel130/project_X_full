@@ -79,7 +79,7 @@ export default function () {
                     <h3 className="person-discription-header">Discription</h3>
                     <div className="person-discription-detail">
                       <ul>
-                        {seller.personDetail.map((details, index) => (
+                        {seller.sellerDetail.map((details, index) => (
                           <li key={index}>
                             <p>faceCollor: {details.bodyColor}</p>
                             <p>bodyType: {details.bodyType}</p>
