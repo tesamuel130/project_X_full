@@ -12,7 +12,7 @@ import {
   faCameraRotate,
 } from "@fortawesome/free-solid-svg-icons";
 
-const socket = io("http://localhost:1081", {
+const socket = io("http://localhost:6020", {
   autoConnect: false,
 });
 

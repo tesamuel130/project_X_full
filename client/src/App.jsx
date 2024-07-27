@@ -22,7 +22,7 @@ import TableSearch from "./components/TableSearch";
 import Payment from "./components/payment";
 import ClientCall from "./pages/ClientCall";
 
-axios.defaults.baseURL = "http://localhost:1081";
+axios.defaults.baseURL = "http://localhost:6020";
 axios.defaults.withCredentials = true;
 
 function App() {

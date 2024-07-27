@@ -33,7 +33,7 @@ export const forgetPassword = async (req, res) => {
     user.resetTokenExpiration = Date.now() + 3600000; // 1 hour
     await user.save();
 
-    const resetLink = `http://localhost:5173/reset-password/${token}`;
+    const resetLink = `http://localhost:3010/reset-password/${token}`;
     const mailOptions = {
       from: emailAdd,
       to: email,

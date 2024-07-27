@@ -13,13 +13,13 @@ import router from "./routes/router.mjs";
 dotenv.config();
 
 const app = express();
-const PORT = process.env.PORT || 1081;
+const PORT = process.env.PORT || 6020;
 
 //assign the variable used for the video call
 const server = http.createServer(app);
 const io = new SocketIoServer(server, {
   cors: {
-    origin: "http://localhost:5173/videocall",
+    origin: "http://localhost:3010/videocall",
     methods: ["GET", "POST"],
   },
 });
