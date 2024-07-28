@@ -7,6 +7,8 @@ export const test = (req, res) => {
   console.log("test is working");
 };
 
+const JWT_SECRET = process.env.JWT_SECRET;
+
 //customer register endpoint
 export const registerCustomer = async (req, res) => {
   try {
@@ -58,7 +60,7 @@ export const loginUser = async (req, res) => {
     if (match) {
       jwt.sign(
         { email: user.email, id: user._id, name: user.name },
-        process.env.JWT_SECRET,
+        JWT_SECRET,
         {},
         (err, token) => {
           if (err) throw err;

@@ -21,6 +21,7 @@ import TrySearch from "./components/TrySearch";
 import TableSearch from "./components/TableSearch";
 import Payment from "./components/payment";
 import ClientCall from "./pages/ClientCall";
+import VideoCall from "./components/videoCall";
 
 axios.defaults.baseURL = "http://localhost:6020";
 axios.defaults.withCredentials = true;
@@ -49,7 +50,8 @@ function App() {
         <Route path="/trysearch" element={<TrySearch />} />
         <Route path="/table" element={<TableSearch />} />
 
-        <Route path="/videocall" element={<ClientCall />} />
+        <Route path="/vide" element={<ClientCall />} />
+        <Route path="/videoCallto" element={<VideoCall />} />
       </Routes>
     </UserContextProvider>
   );
