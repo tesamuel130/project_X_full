@@ -110,6 +110,114 @@ export default function () {
                   >
                     Call
                   </button>
+
+                  {/* popup the call */}
+                  <div class="col-md-10 col-sm-10 col-xs-8">
+                    <div class="l-form">
+                      <div class="card">
+                        <div className="card-head">
+                          {" "}
+                          <h5 class="card-title">Calls </h5>
+                          <div id="help" class="form-text">
+                            <i className="fa fa-warning"></i> Your account is
+                            not verified !!!
+                          </div>
+                        </div>
+                        <div class="card-bod">
+                          <a
+                            href=""
+                            type="button"
+                            data-toggle="modal"
+                            data-target="#staticBackdrop"
+                            className="primer"
+                          >
+                            <i className="fa fa-trash"></i> Call Account
+                          </a>
+
+                          <div
+                            class="modal fade modal-dialog-centered modal-dialog-scrollable"
+                            id="staticBackdrop"
+                            data-bs-backdrop="static"
+                            data-bs-keyboard="false"
+                            tabindex="-1"
+                            aria-labelledby="staticBackdropLabel"
+                            aria-hidden="true"
+                          >
+                            <div class="modal-dialog">
+                              <div class="modal-content">
+                                <div class="modal-header">
+                                  <h5
+                                    class="modal-title"
+                                    id="staticBackdropLabel"
+                                  >
+                                    Incoming Call
+                                  </h5>
+                                </div>
+                                <div class="d-flex justify-content-center modal-body">
+                                  <div class="container-fluid">
+                                    <div class="d-flex justify-content-center row">
+                                      <div class="d-flex justify-content-center ">
+                                        <center>
+                                          <div className="avater">
+                                            <img
+                                              className="caller"
+                                              src="./src/assets/images/ava3.png"
+                                              alt=""
+                                            />
+                                          </div>
+                                        </center>
+                                        <br></br>
+
+                                        <center>
+                                          <h3>
+                                            <center>Abebech Gobena</center>
+                                          </h3>
+                                          <p className="small">
+                                            Lorem, ipsum dolor sit sr{" "}
+                                          </p>
+                                          <br></br>
+                                          <div class="caller-btn">
+                                            <button
+                                              id="caller-btn"
+                                              type="button"
+                                              class="btn btn-danger "
+                                              data-bs-dismiss="modal"
+                                            >
+                                              <i className="decline fa fa-close"></i>
+                                            </button>
+                                            <button
+                                              id="caller-btn"
+                                              type="button"
+                                              class="btn btn-success "
+                                            >
+                                              <i className="answer fa fa-phone"></i>
+                                            </button>
+                                          </div>
+                                        </center>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="modal-footer">
+                                  <button
+                                    type="button"
+                                    class="btn btn-secondary"
+                                    data-bs-dismiss="modal"
+                                  >
+                                    Close
+                                  </button>
+                                  <button type="button" class="btn btn-primary">
+                                    Understood
+                                  </button>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  {/* popup the call */}
                 </div>
               </div>
             </div>
