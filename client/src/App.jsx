@@ -28,6 +28,7 @@ const images = [
   "https://via.placeholder.com/800x400/0000FF/FFFFFF?text=Slide+1",
   "https://via.placeholder.com/800x400/FF0000/FFFFFF?text=Slide+2",
   "https://via.placeholder.com/800x400/00FF00/FFFFFF?text=Slide+3",
+  "./assets/images/ava10.png",
 ];
 
 axios.defaults.baseURL = "http://localhost:6020";
@@ -52,7 +53,7 @@ function App() {
 
         {/* try to see the paymentauth style */}
         <Route path="/chat/paymentauth" element={<Payment />} />
-        <Route path="/slider" element={<ImageSlider />} />
+        <Route path="/slider" element={<ImageSlider images={images} />} />
 
         {/* try searching page */}
         <Route path="/trysearch" element={<TrySearch />} />
