@@ -1,6 +1,6 @@
 import "./App.css";
 import React from "react";
-import { Routes, Route, Link } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 // import NavBar from "../src/components/NavBar";
 import axios from "axios";
 import { Toaster } from "react-hot-toast";
