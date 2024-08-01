@@ -22,6 +22,13 @@ import TableSearch from "./components/TableSearch";
 import Payment from "./components/payment";
 import ClientCall from "./pages/ClientCall";
 import VideoCall from "./components/videoCall";
+import ImageSlider from "./pages/imageSlider";
+
+const images = [
+  "https://via.placeholder.com/800x400/0000FF/FFFFFF?text=Slide+1",
+  "https://via.placeholder.com/800x400/FF0000/FFFFFF?text=Slide+2",
+  "https://via.placeholder.com/800x400/00FF00/FFFFFF?text=Slide+3",
+];
 
 axios.defaults.baseURL = "http://localhost:6020";
 axios.defaults.withCredentials = true;
@@ -45,6 +52,7 @@ function App() {
 
         {/* try to see the paymentauth style */}
         <Route path="/chat/paymentauth" element={<Payment />} />
+        <Route path="/slider" element={<ImageSlider />} />
 
         {/* try searching page */}
         <Route path="/trysearch" element={<TrySearch />} />
