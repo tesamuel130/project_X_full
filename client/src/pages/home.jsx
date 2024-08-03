@@ -509,34 +509,32 @@ export default function Home() {
                     <div>
                       {uploads.map((upload) => (
                         <div key={upload._id}>
-                          <div class="col-lg-3 col-sm-6 col-xs-12">
-                            <div class="h-video row">
-                              <div class="col-sm-12 col-xs-6">
-                                <div class="v-img">
-                                  <a href="single-video-tabs.html">
-                                    {upload.thumbnail.map((thumbnail) => (
-                                      <img
-                                        key={thumbnail.filename}
-                                        src={`http://localhost:6010/${thumbnail.path}`}
-                                        alt={thumbnail.filename}
-                                      />
-                                    ))}
-                                  </a>
-                                  <div class="time">{upload.videoMin}</div>
-                                </div>
+                          <div className="col-lg-3 col-sm-6 videoitem">
+                            <div className="b-video">
+                              <div className="v-img">
+                                <a href="single-video-tabs.html">
+                                  {upload.thumbnail.map((thumbnail) => (
+                                    <img
+                                      key={thumbnail.filename}
+                                      src={`http://localhost:6010/${thumbnail.path}`}
+                                      alt={thumbnail.filename}
+                                    />
+                                  ))}
+                                </a>
+                                <div class="time">{upload.videoMin}</div>
                               </div>
-                              <div class="col-sm-12 col-xs-6">
-                                <div class="v-desc">
-                                  <a href="single-video-tabs.html">
-                                    {upload.title}
-                                  </a>
-                                </div>
-                                <div class="v-views">{upload.views} views</div>
-                                <div class="v-percent">
-                                  <span class="v-circle"></span>{" "}
-                                  {upload.reating}%
-                                </div>
-                              </div>
+                            </div>
+                            <div class="v-desc">
+                              <a href="single-video-tabs.html">
+                                {upload.title}
+                              </a>
+                            </div>
+                            <div class="v-views">
+                              {upload.views} views
+                              <span className="v-percent">
+                                <span className="v-circle"></span>{" "}
+                                {upload.reating}%
+                              </span>
                             </div>
                           </div>
                         </div>
