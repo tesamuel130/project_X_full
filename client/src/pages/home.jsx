@@ -478,34 +478,6 @@ export default function Home() {
                 <div className="cb-content videolist">
                   <div className="row">
                     {/* video list */}
-                    <ul>
-                      {someVideoList.map((video) => {
-                        <li key={video._id}>
-                          <div className="col-lg-3 col-sm-6 videoitem">
-                            <div className="b-video">
-                              <div className="v-img">
-                                <a href="single-video-tabs.html">
-                                  <img src={video.thumbnail} alt="" />
-                                </a>
-                                <div className="time">{video.videoMin}</div>
-                              </div>
-                              <div className="v-desc">
-                                <a href="single-video-tabs.html">
-                                  {video.name}
-                                </a>
-                              </div>
-                              <div className="v-views">
-                                {video.views} views.{" "}
-                                <span className="v-percent">
-                                  <span className="v-circle"></span> 78%
-                                </span>
-                              </div>
-                            </div>
-                          </div>
-                        </li>;
-                      })}
-                    </ul>
-
                     <div>
                       {uploads.map((upload) => (
                         <div key={upload._id}>
@@ -539,72 +511,6 @@ export default function Home() {
                           </div>
                         </div>
                       ))}
-                    </div>
-
-                    <div className="col-lg-3 col-sm-6 videoitem">
-                      <div className="b-video">
-                        <div className="v-img">
-                          <a href="single-video-tabs.html">
-                            <img src={vidImg1} alt="" />
-                          </a>
-                          <div className="time">54:23</div>
-                        </div>
-                        <div className="v-desc">
-                          <a href="single-video-tabs.html">
-                            There Can Only Be One! Introducing Tanc & Hercules
-                          </a>
-                        </div>
-                        <div className="v-views">
-                          127,548 views.{" "}
-                          <span className="v-percent">
-                            <span className="v-circle"></span> 78%
-                          </span>
-                        </div>
-                      </div>
-                    </div>
-
-                    <div className="col-lg-3 col-sm-6 videoitem">
-                      <div className="b-video">
-                        <div className="v-img">
-                          <a href="single-video-tabs.html">
-                            <img src={vidImg1} alt="" />
-                          </a>
-                          <div className="time">54:23</div>
-                        </div>
-                        <div className="v-desc">
-                          <a href="single-video-tabs.html">
-                            There Can Only Be One! Introducing Tanc & Hercules
-                          </a>
-                        </div>
-                        <div className="v-views">
-                          127,548 views.{" "}
-                          <span className="v-percent">
-                            <span className="v-circle"></span> 78%
-                          </span>
-                        </div>
-                      </div>
-                    </div>
-
-                    <div className="col-lg-3 col-sm-6 videoitem">
-                      <div className="b-video">
-                        <div className="v-img">
-                          <a href="single-video-tabs.html">
-                            <img src={vidImg1} alt="" />
-                          </a>
-                          <div className="time">54:23</div>
-                        </div>
-                        <div className="v-desc">
-                          <a href="single-video-tabs.html">
-                            There Can Only Be One! Introducing Tanc & Hercules
-                          </a>
-                        </div>
-                        <div className="v-views">
-                          127,548 views.{" "}
-                          <span className="v-percent">
-                            <span className="v-circle"></span> 78%
-                          </span>
-                        </div>
-                      </div>
                     </div>
                   </div>
                   {/* see more butons for home suplay service component */}
