@@ -170,7 +170,7 @@ export default function Chat() {
                       })}
                     </ul>
 
-                    <Link to={`/chat/paymentauth/${1212}`}>
+                    {/* <Link to={`/chat/paymentauth/${1212}`}>
                       <div className="col-lg-3 col-sm-6 videoitem">
                         <div className="b-video">
                           <div className="v-img">
@@ -225,105 +225,44 @@ export default function Chat() {
                           </div>
                         </div>
                       </div>
-                    </Link>
+                    </Link> */}
 
-                    <div className="col-lg-3 col-sm-6 videoitem">
+                    <div className="col-lg-3 col-sm-11 videoitem">
                       <div className="b-video">
-                        <div className="v-img">
-                          <a href="single-video-tabs.html">
-                            <img className="chaters-img" src={vidImg0} alt="" />
-                            <i className="v-online">
-                              <FontAwesomeIcon icon={faCircleDot} />
-                              offline
-                            </i>
-                          </a>
-                        </div>
-                        <div className="v-desc">
-                          <button
-                            type="submit"
-                            className="btn btn-primary bg-success call-btn"
-                          >
-                            Call
-                          </button>
-                        </div>
-                        <div className="v-desc">
-                          <a href="single-video-tabs.html">
-                            <span className="username-for-call">
-                              User Name:
-                            </span>{" "}
-                            SMAN
-                          </a>
-                        </div>
-                        <div className="v-views">
-                          <FontAwesomeIcon
-                            className="call-card-icon"
-                            icon={faPhone}
-                          />
-                          0 CALLS <br />
-                          <i className="price-for-call">
-                            <FontAwesomeIcon
-                              className="call-card-icon"
-                              icon={faDollarSign}
-                            />
-                            <span>PRICE: </span>110/M
-                          </i>
-                          <div className="call-reating">
-                            <FontAwesomeIcon icon={faStar} />
-                            <FontAwesomeIcon icon={faStar} />
-                            <FontAwesomeIcon icon={faStar} />
-                            <FontAwesomeIcon icon={faStar} />
-                            <FontAwesomeIcon icon={faStar} />
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-
-                    <div className="col-lg-3 col-sm-6 videoitem">
-                      <div className="b-video">
-                        <div className="v-img">
-                          <a href="single-video-tabs.html">
-                            <img className="chaters-img" src={vidImg0} alt="" />
-                            <i className="v-online">
-                              <FontAwesomeIcon icon={faCircleDot} />
-                              offline
-                            </i>
-                          </a>
-                        </div>
-                        <div className="v-desc">
-                          <button
-                            type="submit"
-                            className="btn btn-primary bg-success call-btn"
-                          >
-                            Call
-                          </button>
-                        </div>
-                        <div className="v-desc">
-                          <a href="single-video-tabs.html">
-                            <span className="username-for-call">
-                              User Name:
-                            </span>{" "}
-                            SMAN
-                          </a>
-                        </div>
-                        <div className="v-views">
-                          <FontAwesomeIcon
-                            className="call-card-icon"
-                            icon={faPhone}
-                          />
-                          0 CALLS <br />
-                          <i className="price-for-call">
-                            <FontAwesomeIcon
-                              className="call-card-icon"
-                              icon={faDollarSign}
-                            />
-                            <span>PRICE: </span>110/M
-                          </i>
-                          <div className="call-reating">
-                            <FontAwesomeIcon icon={faStar} />
-                            <FontAwesomeIcon icon={faStar} />
-                            <FontAwesomeIcon icon={faStar} />
-                            <FontAwesomeIcon icon={faStar} />
-                            <FontAwesomeIcon icon={faStar} />
+                        <div class="cb-content videolist">
+                          <div class="row">
+                            <div class="col-lg-3 col-sm-6 videoitem">
+                              <div class="b-video last-row">
+                                <div class="v-img">
+                                  <a href="single-video-tabs.html">
+                                    <img src="./src/assets/images/video1-5.png" />
+                                  </a>
+                                  <div class="watched">Online</div>
+                                </div>
+                                <div class="v-desc">
+                                  <center>
+                                    <button className="btn btn-call">
+                                      <FontAwesomeIcon icon={faPhone} /> Call{" "}
+                                    </button>
+                                  </center>
+                                  <br></br>
+                                  <a href="single-video-tabs.html">
+                                    Abebech Gobena
+                                  </a>
+                                </div>
+                                <div>
+                                  Price : 100/M
+                                  <br></br>
+                                  100 <i className="fa fa-phone"> </i> Calls |
+                                  &nbsp;
+                                  <FontAwesomeIcon icon={faStar} />
+                                  <FontAwesomeIcon icon={faStar} />
+                                  <FontAwesomeIcon icon={faStar} />
+                                  <FontAwesomeIcon icon={faStar} />
+                                  <FontAwesomeIcon icon={faStar} />
+                                </div>
+                              </div>
+                            </div>
                           </div>
                         </div>
                       </div>

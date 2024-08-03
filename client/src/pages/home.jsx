@@ -6,13 +6,19 @@ import axios from "axios";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faCircleDot,
+  faContactCard,
   faDollarSign,
+  faPager,
   faPhone,
   faStar,
+  faStream,
+  faTv,
+  faVideo,
 } from "@fortawesome/free-solid-svg-icons";
 
-//import the navbar
+// Import includes componens
 import NavBarTwo from "../components/NavBarTwo";
+import Footer from "../components/footer";
 
 //import image
 import hadeHomeImg0 from "../assets/images/ava1.png";
@@ -205,13 +211,15 @@ export default function Home() {
               {/* <!-- chater component --> */}
 
               <div className="content-block head-div">
-                {/* chaters list header component */}
-                <div>
-                  <h1 className="home-components-header">Chat</h1>
-                </div>
                 <div className="cb-header">
                   <div className="row">
                     <div className="col-lg-10 col-sm-10 col-xs-8">
+                      {/* call header */}
+                      <a href="#" class="color-active">
+                        <h4 class="hidden-xs">
+                          <FontAwesomeIcon icon={faPhone} /> Calls
+                        </h4>
+                      </a>
                       <ul className="list-inline">
                         <li>
                           <a href="#" className="color-active">
@@ -331,37 +339,41 @@ export default function Home() {
                       })}
                     </ul>
 
-                    <div class="cb-content videolist">
-                      <div class="row">
-                        <div class="col-lg-3 col-sm-6 videoitem">
-                          <div class="b-video last-row">
-                            <div class="v-img">
-                              <a href="single-video-tabs.html">
-                                <img src="./src/assets/images/video1-5.png" />
-                              </a>
-                              <div class="watched">Online</div>
-                            </div>
-                            <div class="v-desc">
-                              <center>
-                                <button className="btn btn-call">
-                                  <i className="fa fa-phone"></i> Call{" "}
-                                </button>
-                              </center>
-                              <br></br>
-                              <a href="single-video-tabs.html">
-                                Abebech Gobena
-                              </a>
-                            </div>
-                            <div>
-                              Price : 100/M
-                              <br></br>
-                              100 <i className="fa fa-phone"> </i> Calls |
-                              &nbsp;
-                              <FontAwesomeIcon icon={faStar} />
-                              <FontAwesomeIcon icon={faStar} />
-                              <FontAwesomeIcon icon={faStar} />
-                              <FontAwesomeIcon icon={faStar} />
-                              <FontAwesomeIcon icon={faStar} />
+                    <div className="col-lg-3 col-sm-11 videoitem">
+                      <div className="b-video">
+                        <div class="cb-content videolist">
+                          <div class="row">
+                            <div class="col-lg-3 col-sm-6 videoitem">
+                              <div class="b-video last-row">
+                                <div class="v-img">
+                                  <a href="single-video-tabs.html">
+                                    <img src="./src/assets/images/video1-5.png" />
+                                  </a>
+                                  <div class="watched">Online</div>
+                                </div>
+                                <div class="v-desc">
+                                  <center>
+                                    <button className="btn btn-call">
+                                      <FontAwesomeIcon icon={faPhone} /> Call{" "}
+                                    </button>
+                                  </center>
+                                  <br></br>
+                                  <a href="single-video-tabs.html">
+                                    Abebech Gobena
+                                  </a>
+                                </div>
+                                <div>
+                                  Price : 100/M
+                                  <br></br>
+                                  100 <i className="fa fa-phone"> </i> Calls |
+                                  &nbsp;
+                                  <FontAwesomeIcon icon={faStar} />
+                                  <FontAwesomeIcon icon={faStar} />
+                                  <FontAwesomeIcon icon={faStar} />
+                                  <FontAwesomeIcon icon={faStar} />
+                                  <FontAwesomeIcon icon={faStar} />
+                                </div>
+                              </div>
                             </div>
                           </div>
                         </div>
@@ -371,11 +383,8 @@ export default function Home() {
                   {/* see more butons for home suplay service component */}
                   <div className="home-seeMore-button-container">
                     <Link to="/chat">
-                      <button
-                        type="submit"
-                        className="btn btn-primary bg-success"
-                      >
-                        See More
+                      <button className="btn btn-prime">
+                        <FontAwesomeIcon icon={faPager} /> See More{" "}
                       </button>
                     </Link>
                   </div>
@@ -387,12 +396,15 @@ export default function Home() {
 
               <div className="content-block head-div">
                 {/* videos list header component */}
-                <div>
-                  <h1 className="home-components-header">Videos</h1>
-                </div>
                 <div className="cb-header">
                   <div className="row">
                     <div className="col-lg-10 col-sm-10 col-xs-8">
+                      {/* video header */}
+                      <a href="#" class="color-active">
+                        <h4 class="hidden-xs">
+                          <FontAwesomeIcon icon={faVideo} /> Videos
+                        </h4>
+                      </a>
                       <ul className="list-inline">
                         <li>
                           <a href="#" className="color-active">
@@ -544,12 +556,9 @@ export default function Home() {
                   </div>
                   {/* see more butons for home suplay service component */}
                   <div className="home-seeMore-button-container">
-                    <Link to="/chat">
-                      <button
-                        type="submit"
-                        className="btn btn-primary bg-success"
-                      >
-                        See More
+                    <Link to="/video">
+                      <button className="btn btn-prime">
+                        <FontAwesomeIcon icon={faPager} /> See More{" "}
                       </button>
                     </Link>
                   </div>
@@ -560,13 +569,15 @@ export default function Home() {
               {/* <!-- live striming component --> */}
 
               <div className="content-block head-div">
-                {/* live list header component */}
-                <div>
-                  <h1 className="home-components-header">Live stream</h1>
-                </div>
                 <div className="cb-header">
                   <div className="row">
                     <div className="col-lg-10 col-sm-10 col-xs-8">
+                      {/* live stream header */}
+                      <a href="#" class="color-active">
+                        <h4 class="hidden-xs">
+                          <FontAwesomeIcon icon={faTv} /> Stream
+                        </h4>
+                      </a>
                       <ul className="list-inline">
                         <li>
                           <a href="#" className="color-active">
@@ -642,57 +653,12 @@ export default function Home() {
                         </div>
                       </div>
                     </div>
-
-                    <div className="col-lg-3 col-sm-6 videoitem">
-                      <div className="b-video">
-                        <div className="v-img">
-                          <a href="single-video-tabs.html">
-                            <img src={vidImg1} alt="" />
-                          </a>
-                        </div>
-                        <div className="v-desc">
-                          <a href="single-video-tabs.html">
-                            There Can Only Be One! Introducing Tanc & Hercules
-                          </a>
-                        </div>
-                        <div className="v-views">
-                          127,548 views.{" "}
-                          <span className="v-percent">
-                            <span className="v-circle"></span> 78%
-                          </span>
-                        </div>
-                      </div>
-                    </div>
-
-                    <div className="col-lg-3 col-sm-6 videoitem">
-                      <div className="b-video">
-                        <div className="v-img">
-                          <a href="single-video-tabs.html">
-                            <img src={vidImg1} alt="" />
-                          </a>
-                        </div>
-                        <div className="v-desc">
-                          <a href="single-video-tabs.html">
-                            There Can Only Be One! Introducing Tanc & Hercules
-                          </a>
-                        </div>
-                        <div className="v-views">
-                          127,548 views.{" "}
-                          <span className="v-percent">
-                            <span className="v-circle"></span> 78%
-                          </span>
-                        </div>
-                      </div>
-                    </div>
                   </div>
                   {/* see more butons for home suplay service component */}
                   <div className="home-seeMore-button-container">
-                    <Link to="/chat">
-                      <button
-                        type="submit"
-                        className="btn btn-primary bg-success"
-                      >
-                        See More
+                    <Link to="/video">
+                      <button className="btn btn-prime">
+                        <FontAwesomeIcon icon={faPager} /> See More{" "}
                       </button>
                     </Link>
                   </div>
@@ -703,13 +669,16 @@ export default function Home() {
               {/* <!--  Person contact --> */}
 
               <div className="content-block head-div">
-                {/* videos list header component */}
-                <div>
-                  <h1 className="home-components-header">Videos</h1>
-                </div>
                 <div className="cb-header">
                   <div className="row">
                     <div className="col-lg-10 col-sm-10 col-xs-8">
+                      {/* person contact header */}
+                      <a href="#" class="color-active">
+                        <h4 class="hidden-xs">
+                          <FontAwesomeIcon icon={faContactCard} /> Person
+                          Contact
+                        </h4>
+                      </a>
                       <ul className="list-inline">
                         <li>
                           <a href="#" className="color-active">
@@ -854,12 +823,9 @@ export default function Home() {
                   </div>
                   {/* see more butons for home suplay service component */}
                   <div className="home-seeMore-button-container">
-                    <Link to="/chat">
-                      <button
-                        type="submit"
-                        className="btn btn-primary bg-success"
-                      >
-                        See More
+                    <Link to="/video">
+                      <button className="btn btn-prime">
+                        <FontAwesomeIcon icon={faPager} /> See More{" "}
                       </button>
                     </Link>
                   </div>
@@ -867,6 +833,7 @@ export default function Home() {
               </div>
               {/* <!-- / Person contact --> */}
             </div>
+            <Footer />
           </div>
         </div>
       </div>
