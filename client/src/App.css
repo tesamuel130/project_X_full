@@ -99,3 +99,386 @@
 .prev:hover, .next:hover {
   background-color: rgba(0, 0, 0, 0.8);
 }
+
+
+/* src/components/ImageUpload.css */
+.upload-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+
+}
+.alert-text{
+  border: solid #F5C6CB 2px;
+  padding: 15px;
+  background-color: #160204;
+  font-size: smaller;
+  color: #491217;
+  border-radius: 10px;
+}
+.alert-text-gr{
+  border: solid #C3E6CB 2px;
+  padding: 15px;
+  background-color: #D4EDDA;
+  font-size: smaller;
+  color: #491217;
+  border-radius: 10px;
+}
+.gr{
+  background-color: #D4EDDA !important;
+}
+.red{
+  background-color: #F8D7DA !important;
+}
+.yl{
+  background-color: #FFF3CD !important;
+}
+.alert-text-yl{
+  border: solid #FFEEBA 2px;
+  padding: 15px;
+  background-color: #FFF3CD;
+  font-size: smaller;
+  color: #491217;
+  border-radius: 10px;
+}
+.sub{
+  font-size: small;
+  margin-left: 20px;
+}
+h2 {
+  margin-bottom: 20px;
+  font-size: 24px;
+  color: #333;
+}
+code{
+  padding: 10px;
+}
+.error-message {
+  color: red;
+  margin-bottom: 10px;
+}
+
+.upload-button {
+  background-color: #ea2c5a;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  margin: 10px;
+}
+.upload-button :hover{
+  background-color: white;
+  color: #ea2c5a;
+  padding: 10px 20px;
+  border: solid 2px #ea2c5a;
+ 
+}
+
+.previews-container {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 10px;
+  max-height: 300px;
+  overflow-y: auto;
+}
+
+.preview-image {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  border: 2px solid #ccc;
+  border-radius: 5px;
+}
+
+.preview-number{
+  width: 10px;
+  height: 10px;
+  display: flex;
+  
+  border: none;
+  border-radius: 50%;
+  background-color: #ff4b5c;
+  position: relative;
+  top: -10px;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+}
+
+.submit-button {
+  background-color: #ea2c5a;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  margin: 10px;
+}
+
+body{
+  color:#637076 !important;   
+}
+.card{
+  border:solid #eee 1px;
+  border-radius: 5px;
+  .custom-file-upload {
+      display: inline-block;
+      padding: 10px 20px;
+      cursor: pointer;
+      color: #fff;
+      background-color: #3897f0;
+      border: none;
+      border-radius: 5px;
+      font-size: 14px;
+      margin-bottom: 10px;
+    }
+  
+    .custom-file-upload i {
+      margin-right: 10px;
+    }
+  
+    #file-upload {
+      display: none;
+    }
+  
+    .preview {
+      margin-top: 10px;
+    }
+  
+    .preview img {
+      max-width: 100%;
+      max-height: 200px;
+      border-radius: 10px;
+    }
+  
+}
+.card-head{
+  background-color: #f2f2f2;
+  padding:  15px;
+}
+
+.card-bod{
+  padding:  15px;
+}
+
+#help{
+  color:#ea2c5a;
+  font-size: small;
+ 
+}
+#helpyl{
+color:#f4dd58;
+font-size: small;
+
+}
+#helpgr{
+color:#28b47e;
+font-size: small;
+
+}
+#helper{
+  color:#ea2c5a;
+  font-size: small;
+  visibility: hidden;
+ 
+}
+.btn-prime{
+  background-color: #ea2c5a;
+  color:white;
+  width:150px;
+}
+.btn-prime:hover{
+  background-color: white;
+  color:#ea2c5a;
+  border:#ea2c5a solid 1px;
+}
+a{
+  text-decoration: none !important;
+}
+
+.link{
+  border:solid 2px #aaa;
+  border-radius: 5px;
+  padding: 10px;
+  background-color: none;
+}
+.right{
+  text-align: right;
+}
+ol{
+  font-weight: bold;
+}
+.jumbotron{
+  background-color: white !important;
+  border: 2px solid #f2f2f2;
+  
+}
+.linker{
+  color:#637076 !important;
+ 
+
+}
+.noter{
+  margin: 10px;
+}
+.noti{
+  width:200%;
+  padding: 5px;
+}
+.linker:hover{
+  color:#ea2c5a !important;
+}
+.primer{
+color: #ea2c5a !important;
+}
+input[type="file"]::file-selector-button {
+  background-color: white;
+  color: #ea2c5a;
+  padding: 5px 5px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  border: #ea2c5a solid 1px;
+}
+
+.modal-dialog{
+width: 50% !important;
+}
+.caller{
+height: 100px;
+}
+#caller-btn{
+margin: 10px;
+height: 70px;
+width: 70px;
+border-radius: 50px;
+}
+.decline,.answer{
+font-size: 25px;
+}
+.btn{
+outline: none !important;
+}
+.avater{
+
+width: 15%;
+border-radius: 50px;
+box-shadow: 10px 5px 5px #aaa;
+}
+#caller-btn-reject{
+width:70%;
+height: 70px;
+border-radius: 10px;
+}
+#caller-btn-reject:hover{
+background-color: white;
+color:#ea2c5a;
+}
+.time{
+color: #28b47e !important;
+
+}
+.watched{
+color: #28b47e !important;
+
+}
+img {
+vertical-align: middle;
+}
+
+/* Position the image container (needed to position the left and right arrows) */
+.container {
+position: relative;
+}
+
+/* Hide the images by default */
+.mySlides {
+display: none;
+}
+
+/* Add a pointer when hovering over the thumbnail images */
+.cursor {
+cursor: pointer;
+}
+
+/* Next & previous buttons */
+.prev,
+.next {
+cursor: pointer;
+position: absolute;
+top: 40%;
+width: auto;
+padding: 16px;
+margin-top: -50px;
+color: white;
+font-weight: bold;
+font-size: 20px;
+border-radius: 0 3px 3px 0;
+user-select: none;
+-webkit-user-select: none;
+}
+
+/* Position the "next button" to the right */
+.next {
+right: 0;
+border-radius: 3px 0 0 3px;
+}
+
+/* On hover, add a black background color with a little bit see-through */
+.prev:hover,
+.next:hover {
+background-color: rgba(0, 0, 0, 0.8);
+}
+
+/* Number text (1/3 etc) */
+.numbertext {
+color: #f2f2f2;
+font-size: 12px;
+padding: 8px 12px;
+position: absolute;
+top: 0;
+}
+
+/* Container for image text */
+.caption-container {
+text-align: center;
+background-color: #222;
+padding: 2px 16px;
+color: white;
+}
+
+.row:after {
+content: "";
+display: table;
+clear: both;
+}
+
+/* Six columns side by side */
+.column {
+float: left;
+width: 16.66%;
+}
+
+/* Add a transparency effect for thumnbail images */
+.demo {
+opacity: 0.6;
+}
+
+.active,
+.demo:hover {
+opacity: 1;
+}
+.btn-call{
+width:100% !important;
+background-color: #ea2c5a;
+color:white;
+}
+.btn-call:hover{
+width:100% !important;
+background-color: white;
+color:#ea2c5a;
+border: #ea2c5a 1px solid;
+}
