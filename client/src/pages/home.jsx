@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import toast from "react-hot-toast";
 import axios from "axios";
 
 //import fontawsome
@@ -11,7 +12,6 @@ import {
   faPager,
   faPhone,
   faStar,
-  faStream,
   faTv,
   faVideo,
 } from "@fortawesome/free-solid-svg-icons";
@@ -43,27 +43,45 @@ export default function Home() {
   const [someVideoList, setSomeVideoList] = useState([]);
   const [contactInPerson, setContactInPerson] = useState([]);
 
+  // useEffect(() => {
+  //   const fetchData = async () => {
+  //     try {
+  //       const [
+  //         publicChatPersonResponse,
+  //         someVideoListResponse,
+  //         contactInPersonResponse,
+  //       ] = await Promise.all([
+  //         axios.get("/home/public%chat%list"),
+  //         axios.get("/home/all%video%list"),
+  //         axios.get("/home/contact%in%person"),
+  //       ]);
+  //       setPublicChatPerson(publicChatPersonResponse.data);
+  //       setSomeVideoList(someVideoListResponse.data);
+  //       setContactInPerson(contactInPersonResponse.data);
+  //     } catch (error) {
+  //       console.error("Error fetching data:", error);
+  //     }
+  //   };
+
+  //   fetchData();
+  // }, []);
+
+  const [uploads, setUploads] = useState([]);
+
   useEffect(() => {
-    const fetchData = async () => {
+    const fetchUploads = async () => {
       try {
-        const [
-          publicChatPersonResponse,
-          someVideoListResponse,
-          contactInPersonResponse,
-        ] = await Promise.all([
-          axios.get("/home/public%chat%list"),
-          axios.get("/home/all%video%list"),
-          axios.get("/home/contact%in%person"),
-        ]);
-        setPublicChatPerson(publicChatPersonResponse.data);
-        setSomeVideoList(someVideoListResponse.data);
-        setContactInPerson(contactInPersonResponse.data);
+        const response = await axios.get(
+          "http://localhost:6010/video/list/down"
+        );
+        setUploads(response.data);
       } catch (error) {
-        console.error("Error fetching data:", error);
+        console.error("Error fetching uploaded files", error);
+        // toast.erros("Error fetching uploaded files", error);
       }
     };
 
-    fetchData();
+    fetchUploads();
   }, []);
 
   return (
@@ -487,6 +505,43 @@ export default function Home() {
                         </li>;
                       })}
                     </ul>
+
+                    <div>
+                      {uploads.map((upload) => (
+                        <div key={upload._id}>
+                          <div class="col-lg-3 col-sm-6 col-xs-12">
+                            <div class="h-video row">
+                              <div class="col-sm-12 col-xs-6">
+                                <div class="v-img">
+                                  <a href="single-video-tabs.html">
+                                    {upload.thumbnail.map((thumbnail) => (
+                                      <img
+                                        key={thumbnail.filename}
+                                        src={`http://localhost:6010/${thumbnail.path}`}
+                                        alt={thumbnail.filename}
+                                      />
+                                    ))}
+                                  </a>
+                                  <div class="time">{upload.videoMin}</div>
+                                </div>
+                              </div>
+                              <div class="col-sm-12 col-xs-6">
+                                <div class="v-desc">
+                                  <a href="single-video-tabs.html">
+                                    {upload.title}
+                                  </a>
+                                </div>
+                                <div class="v-views">{upload.views} views</div>
+                                <div class="v-percent">
+                                  <span class="v-circle"></span>{" "}
+                                  {upload.reating}%
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      ))}
+                    </div>
 
                     <div className="col-lg-3 col-sm-6 videoitem">
                       <div className="b-video">
