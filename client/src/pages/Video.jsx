@@ -13,31 +13,22 @@ import { faArrowRight, faArrowLeft } from "@fortawesome/free-solid-svg-icons";
 import vidImg1 from "../assets/images/video2-1.png";
 
 export default function Videos() {
-  const [publicChatPerson, setPublicChatPerson] = useState([]);
-  const [someVideoList, setSomeVideoList] = useState([]);
-  const [contactInPerson, setContactInPerson] = useState([]);
+  const [uploads, setUploads] = useState([]);
 
   useEffect(() => {
-    const fetchData = async () => {
+    const fetchUploads = async () => {
       try {
-        const [
-          publicChatPersonResponse,
-          someVideoListResponse,
-          contactInPersonResponse,
-        ] = await Promise.all([
-          axios.get("/home/public%chat%list"),
-          axios.get("/home/all%video%list"),
-          axios.get("/home/contact%in%person"),
-        ]);
-        setPublicChatPerson(publicChatPersonResponse.data);
-        setSomeVideoList(someVideoListResponse.data);
-        setContactInPerson(contactInPersonResponse.data);
+        const response = await axios.get(
+          "http://localhost:6010/video/list/down"
+        );
+        setUploads(response.data);
       } catch (error) {
-        console.error("Error fetching data:", error);
+        console.error("Error fetching uploaded files", error);
+        // toast.erros("Error fetching uploaded files", error);
       }
     };
 
-    fetchData();
+    fetchUploads();
   }, []);
 
   return (
@@ -187,98 +178,39 @@ export default function Videos() {
                 <div className="cb-content videolist">
                   <div className="row">
                     {/* video list */}
-                    <ul>
-                      {someVideoList.map((video) => {
-                        <li key={video._id}>
+                    <div>
+                      {uploads.map((upload) => (
+                        <div key={upload._id}>
                           <div className="col-lg-3 col-sm-6 videoitem">
                             <div className="b-video">
                               <div className="v-img">
                                 <a href="single-video-tabs.html">
-                                  <img src={video.thumbnail} alt="" />
+                                  {upload.thumbnail.map((thumbnail) => (
+                                    <img
+                                      key={thumbnail.filename}
+                                      src={`http://localhost:6010/${thumbnail.path}`}
+                                      alt={thumbnail.filename}
+                                    />
+                                  ))}
                                 </a>
-                                <div className="time">{video.videoMin}</div>
-                              </div>
-                              <div className="v-desc">
-                                <a href="single-video-tabs.html">
-                                  {video.name}
-                                </a>
-                              </div>
-                              <div className="v-views">
-                                {video.views} views.{" "}
-                                <span className="v-percent">
-                                  <span className="v-circle"></span> 78%
-                                </span>
+                                <div class="time">{upload.videoMin}</div>
                               </div>
                             </div>
+                            <div class="v-desc">
+                              <a href="single-video-tabs.html">
+                                {upload.title}
+                              </a>
+                            </div>
+                            <div class="v-views">
+                              {upload.views} views
+                              <span className="v-percent">
+                                <span className="v-circle"></span>{" "}
+                                {upload.reating}%
+                              </span>
+                            </div>
                           </div>
-                        </li>;
-                      })}
-                    </ul>
-
-                    <div className="col-lg-3 col-sm-6 videoitem">
-                      <div className="b-video">
-                        <div className="v-img">
-                          <a href="single-video-tabs.html">
-                            <img src={vidImg1} alt="" />
-                          </a>
-                          <div className="time">54:23</div>
                         </div>
-                        <div className="v-desc">
-                          <a href="single-video-tabs.html">
-                            There Can Only Be One! Introducing Tanc & Hercules
-                          </a>
-                        </div>
-                        <div className="v-views">
-                          127,548 views.{" "}
-                          <span className="v-percent">
-                            <span className="v-circle"></span> 78%
-                          </span>
-                        </div>
-                      </div>
-                    </div>
-
-                    <div className="col-lg-3 col-sm-6 videoitem">
-                      <div className="b-video">
-                        <div className="v-img">
-                          <a href="single-video-tabs.html">
-                            <img src={vidImg1} alt="" />
-                          </a>
-                          <div className="time">54:23</div>
-                        </div>
-                        <div className="v-desc">
-                          <a href="single-video-tabs.html">
-                            There Can Only Be One! Introducing Tanc & Hercules
-                          </a>
-                        </div>
-                        <div className="v-views">
-                          127,548 views.{" "}
-                          <span className="v-percent">
-                            <span className="v-circle"></span> 78%
-                          </span>
-                        </div>
-                      </div>
-                    </div>
-
-                    <div className="col-lg-3 col-sm-6 videoitem">
-                      <div className="b-video">
-                        <div className="v-img">
-                          <a href="single-video-tabs.html">
-                            <img src={vidImg1} alt="" />
-                          </a>
-                          <div className="time">54:23</div>
-                        </div>
-                        <div className="v-desc">
-                          <a href="single-video-tabs.html">
-                            There Can Only Be One! Introducing Tanc & Hercules
-                          </a>
-                        </div>
-                        <div className="v-views">
-                          127,548 views.{" "}
-                          <span className="v-percent">
-                            <span className="v-circle"></span> 78%
-                          </span>
-                        </div>
-                      </div>
+                      ))}
                     </div>
                   </div>
                 </div>
