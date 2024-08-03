@@ -9,9 +9,6 @@ import NavBarTwo from "../components/NavBarTwo";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowRight, faArrowLeft } from "@fortawesome/free-solid-svg-icons";
 
-//import video img
-import vidImg1 from "../assets/images/video2-1.png";
-
 export default function Videos() {
   const [uploads, setUploads] = useState([]);
 
@@ -184,13 +181,18 @@ export default function Videos() {
                           <div className="col-lg-3 col-sm-6 videoitem">
                             <div className="b-video">
                               <div className="v-img">
-                                <a href="single-video-tabs.html">
+                                <a>
                                   {upload.thumbnail.map((thumbnail) => (
-                                    <img
+                                    <Link
                                       key={thumbnail.filename}
-                                      src={`http://localhost:6010/${thumbnail.path}`}
-                                      alt={thumbnail.filename}
-                                    />
+                                      to={`/video/${upload._id}`}
+                                    >
+                                      <img
+                                        key={thumbnail.filename}
+                                        src={`http://localhost:6010/${thumbnail.path}`}
+                                        alt={thumbnail.filename}
+                                      />
+                                    </Link>
                                   ))}
                                 </a>
                                 <div class="time">{upload.videoMin}</div>
