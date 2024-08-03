@@ -67,14 +67,18 @@ export default function Home() {
   // }, []);
 
   const [uploads, setUploads] = useState([]);
+  const [currentPage, setCurrentPage] = useState(1);
+  const [totalPages, setTotalPages] = useState(1);
+  const limit = 5;
 
   useEffect(() => {
     const fetchUploads = async () => {
       try {
         const response = await axios.get(
-          "http://localhost:6010/video/list/down"
+          `http://localhost:6010/video/list/down?page=${currentPage}&limit=${limit}`
         );
-        setUploads(response.data);
+        setUploads(response.data.videos || []);
+        setTotalPages(response.data.totalPages);
       } catch (error) {
         console.error("Error fetching uploaded files", error);
         // toast.erros("Error fetching uploaded files", error);
@@ -82,7 +86,7 @@ export default function Home() {
     };
 
     fetchUploads();
-  }, []);
+  }, [currentPage]);
 
   return (
     <>
