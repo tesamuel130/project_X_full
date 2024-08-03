@@ -11,14 +11,18 @@ import { faArrowRight, faArrowLeft } from "@fortawesome/free-solid-svg-icons";
 
 export default function Videos() {
   const [uploads, setUploads] = useState([]);
+  const [currentPage, setCurrentPage] = useState(1);
+  const [totalPages, setTotalPages] = useState(1);
+  const limit = 10;
 
   useEffect(() => {
     const fetchUploads = async () => {
       try {
         const response = await axios.get(
-          "http://localhost:6010/video/list/down"
+          `http://localhost:6010/video/list/down?page=${currentPage}&limit=${limit}`
         );
-        setUploads(response.data);
+        setUploads(response.data.videos || []);
+        setTotalPages(response.data.totalPages);
       } catch (error) {
         console.error("Error fetching uploaded files", error);
         // toast.erros("Error fetching uploaded files", error);
@@ -26,27 +30,6 @@ export default function Videos() {
     };
 
     fetchUploads();
-  }, []);
-
-  const [videos, setVideos] = useState([]);
-  const [currentPage, setCurrentPage] = useState(1);
-  const [totalPages, setTotalPages] = useState(1);
-  const limit = 10;
-
-  useEffect(() => {
-    const fetchVideos = async () => {
-      try {
-        const response = await axios.get(
-          `http://localhost:6010/videos?page=${currentPage}&limit=${limit}`
-        );
-        setVideos(response.data.videos);
-        setTotalPages(response.data.totalPages);
-      } catch (error) {
-        console.error("Error fetching videos", error);
-      }
-    };
-
-    fetchVideos();
   }, [currentPage]);
 
   const handlePreviousPage = () => {
