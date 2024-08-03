@@ -28,6 +28,39 @@ export default function Videos() {
     fetchUploads();
   }, []);
 
+  const [videos, setVideos] = useState([]);
+  const [currentPage, setCurrentPage] = useState(1);
+  const [totalPages, setTotalPages] = useState(1);
+  const limit = 10;
+
+  useEffect(() => {
+    const fetchVideos = async () => {
+      try {
+        const response = await axios.get(
+          `http://localhost:6010/videos?page=${currentPage}&limit=${limit}`
+        );
+        setVideos(response.data.videos);
+        setTotalPages(response.data.totalPages);
+      } catch (error) {
+        console.error("Error fetching videos", error);
+      }
+    };
+
+    fetchVideos();
+  }, [currentPage]);
+
+  const handlePreviousPage = () => {
+    if (currentPage > 1) {
+      setCurrentPage(currentPage - 1);
+    }
+  };
+
+  const handleNextPage = () => {
+    if (currentPage < totalPages) {
+      setCurrentPage(currentPage + 1);
+    }
+  };
+
   return (
     <>
       <NavBarTwo />
@@ -225,48 +258,37 @@ export default function Videos() {
           <div className="v-pagination">
             <ul className="list-inline">
               <li className="v-pagination-prev">
-                <a href="#">
-                  <i>
+                <i>
+                  <a onClick={handlePreviousPage} disabled={currentPage === 1}>
                     <FontAwesomeIcon
                       icon={faArrowLeft}
                       className="cv cvicon-cv-previous"
                     />
-                  </i>
-                </a>
+                  </a>
+                </i>
               </li>
-              <li className="v-pagination-first">
-                <a href="#">1</a>
-              </li>
-              <li>
-                <a href="#">2</a>
-              </li>
-              <li>
-                <a href="#">3</a>
-              </li>
-              <li>
-                <a href="#">4</a>
-              </li>
-              <li>
-                <a href="#">5</a>
-              </li>
-              <li>
-                <a href="#">...</a>
-              </li>
-              <li>
-                <a href="#">10</a>
-              </li>
-              <li className="v-pagination-skin visible-xs">
-                <a href="#">Skip 5 Pages</a>
-              </li>
+              {[...Array(totalPages).keys()].map((page) => (
+                <li
+                  key={page + 1}
+                  className={`v-pagination-page ${
+                    currentPage === page + 1 ? "active" : ""
+                  }`}
+                >
+                  <a onClick={() => setCurrentPage(page + 1)}>{page + 1}</a>
+                </li>
+              ))}
               <li className="v-pagination-next">
-                <a href="#">
-                  <i>
+                <i>
+                  <a
+                    onClick={handleNextPage}
+                    disabled={currentPage === totalPages}
+                  >
                     <FontAwesomeIcon
                       icon={faArrowRight}
                       className="cv cvicon-cv-next"
                     />
-                  </i>
-                </a>
+                  </a>
+                </i>
               </li>
             </ul>
           </div>
