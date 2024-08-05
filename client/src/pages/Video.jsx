@@ -205,7 +205,7 @@ export default function Videos() {
                                     >
                                       <img
                                         key={thumbnail.filename}
-                                        src={`http://localhost:6010/${thumbnail.path}`}
+                                        src={`http://localhost:6050/${thumbnail.path}`}
                                         alt={thumbnail.filename}
                                       />
                                     </Link>
