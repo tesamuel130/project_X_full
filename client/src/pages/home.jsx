@@ -75,7 +75,7 @@ export default function Home() {
     const fetchUploads = async () => {
       try {
         const response = await axios.get(
-          `http://localhost:6010/video/list/down?page=${currentPage}&limit=${limit}`
+          `http://localhost:6050/video/list/down?page=${currentPage}&limit=${limit}`
         );
         setUploads(response.data.videos || []);
         setTotalPages(response.data.totalPages);
@@ -492,7 +492,7 @@ export default function Home() {
                                   {upload.thumbnail.map((thumbnail) => (
                                     <img
                                       key={thumbnail.filename}
-                                      src={`http://localhost:6010/${thumbnail.path}`}
+                                      src={`http://localhost:6050/${thumbnail.path}`}
                                       alt={thumbnail.filename}
                                     />
                                   ))}
