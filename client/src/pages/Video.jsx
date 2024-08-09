@@ -208,10 +208,7 @@ export default function Videos() {
                               <div className="v-img">
                                 <a>
                                   {upload.thumbnail.map((thumbnail) => (
-                                    <Link
-                                      key={thumbnail.filename}
-                                      to={`/video/${upload._id}`}
-                                    >
+                                    <Link key={thumbnail.filename}>
                                       <img
                                         key={thumbnail.filename}
                                         src={`http://localhost:6050/${thumbnail.path}`}

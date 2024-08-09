@@ -56,3 +56,21 @@ export const viewVideo = async (req, res) => {
     res.status(500).json({ message: "Error fetching video" });
   }
 };
+
+export const getUplodedVideoBySeller = async (req, res) => {
+  try {
+    const token = req.cookies.token;
+    if (!token) {
+      return res.status(401).json({ message: "No token provided" });
+    }
+
+    const decoded = jwt.verify(token, JWT_SECRET);
+    const sellerId = decoded.id;
+
+    const videos = await Video.find();
+    res.status(200).json(videos);
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ message: "Error fetching uploaded files", error });
+  }
+};
