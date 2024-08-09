@@ -40,31 +40,7 @@ import vidImg1 from "../assets/images/video2-1.png";
 
 export default function Home() {
   const [publicChatPerson, setPublicChatPerson] = useState([]);
-  const [someVideoList, setSomeVideoList] = useState([]);
   const [contactInPerson, setContactInPerson] = useState([]);
-
-  // useEffect(() => {
-  //   const fetchData = async () => {
-  //     try {
-  //       const [
-  //         publicChatPersonResponse,
-  //         someVideoListResponse,
-  //         contactInPersonResponse,
-  //       ] = await Promise.all([
-  //         axios.get("/home/public%chat%list"),
-  //         axios.get("/home/all%video%list"),
-  //         axios.get("/home/contact%in%person"),
-  //       ]);
-  //       setPublicChatPerson(publicChatPersonResponse.data);
-  //       setSomeVideoList(someVideoListResponse.data);
-  //       setContactInPerson(contactInPersonResponse.data);
-  //     } catch (error) {
-  //       console.error("Error fetching data:", error);
-  //     }
-  //   };
-
-  //   fetchData();
-  // }, []);
 
   const [uploads, setUploads] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
@@ -75,7 +51,7 @@ export default function Home() {
     const fetchUploads = async () => {
       try {
         const response = await axios.get(
-          `http://localhost:6050/video/list/down?page=${currentPage}&limit=${limit}`
+          `/video/list/down?page=${currentPage}&limit=${limit}`
         );
         setUploads(response.data.videos || []);
         setTotalPages(response.data.totalPages);

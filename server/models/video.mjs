@@ -2,7 +2,17 @@ import mongoose from "mongoose";
 const Schema = mongoose.Schema;
 
 const videoSchema = new Schema({
-  name: {
+  uplodedBy: {
+    type: mongoose.Schema.Types.ObjectId,
+    required: true,
+    refPath: "uploadedByModel",
+  },
+  uploadedByModel: {
+    type: String,
+    required: true,
+    enum: ["Seller", "Broker"],
+  },
+  title: {
     type: String,
   },
   description: {
@@ -11,9 +21,32 @@ const videoSchema = new Schema({
   url: {
     type: String,
   },
-  thumbnail: {
-    type: String,
-  },
+  thumbnail: [
+    {
+      filename: {
+        type: String,
+      },
+      path: {
+        type: String,
+      },
+      mimetype: {
+        type: String,
+      },
+    },
+  ],
+  video: [
+    {
+      filename: {
+        type: String,
+      },
+      path: {
+        type: String,
+      },
+      mimetype: {
+        type: String,
+      },
+    },
+  ],
   videoMin: {
     type: String,
   },
@@ -22,23 +55,12 @@ const videoSchema = new Schema({
   },
   reating: {
     type: Number,
+    default: 0,
   },
   views: {
     type: Number,
+    default: 0,
   },
-  video: [
-    {
-      filename: {
-        type: String
-      },
-      path: {
-        type: String
-      },
-      mimetype: {
-        type: String
-      }
-    }
-  ]
 });
 
 const Video = mongoose.model("Video", videoSchema);
