@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { useParams, useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 import axios from "axios";
 
@@ -10,6 +11,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowRight, faArrowLeft } from "@fortawesome/free-solid-svg-icons";
 
 export default function Videos() {
+  const navigate = useNavigate();
   const [uploads, setUploads] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   const [totalPages, setTotalPages] = useState(1);
@@ -19,7 +21,7 @@ export default function Videos() {
     const fetchUploads = async () => {
       try {
         const response = await axios.get(
-          `http://localhost:6050/video/list/down?page=${currentPage}&limit=${limit}`
+          `/video/list/down?page=${currentPage}&limit=${limit}`
         );
         setUploads(response.data.videos || []);
         setTotalPages(response.data.totalPages);
@@ -42,6 +44,10 @@ export default function Videos() {
     if (currentPage < totalPages) {
       setCurrentPage(currentPage + 1);
     }
+  };
+
+  const goToVideo = (id) => {
+    navigate(`/video/play/${id}`);
   };
 
   return (
@@ -194,7 +200,10 @@ export default function Videos() {
                     <div>
                       {uploads.map((upload) => (
                         <div key={upload._id}>
-                          <div className="col-lg-3 col-sm-6 videoitem">
+                          <div
+                            className="col-lg-3 col-sm-6 videoitem"
+                            onClick={() => goToVideo(upload._id)}
+                          >
                             <div className="b-video">
                               <div className="v-img">
                                 <a>

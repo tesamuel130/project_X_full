@@ -13,6 +13,7 @@ import SignUp from "./pages/SignUp";
 import ForgotPassword from "./pages/ForgotPassword";
 import RecetPassword from "./pages/RecetPassword";
 import Videos from "./pages/Video";
+import PlayVideo from "./pages/PlayVideo";
 import Chat from "./pages/Chat";
 import PaymentAuth from "./pages/PaymentAuth";
 
@@ -48,6 +49,7 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/dashbord" element={<Dashbord />} />
         <Route path="/video" element={<Videos />} />
+        <Route path="/video/play/:id" element={<PlayVideo />} />
         <Route path="/chat" element={<Chat />} />
         <Route path="/chat/paymentauth/:id" element={<PaymentAuth />} />
 

@@ -3,6 +3,7 @@ import cors from "cors";
 import {
   allVideoList,
   getUplodedVideoForClientHome,
+  viewVideo,
 } from "../controllers/videoControllers.mjs";
 
 const router = Router();
@@ -20,5 +21,7 @@ router.get("/home/all%video%list", allVideoList);
   create an endpoint for the client home to get the uploaded videos
 */
 router.get("/video/list/down", getUplodedVideoForClientHome);
+// view video rout
+router.get("/play/video/:id", viewVideo);
 
 export default router;
