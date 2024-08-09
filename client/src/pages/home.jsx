@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 import toast from "react-hot-toast";
 import axios from "axios";
@@ -39,6 +40,7 @@ import vidImg0 from "../assets/images/chanel-2.png";
 import vidImg1 from "../assets/images/video2-1.png";
 
 export default function Home() {
+  const navigate = useNavigate();
   const [publicChatPerson, setPublicChatPerson] = useState([]);
   const [contactInPerson, setContactInPerson] = useState([]);
 
@@ -63,6 +65,10 @@ export default function Home() {
 
     fetchUploads();
   }, [currentPage]);
+
+  const goToVideo = (id) => {
+    navigate(`/video/play/${id}`);
+  };
 
   return (
     <>
@@ -461,10 +467,13 @@ export default function Home() {
                     <div>
                       {uploads.map((upload) => (
                         <div key={upload._id}>
-                          <div className="col-lg-3 col-sm-6 videoitem">
+                          <div
+                            className="col-lg-3 col-sm-6 videoitem"
+                            onClick={() => goToVideo(upload._id)}
+                          >
                             <div className="b-video">
                               <div className="v-img">
-                                <a href="single-video-tabs.html">
+                                <a>
                                   {upload.thumbnail.map((thumbnail) => (
                                     <img
                                       key={thumbnail.filename}
@@ -477,9 +486,7 @@ export default function Home() {
                               </div>
                             </div>
                             <div class="v-desc">
-                              <a href="single-video-tabs.html">
-                                {upload.title}
-                              </a>
+                              <a>{upload.title}</a>
                             </div>
                             <div class="v-views">
                               {upload.views} views

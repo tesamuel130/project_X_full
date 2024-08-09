@@ -482,3 +482,46 @@ img {
   color:#ea2c5a;
   border: #ea2c5a 1px solid;
 }
+
+.video-player {
+  position: relative;
+  width: 100%;
+}
+
+.video-player video {
+  width: 100%;
+}
+
+.progress-bar {
+  position: relative;
+  height: 10px;
+  background: #333;
+  cursor: pointer;
+}
+
+.progress {
+  height: 100%;
+  background: #00f;
+}
+
+.preview-container {
+  position: absolute;
+  top: -100px; /* Adjust based on your layout */
+  background: rgba(0, 0, 0, 0.7);
+  border: 1px solid #fff;
+  padding: 5px;
+  border-radius: 3px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.preview-video {
+  width: 200px; /* Adjust based on your preference */
+  height: auto;
+}
+
+.time-preview {
+  color: #fff;
+  margin-top: 5px;
+}

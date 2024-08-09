@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 import axios from "axios";
@@ -9,19 +9,6 @@ import NavBarTwo from "../components/NavBarTwo";
 const PlayVideo = () => {
   const { id } = useParams();
   const [video, setVideo] = useState(null);
-
-  //   useEffect(() => {
-  //     const fetchVideo = async () => {
-  //       try {
-  //         const response = await axios.get(`/play/video/${id}`);
-  //         setVideo(response.data);
-  //       } catch (error) {
-  //         console.error("Error fetching video", error);
-  //       }
-  //     };
-
-  //     fetchVideo();
-  //   }, [id]);
 
   useEffect(() => {
     const fetchUploads = async () => {
@@ -37,6 +24,29 @@ const PlayVideo = () => {
     fetchUploads();
   }, [id]);
 
+  //   see video by hovering and move the mouse
+  const videoRef = useRef(null);
+  const [isPreviewVisible, setPreviewVisible] = useState(false);
+  const [previewTime, setPreviewTime] = useState(0);
+  const [progressWidth, setProgressWidth] = useState(0);
+
+  const handleMouseEnter = () => setPreviewVisible(true);
+  const handleMouseLeave = () => setPreviewVisible(false);
+  const handleMouseMove = (e) => {
+    const progressBar = e.currentTarget;
+    const { left, width } = progressBar.getBoundingClientRect();
+    const offsetX = e.clientX - left;
+    const newTime = (offsetX / width) * videoRef.current.duration;
+    setPreviewTime(newTime);
+    setProgressWidth(offsetX);
+  };
+
+  const formatTime = (time) => {
+    const minutes = Math.floor(time / 60);
+    const seconds = Math.floor(time % 60);
+    return `${minutes}:${seconds < 10 ? "0" : ""}${seconds}`;
+  };
+
   if (!video) return <div>Loading...</div>;
 
   return (
@@ -49,14 +59,52 @@ const PlayVideo = () => {
               <div class="sv-video">
                 <div className="video-player">
                   {video.video.map((video) => (
-                    <video
-                      controls
-                      onContextMenu={(e) => e.preventDefault()}
-                      controlsList="nodownload"
+                    <div
+                      className="video-player"
+                      onMouseEnter={handleMouseEnter}
+                      onMouseLeave={handleMouseLeave}
+                      onMouseMove={handleMouseMove}
                     >
-                      <source src={`http://localhost:6050/${video.path}`} />
-                      Your browser does not support the video tag.
-                    </video>
+                      <video
+                        controls
+                        onContextMenu={(e) => e.preventDefault()}
+                        controlsList="nodownload"
+                        ref={videoRef}
+                        preload="metadata"
+                      >
+                        <source src={`http://localhost:6050/${video.path}`} />
+                        Your browser does not support the video tag.
+                      </video>
+                      <div className="progress-bar">
+                        <div
+                          className="progress"
+                          style={{
+                            width: `${
+                              (progressWidth / videoRef.current?.clientWidth) *
+                              500
+                            }%`,
+                          }}
+                        />
+                        <div
+                          className="preview-container"
+                          style={{
+                            left: `${progressWidth}px`,
+                            display: isPreviewVisible ? "block" : "none",
+                          }}
+                        >
+                          <video
+                            src={`http://localhost:6050/${video.path}`}
+                            preload="metadata"
+                            currentTime={previewTime}
+                            className="preview-video"
+                            muted
+                          />
+                          <div className="time-preview">
+                            {formatTime(previewTime)}
+                          </div>
+                        </div>
+                      </div>
+                    </div>
                   ))}
                   <h2>
                     <a href="#">{video.title}</a>
