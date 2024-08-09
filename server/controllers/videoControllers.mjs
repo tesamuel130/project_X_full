@@ -43,9 +43,9 @@ export const viewVideo = async (req, res) => {
   try {
     const videoId = req.params.id;
 
-    if (!mongoose.Types.ObjectId.isValid(videoId)) {
-      return res.status(400).json({ message: "Invalid video ID" });
-    }
+    // if (!mongoose.Types.ObjectId.isValid(videoId)) {
+    //   return res.status(400).json({ message: "Invalid video ID" });
+    // }
 
     const video = await Video.findById(videoId);
     if (!video) return res.status(404).json({ message: "Video not found" });
