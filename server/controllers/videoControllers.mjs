@@ -77,12 +77,17 @@ export const getUplodedVideoBySeller = async (req, res) => {
 
 // count the video that seend by the user
 export const countVideoView = async (req, res) => {
-  const { id } = req.body;
+  const videoId = req.params.id;
+  const video = await Video.findById(videoId);
+
+  if (!video) {
+    return res.status(400).json({ error: "Video ID is required" });
+  }
 
   try {
-    let videoView = await Video.findOne({ id });
+    let videoView = await Video.findById(videoId);
     if (!videoView) {
-      videoView = new Video({ id, views: 1 });
+      videoView = new Video({ views: 1 });
     } else {
       videoView.views += 1;
     }

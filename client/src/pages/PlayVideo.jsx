@@ -59,9 +59,9 @@ const PlayVideo = () => {
     // Check if the user has watched at least 45% of the video
     if (percentage >= 45 && !watched) {
       setWatched(true);
-      // Send view data to the backend
+
       axios
-        .post("/count/video/view", { id })
+        .post(`/count/video/view/${id}`) // Use the id from the URL params
         .then((response) => {
           console.log("View counted:", response.data);
         })
@@ -163,7 +163,7 @@ const PlayVideo = () => {
                   <div class="author">
                     <div class="author-border"></div>
                     <div class="sv-views">
-                      <div class="sv-views-count">2,729,347 views</div>
+                      <div class="sv-views-count">{video.views} views</div>
                       <div class="sv-views-progress">
                         <div class="sv-views-progress-bar"></div>
                       </div>
