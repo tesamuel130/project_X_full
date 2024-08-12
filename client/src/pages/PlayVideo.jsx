@@ -56,12 +56,11 @@ const PlayVideo = () => {
     const video = videoRef.current;
     const percentage = (video.currentTime / video.duration) * 100;
 
-    // Check if the user has watched at least 45% of the video
     if (percentage >= 45 && !watched) {
       setWatched(true);
 
       axios
-        .post(`/count/video/view/${id}`) // Use the id from the URL params
+        .post(`/count/video/view/${id}`)
         .then((response) => {
           console.log("View counted:", response.data);
         })

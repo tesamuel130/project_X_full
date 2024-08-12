@@ -81,7 +81,7 @@ export const countVideoView = async (req, res) => {
   const video = await Video.findById(videoId);
 
   if (!video) {
-    return res.status(400).json({ error: "Video ID is required" });
+    return res.status(400).json({ error: "Video ID not found" });
   }
 
   try {
