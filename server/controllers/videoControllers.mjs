@@ -74,3 +74,22 @@ export const getUplodedVideoBySeller = async (req, res) => {
     res.status(500).json({ message: "Error fetching uploaded files", error });
   }
 };
+
+// count the video that seend by the user
+export const countVideoView = (req, res) =>{
+  const { videoId } = req.body;
+
+  try {
+    let videoView = await Video.findOne({ videoId });
+    if (!videoView) {
+      videoView = new Video({ videoId, views: 1 });
+    } else {
+      videoView.views += 1;
+    }
+
+    await Video.save();
+    res.json({ message: 'View counted', views: videoView.views });
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+}
