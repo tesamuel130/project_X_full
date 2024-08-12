@@ -25,6 +25,6 @@ router.get("/video/list/down", getUplodedVideoForClientHome);
 // view video rout
 router.get("/play/video/:id", viewVideo);
 // count video view
-router.post("/count/video/view/:videoId", countVideoView);
+router.post("/count/video/view/:id", countVideoView);
 
 export default router;

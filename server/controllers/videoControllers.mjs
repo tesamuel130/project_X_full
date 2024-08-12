@@ -78,23 +78,26 @@ export const getUplodedVideoBySeller = async (req, res) => {
 // count the video that seend by the user
 export const countVideoView = async (req, res) => {
   const videoId = req.params.id;
-  const video = await Video.findById(videoId);
-
-  if (!video) {
-    return res.status(400).json({ error: "Video ID not found" });
-  }
 
   try {
-    let videoView = await Video.findById(videoId);
-    if (!videoView) {
-      videoView = new Video({ views: 1 });
-    } else {
-      videoView.views += 1;
+    // Find the video by its ID
+    const video = await Video.findById(videoId);
+
+    // Check if the video exists
+    if (!video) {
+      return res.status(404).json({ error: "Video not found" });
     }
 
-    await Video.save();
-    res.json({ message: "View counted", views: videoView.views });
+    // Increment the view count
+    video.views += 1;
+
+    // Save the updated video document
+    await video.save();
+
+    // Return the updated view count
+    res.json({ message: "View counted", views: video.views });
   } catch (error) {
+    // Handle any errors
     res.status(500).json({ error: error.message });
   }
 };
