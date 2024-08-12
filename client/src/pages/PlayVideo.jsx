@@ -96,10 +96,8 @@ const PlayVideo = () => {
                         controlsList="nodownload"
                         ref={videoRef}
                         preload="metadata"
-                      >
-                        <source src={`http://localhost:6050/${video.path}`} />
-                        Your browser does not support the video tag.
-                      </video>
+                        src={`http://localhost:6050/${video.path}`}
+                      />
                       <div className="progress-bar">
                         <div
                           className="progress"
