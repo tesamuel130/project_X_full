@@ -4,6 +4,7 @@ import {
   allVideoList,
   getUplodedVideoForClientHome,
   viewVideo,
+  countVideoView,
 } from "../controllers/videoControllers.mjs";
 
 const router = Router();
@@ -23,5 +24,7 @@ router.get("/home/all%video%list", allVideoList);
 router.get("/video/list/down", getUplodedVideoForClientHome);
 // view video rout
 router.get("/play/video/:id", viewVideo);
+// count video view
+router.post("/count/video/view", countVideoView);
 
 export default router;

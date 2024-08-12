@@ -59,7 +59,7 @@ export default function Home() {
         setTotalPages(response.data.totalPages);
       } catch (error) {
         console.error("Error fetching uploaded files", error);
-        toast.erros("Error fetching uploaded files", error);
+        // toast.erros("Error fetching uploaded files");
       }
     };
 

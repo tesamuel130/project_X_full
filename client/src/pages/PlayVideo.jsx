@@ -47,6 +47,30 @@ const PlayVideo = () => {
     return `${minutes}:${seconds < 10 ? "0" : ""}${seconds}`;
   };
 
+  // count view
+  const [watched, setWatched] = useState(false);
+
+  const handleTimeUpdate = () => {
+    if (!videoRef.current) return;
+
+    const video = videoRef.current;
+    const percentage = (video.currentTime / video.duration) * 100;
+
+    // Check if the user has watched at least 45% of the video
+    if (percentage >= 45 && !watched) {
+      setWatched(true);
+      // Send view data to the backend
+      axios
+        .post("/count/video/view", { id })
+        .then((response) => {
+          console.log("View counted:", response.data);
+        })
+        .catch((error) => {
+          console.error("Error counting view:", error);
+        });
+    }
+  };
+
   if (!video) return <div>Loading...</div>;
 
   return (
@@ -67,6 +91,7 @@ const PlayVideo = () => {
                     >
                       <video
                         controls
+                        onTimeUpdate={handleTimeUpdate}
                         onContextMenu={(e) => e.preventDefault()}
                         controlsList="nodownload"
                         ref={videoRef}

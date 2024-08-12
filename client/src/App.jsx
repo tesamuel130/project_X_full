@@ -37,7 +37,7 @@ axios.defaults.withCredentials = true;
 
 function App() {
   return (
-    <UserContextProvider>
+    <>
       <Navbartr />
       <Toaster position="top-right" toastOptions={{ duration: 3000 }} />
       <Routes>
@@ -47,7 +47,7 @@ function App() {
         <Route path="/reset-password/:token" element={<RecetPassword />} />
 
         <Route path="/" element={<Home />} />
-        <Route path="/dashbord" element={<Dashbord />} />
+        {/* <Route path="/dashbord" element={<Dashbord />} /> */}
         <Route path="/video" element={<Videos />} />
         <Route path="/video/play/:id" element={<PlayVideo />} />
         <Route path="/chat" element={<Chat />} />
@@ -64,7 +64,7 @@ function App() {
         <Route path="/vide" element={<ClientCall />} />
         <Route path="/videoCallto" element={<VideoCall />} />
       </Routes>
-    </UserContextProvider>
+    </>
   );
 }
 

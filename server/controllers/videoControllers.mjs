@@ -76,20 +76,20 @@ export const getUplodedVideoBySeller = async (req, res) => {
 };
 
 // count the video that seend by the user
-export const countVideoView = (req, res) =>{
-  const { videoId } = req.body;
+export const countVideoView = async (req, res) => {
+  const { id } = req.body;
 
   try {
-    let videoView = await Video.findOne({ videoId });
+    let videoView = await Video.findOne({ id });
     if (!videoView) {
-      videoView = new Video({ videoId, views: 1 });
+      videoView = new Video({ id, views: 1 });
     } else {
       videoView.views += 1;
     }
 
     await Video.save();
-    res.json({ message: 'View counted', views: videoView.views });
+    res.json({ message: "View counted", views: videoView.views });
   } catch (error) {
     res.status(500).json({ error: error.message });
   }
-}
+};
