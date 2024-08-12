@@ -17,7 +17,7 @@ const PlayVideo = () => {
         setVideo(response.data);
       } catch (error) {
         console.error("Error fetching uploaded files", error);
-        // toast("Error fetching uploaded files", error);
+        toast("Error fetching uploaded files", error);
       }
     };
 
