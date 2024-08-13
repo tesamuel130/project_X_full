@@ -3,7 +3,7 @@ import Seller from "../models/seller.mjs";
 //filter the seller by service type
 //filter the public chat service type seller
 export const publicChatServiceSeller = async (req, res) => {
-  const serviceType = "PublicChat";
+  const serviceType = "Public";
   try {
     const chatSellers = await Seller.find({ serviceType: serviceType });
     res.status(200).json(chatSellers);

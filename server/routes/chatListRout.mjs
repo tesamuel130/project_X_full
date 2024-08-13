@@ -12,6 +12,6 @@ router.use(
   })
 );
 
-router.get("/chat%list/public%chat%list", publicChatServiceSeller);
+router.get("/public/chat/list", publicChatServiceSeller);
 
 export default router;
