@@ -50,6 +50,33 @@ export default function Home() {
   const limit = 5;
 
   useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await axios.get(
+          `/public/chat/list?page=${currentPage}&limit=${limit}`
+        );
+        if (response.status === 200) {
+          const dataWithFirstImage = response.data.results.map((person) => ({
+            ...person,
+            firstImage:
+              person.sellerImage && person.sellerImage.length > 0
+                ? person.sellerImage[0].path
+                : null,
+          }));
+          setPublicChatPerson(dataWithFirstImage);
+          setTotalPages(response.data.totalPages || 1); // Ensure totalPages is set correctly
+        } else {
+          console.error("Unexpected response code:", response.status);
+        }
+      } catch (error) {
+        console.error("Error fetching data:", error.message);
+      }
+    };
+
+    fetchData();
+  }, [currentPage]);
+
+  useEffect(() => {
     const fetchUploads = async () => {
       try {
         const response = await axios.get(
@@ -276,121 +303,53 @@ export default function Home() {
                     </div>
                   </div>
                 </div>
+                {/* chater list */}
                 <div className="cb-content videolist">
                   <div className="row">
-                    {/* chater list */}
-                    <ul>
-                      {publicChatPerson.map((seller) => {
-                        <li key={seller._id}>
-                          <Link to={`/chat/payment%auth/${seller._id}`}>
-                            <div className="col-lg-3 col-sm-6 videoitem">
-                              <div className="b-video">
-                                <div className="v-img">
-                                  <a href="single-video-tabs.html">
-                                    <img
-                                      className="chaters-img"
-                                      src={seller.image}
-                                      alt=""
-                                    />
-                                    <i className="v-online">
-                                      <FontAwesomeIcon icon={faCircleDot} />
-                                      offline
-                                    </i>
-                                  </a>
-                                </div>
-                                <div className="v-desc">
-                                  <button
-                                    type="submit"
-                                    className="btn btn-primary bg-success call-btn"
-                                  >
-                                    Call
-                                  </button>
-                                </div>
-                                <div className="v-desc">
-                                  <a href="single-video-tabs.html">
-                                    <span className="username-for-call">
-                                      User Name:
-                                    </span>{" "}
-                                    {seller.nickName}
-                                  </a>
-                                </div>
-                                <div className="v-views">
-                                  <FontAwesomeIcon
-                                    className="call-card-icon"
-                                    icon={faPhone}
-                                  />
-                                  {seller.NoOfContact} CALLS <br />
-                                  <i className="price-for-call">
-                                    <FontAwesomeIcon
-                                      className="call-card-icon"
-                                      icon={faDollarSign}
-                                    />
-                                    <span>PRICE: </span>
-                                    {seller.price}/M
-                                  </i>
-                                  <div className="call-reating">
-                                    <FontAwesomeIcon icon={faStar} />
-                                    <FontAwesomeIcon icon={faStar} />
-                                    <FontAwesomeIcon icon={faStar} />
-                                    <FontAwesomeIcon icon={faStar} />
-                                    <FontAwesomeIcon icon={faStar} />
-                                  </div>
-                                </div>
-                              </div>
+                    {publicChatPerson.length > 0 ? (
+                      publicChatPerson.map((person) => (
+                        <div
+                          className="col-lg-3 col-sm-11 videoitem"
+                          key={person._id}
+                        >
+                          <div className="b-video">
+                            <div className="v-img">
+                              <img
+                                src={`http://localhost:6010/${person.firstImage}`}
+                                alt={person.name}
+                              />
+                              <div className="watched">Online</div>
                             </div>
-                          </Link>
-                        </li>;
-                      })}
-                    </ul>
-
-                    <div className="col-lg-3 col-sm-11 videoitem">
-                      <div className="b-video">
-                        <div class="cb-content videolist">
-                          <div class="row">
-                            <div class="col-lg-3 col-sm-6 videoitem">
-                              <div class="b-video last-row">
-                                <div class="v-img">
-                                  <a href="single-video-tabs.html">
-                                    <img src="./src/assets/images/video1-5.png" />
-                                  </a>
-                                  <div class="watched">Online</div>
-                                </div>
-                                <div class="v-desc">
-                                  <center>
-                                    <button className="btn btn-call">
-                                      <FontAwesomeIcon icon={faPhone} /> Call{" "}
-                                    </button>
-                                  </center>
-                                  <br></br>
-                                  <a href="single-video-tabs.html">
-                                    Abebech Gobena
-                                  </a>
-                                </div>
-                                <div>
-                                  Price : 100/M
-                                  <br></br>
-                                  100 <i className="fa fa-phone"> </i> Calls |
-                                  &nbsp;
-                                  <FontAwesomeIcon icon={faStar} />
-                                  <FontAwesomeIcon icon={faStar} />
-                                  <FontAwesomeIcon icon={faStar} />
-                                  <FontAwesomeIcon icon={faStar} />
-                                  <FontAwesomeIcon icon={faStar} />
-                                </div>
-                              </div>
+                            <div className="v-desc">
+                              <center>
+                                <button
+                                  className="btn btn-call"
+                                  onClick={() => goToCall(person._id)}
+                                >
+                                  <FontAwesomeIcon icon={faPhone} /> Call
+                                </button>
+                              </center>
+                              <br />
+                              <a href="single-video-tabs.html">
+                                {person.nickName}
+                              </a>
+                            </div>
+                            <div>
+                              Price: {person.price}/M
+                              <br />
+                              {
+                                person.calls
+                              } <i className="fa fa-phone"></i> Calls | &nbsp;
+                              {[...Array(5)].map((_, i) => (
+                                <FontAwesomeIcon key={i} icon={faStar} />
+                              ))}
                             </div>
                           </div>
                         </div>
-                      </div>
-                    </div>
-                  </div>
-                  {/* see more butons for home suplay service component */}
-                  <div className="home-seeMore-button-container">
-                    <Link to="/chat">
-                      <button className="btn btn-prime">
-                        <FontAwesomeIcon icon={faPager} /> See More{" "}
-                      </button>
-                    </Link>
+                      ))
+                    ) : (
+                      <div>No chatters available</div>
+                    )}
                   </div>
                 </div>
               </div>
