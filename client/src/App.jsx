@@ -5,7 +5,6 @@ import { Routes, Route } from "react-router-dom";
 import axios from "axios";
 import { Toaster } from "react-hot-toast";
 import { UserContextProvider } from "../context/userContext";
-import Dashbord from "./pages/Dashbord";
 import Navbartr from "./components/Navbartr";
 import Home from "./pages/Home";
 import Login from "./pages/Login";
@@ -53,7 +52,6 @@ function App() {
 
         {/* try to see the paymentauth style */}
         <Route path="/chat/paymentauth" element={<Payment />} />
-        <Route path="/slider" element={<ImageSlider images={images} />} />
 
         <Route path="/vide" element={<ClientCall />} />
         <Route path="/videoCallto" element={<VideoCall />} />
