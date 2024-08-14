@@ -18,8 +18,6 @@ import Chat from "./pages/Chat";
 import PaymentAuth from "./pages/PaymentAuth";
 
 //trying search
-import TrySearch from "./components/TrySearch";
-import TableSearch from "./components/TableSearch";
 import Payment from "./components/payment";
 import ClientCall from "./pages/ClientCall";
 import VideoCall from "./components/videoCall";
@@ -56,10 +54,6 @@ function App() {
         {/* try to see the paymentauth style */}
         <Route path="/chat/paymentauth" element={<Payment />} />
         <Route path="/slider" element={<ImageSlider images={images} />} />
-
-        {/* try searching page */}
-        <Route path="/trysearch" element={<TrySearch />} />
-        <Route path="/table" element={<TableSearch />} />
 
         <Route path="/vide" element={<ClientCall />} />
         <Route path="/videoCallto" element={<VideoCall />} />
