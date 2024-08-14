@@ -126,6 +126,10 @@ const sellerSchema = new Schema(
         },
       },
     ],
+    callId: {
+      type: String,
+      unique: true,
+    },
     moneyMake: [
       {
         amount: {
