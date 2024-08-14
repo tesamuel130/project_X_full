@@ -61,7 +61,7 @@ export default function Chat() {
   };
 
   const goToCall = (id) => {
-    navigate(`/video/play/${id}`);
+    navigate(`/chat/paymentauth/${id}`);
   };
 
   return (

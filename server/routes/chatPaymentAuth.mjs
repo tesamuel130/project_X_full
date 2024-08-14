@@ -20,11 +20,7 @@ router.use(
 );
 
 //featch payment auth on the payment auth page
-router.get(
-  "/chat/public/chatseller/paymentauth/:id",
-  authenticateToken,
-  getOneSellerDetail
-);
+router.get("/chat/public/chatseller/paymentauth/:id", getOneSellerDetail);
 
 //get the payment options
 router.get(

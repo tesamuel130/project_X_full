@@ -52,17 +52,29 @@ export const contctInPersonServiceSeller = async (req, res) => {
 //filter one person by id
 export const getOneSellerDetail = async (req, res) => {
   try {
-    const { id } = req.params.id;
-    if (!id || !mongoose.Types.ObjectId.isValid(id)) {
-      return res.status(400).json({ message: "Invalid or missing seller id" });
-    }
-
-    const seller = await Seller.findById({ id });
+    const sellerId = req.params.id;
+    const seller = await Seller.findById(sellerId);
 
     if (!seller) {
       return res.status(404).json({ error: "Seller not found" });
     }
-    res.status(200).json(seller);
+
+    const sellerDetail = seller.sellerDetail[0];
+    const sellerImage = seller.sellerImage[0];
+
+    res.status(200).json({
+      nickName: seller.nickName,
+      gender: sellerDetail.gender,
+      age: sellerDetail.age,
+      country: sellerDetail.country,
+      bodyType: sellerDetail.bodyType,
+      bodyColor: sellerDetail.bodyColor,
+      price: seller.price,
+      sImgfilename: sellerImage.filename,
+      sImgPath: sellerImage.path,
+      sImgmimetype: sellerImage.mimetype,
+      serviceType: seller.serviceType,
+    });
   } catch (error) {
     console.error("Error fetching seller details:", error);
     res.status(500).send(error);
