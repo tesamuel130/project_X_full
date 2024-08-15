@@ -3,12 +3,16 @@ import { useParams } from "react-router-dom";
 import io from "socket.io-client";
 
 const socket = io("http://localhost:6060"); // Point to the shared socket server
+let peerConnection;
 
 function Caller() {
   const { userId, sellerId } = useParams();
   const [isCalling, setIsCalling] = useState(false);
+  const [isInCall, setIsInCall] = useState(false);
   //   const userId = "user1"; // Replace with actual userId
   //   const sellerId = "seller1"; // Replace with the sellerId you're calling
+  const localVideoRef = useRef(null);
+  const remoteVideoRef = useRef(null);
 
   useEffect(() => {
     // Register the user (caller)
