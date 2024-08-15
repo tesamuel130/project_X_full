@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import io from "socket.io-client";
 
 const socket = io("http://localhost:6060"); // Point to the shared socket server
@@ -7,106 +7,79 @@ let peerConnection;
 
 function Caller() {
   const { userId, sellerId } = useParams();
-  const [isCalling, setIsCalling] = useState(false);
-  const [isInCall, setIsInCall] = useState(false);
-  //   const userId = "user1"; // Replace with actual userId
-  //   const sellerId = "seller1"; // Replace with the sellerId you're calling
   const localVideoRef = useRef(null);
   const remoteVideoRef = useRef(null);
+  const [isCallEnded, setIsCallEnded] = useState(false);
+  const navigate = useNavigate();
 
   useEffect(() => {
-    // Register the user (caller)
-    socket.emit("registerUser", { userId });
+    //   start the webrtc
+    const startWebRTC = async () => {
+      const stream = await navigator.mediaDevices.getUserMedia({
+        video: true,
+        audio: true,
+      });
+      localVideoRef.current.srcObject = stream;
 
-    socket.on("callStarted", () => {
-      setIsCalling(true);
-    });
+      const configuration = {
+        iceServers: [{ urls: "stun:stun.l.google.com:19302" }],
+      };
+      peerConnection = new RTCPeerConnection(configuration);
 
-    socket.on("callAccepted", () => {
-      setIsCalling(false);
-      setIsInCall(true);
-      startWebRTC();
-    });
+      stream
+        .getTracks()
+        .forEach((track) => peerConnection.addTrack(track, stream));
 
-    socket.on("callRejected", () => {
-      setIsCalling(false);
-      alert("Call rejected");
-    });
+      peerConnection.onicecandidate = (event) => {
+        if (event.candidate) {
+          socket.emit("iceCandidate", {
+            from: userId,
+            to: sellerId,
+            candidate: event.candidate,
+          });
+        }
+      };
 
-    socket.on("remoteStream", (stream) => {
-      if (remoteVideoRef.current) {
-        remoteVideoRef.current.srcObject = stream;
-      }
-    });
-  }, [userId]);
+      peerConnection.ontrack = (event) => {
+        if (remoteVideoRef.current) {
+          remoteVideoRef.current.srcObject = event.streams[0];
+        }
+      };
 
-  const startCall = () => {
-    socket.emit("startCall", { from: userId, to: sellerId });
-  };
-
-  const handleHangup = () => {
-    socket.emit("hangup", { from: userId, to: sellerId });
-    setIsCalling(false);
-    endCall();
-  };
-
-  //   start the webrtc
-  const startWebRTC = async () => {
-    const stream = await navigator.mediaDevices.getUserMedia({
-      video: true,
-      audio: true,
-    });
-    localVideoRef.current.srcObject = stream;
-
-    const configuration = {
-      iceServers: [{ urls: "stun:stun.l.google.com:19302" }],
-    };
-    peerConnection = new RTCPeerConnection(configuration);
-
-    stream
-      .getTracks()
-      .forEach((track) => peerConnection.addTrack(track, stream));
-
-    peerConnection.onicecandidate = (event) => {
-      if (event.candidate) {
-        socket.emit("iceCandidate", {
-          candidate: event.candidate,
-          to: sellerId,
-        });
-      }
+      const offer = await peerConnection.createOffer();
+      await peerConnection.setLocalDescription(offer);
+      socket.emit("offer", { from: userId, to: sellerId, offer });
     };
 
-    peerConnection.ontrack = (event) => {
-      if (remoteVideoRef.current) {
-        remoteVideoRef.current.srcObject = event.streams[0];
-      }
-    };
+    socket.on("answer", async (data) => {
+      await peerConnection.setRemoteDescription(
+        new RTCSessionDescription(data.answer)
+      );
+    });
 
-    const offer = await peerConnection.createOffer();
-    await peerConnection.setLocalDescription(offer);
-    socket.emit("offer", { offer, to: sellerId });
-  };
+    socket.on("iceCandidate", (data) => {
+      peerConnection.addIceCandidate(new RTCIceCandidate(data.candidate));
+    });
+
+    socket.on("hangup", () => {
+      endCall();
+    });
+
+    startWebRTC();
+
+    return () => peerConnection.close();
+  }, [userId, sellerId]);
 
   const endCall = () => {
-    peerConnection.close();
-    peerConnection = null;
-    setIsInCall(false);
+    setIsCallEnded(true);
+    navigate("/"); // Navigate back to the main page or another route
   };
 
   return (
     <div>
-      {!isInCall && !isCalling && (
-        <button onClick={startCall}>Call Seller</button>
-      )}
-      {isCalling && <button onClick={handleHangup}>Hangup</button>}
-
-      {isInCall && (
-        <div>
-          <video ref={localVideoRef} autoPlay playsInline muted />
-          <video ref={remoteVideoRef} autoPlay playsInline />
-          <button onClick={handleHangup}>Hangup</button>
-        </div>
-      )}
+      <video ref={localVideoRef} autoPlay muted />
+      <video ref={remoteVideoRef} autoPlay />
+      {!isCallEnded && <button onClick={handleHangup}>Hang Up</button>}
     </div>
   );
 }

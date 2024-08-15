@@ -7,9 +7,8 @@ const socket = io("http://localhost:6060"); // Socket server URL
 
 function CallToSeller({ userId, sellerId }) {
   const [isCalling, setIsCalling] = useState(false);
+  const [callRejectedReason, setCallRejectedReason] = useState("");
   const navigate = useNavigate();
-  //   const userId = "user1"; // Replace with actual userId
-  //   const sellerId = "seller1"; // SellerId to call
 
   useEffect(() => {
     socket.emit("registerUser", { userId });
@@ -21,9 +20,15 @@ function CallToSeller({ userId, sellerId }) {
 
     socket.on("callRejected", () => {
       setIsCalling(false);
-      alert("Seller rejected the call");
+      setCallRejectedReason(reason);
+      alert(reason);
     });
-  }, []);
+
+    socket.on("hangup", () => {
+      setIsCalling(false);
+      alert("Call ended");
+    });
+  }, [navigate, userId, sellerId]);
 
   const startCall = () => {
     setIsCalling(true);
@@ -42,6 +47,7 @@ function CallToSeller({ userId, sellerId }) {
       ) : (
         <button onClick={handleHangup}>Hangup</button>
       )}
+      {callRejectedReason && <p>{callRejectedReason}</p>}
 
       {/* kasjdfklasjdfklasdjf */}
       {/* assign the reall frontend */}
@@ -54,8 +60,8 @@ function CallToSeller({ userId, sellerId }) {
               {" "}
               <h5 class="card-title">Calls </h5>
               <div id="help" class="form-text">
-                <i className="fa fa-warning"></i> Your account is not verified
-                !!!
+                <i className="fa fa-warning"></i>{" "}
+                {callRejectedReason && <p>{callRejectedReason}</p>}
               </div>
             </div>
             <div class="card-bod">
