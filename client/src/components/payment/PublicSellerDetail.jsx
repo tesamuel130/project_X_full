@@ -12,7 +12,7 @@ import CallToSeller from "./VideoCallToSeller";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPhone, faStar } from "@fortawesome/free-solid-svg-icons";
 
-export default function () {
+function publicSellerDetail() {
   const { id } = useParams();
   const navigate = useNavigate();
   const [seller, setSeller] = useState(null);
@@ -151,3 +151,5 @@ export default function () {
     </>
   );
 }
+
+export default publicSellerDetail;
