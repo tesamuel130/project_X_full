@@ -1,12 +1,14 @@
 import React, { useState, useEffect } from "react";
+import { useParams } from "react-router-dom";
 import io from "socket.io-client";
 
 const socket = io("http://localhost:6060"); // Point to the shared socket server
 
 function Caller() {
+  const { userId, sellerId } = useParams();
   const [isCalling, setIsCalling] = useState(false);
-  const userId = "user1"; // Replace with actual userId
-  const sellerId = "seller1"; // Replace with the sellerId you're calling
+  //   const userId = "user1"; // Replace with actual userId
+  //   const sellerId = "seller1"; // Replace with the sellerId you're calling
 
   useEffect(() => {
     // Register the user (caller)
