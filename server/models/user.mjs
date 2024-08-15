@@ -43,6 +43,16 @@ const userSchema = new Schema(
         },
       },
     ],
+    callId: {
+      type: String,
+      unique: true,
+    },
+    socketId: {
+      type: String,
+    },
+    subscription: {
+      type: Object,
+    }, // PWA push subscription
   },
   { timestamps: true }
 );
