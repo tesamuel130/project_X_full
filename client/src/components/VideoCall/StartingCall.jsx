@@ -22,9 +22,21 @@ function Caller() {
       setIsCalling(true);
     });
 
+    socket.on("callAccepted", () => {
+      setIsCalling(false);
+      setIsInCall(true);
+      startWebRTC();
+    });
+
     socket.on("callRejected", () => {
       setIsCalling(false);
       alert("Call rejected");
+    });
+
+    socket.on("remoteStream", (stream) => {
+      if (remoteVideoRef.current) {
+        remoteVideoRef.current.srcObject = stream;
+      }
     });
   }, [userId]);
 
@@ -33,7 +45,52 @@ function Caller() {
   };
 
   const handleHangup = () => {
+    socket.emit("hangup", { from: userId, to: sellerId });
     setIsCalling(false);
+    endCall();
+  };
+
+  //   start the webrtc
+  const startWebRTC = async () => {
+    const stream = await navigator.mediaDevices.getUserMedia({
+      video: true,
+      audio: true,
+    });
+    localVideoRef.current.srcObject = stream;
+
+    const configuration = {
+      iceServers: [{ urls: "stun:stun.l.google.com:19302" }],
+    };
+    peerConnection = new RTCPeerConnection(configuration);
+
+    stream
+      .getTracks()
+      .forEach((track) => peerConnection.addTrack(track, stream));
+
+    peerConnection.onicecandidate = (event) => {
+      if (event.candidate) {
+        socket.emit("iceCandidate", {
+          candidate: event.candidate,
+          to: sellerId,
+        });
+      }
+    };
+
+    peerConnection.ontrack = (event) => {
+      if (remoteVideoRef.current) {
+        remoteVideoRef.current.srcObject = event.streams[0];
+      }
+    };
+
+    const offer = await peerConnection.createOffer();
+    await peerConnection.setLocalDescription(offer);
+    socket.emit("offer", { offer, to: sellerId });
+  };
+
+  const endCall = () => {
+    peerConnection.close();
+    peerConnection = null;
+    setIsInCall(false);
   };
 
   return (
