@@ -12,6 +12,10 @@ import { faCopy, faPhone, faStar } from "@fortawesome/free-solid-svg-icons";
 //import payment comopnent
 import Payment from "../components/payment";
 
+// config the socket port
+import io from "socket.io-client";
+const socket = io("http://localhost:5000"); // Socket server URL
+
 export default function () {
   const { id } = useParams();
   const navigate = useNavigate();
@@ -71,7 +75,6 @@ export default function () {
   // }
 
   const goToVideo = (id) => {
-    // alert(id);
     navigate(`/videoCall/to/seller/${id}`);
   };
 
