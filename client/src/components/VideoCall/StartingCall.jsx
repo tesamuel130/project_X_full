@@ -95,8 +95,18 @@ function Caller() {
 
   return (
     <div>
-      {!isCalling && <button onClick={startCall}>Call Seller</button>}
+      {!isInCall && !isCalling && (
+        <button onClick={startCall}>Call Seller</button>
+      )}
       {isCalling && <button onClick={handleHangup}>Hangup</button>}
+
+      {isInCall && (
+        <div>
+          <video ref={localVideoRef} autoPlay playsInline muted />
+          <video ref={remoteVideoRef} autoPlay playsInline />
+          <button onClick={handleHangup}>Hangup</button>
+        </div>
+      )}
     </div>
   );
 }
