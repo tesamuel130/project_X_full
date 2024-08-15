@@ -1,10 +1,13 @@
 import React, { useEffect, useRef, useState } from "react";
 import { useParams } from "react-router-dom";
 import io from "socket.io-client";
-import { fetchCallBySellerId } from "../api/api";
+// import { fetchCallBySellerId } from "../api/api";
+import axios from "axios";
 
-const VideoCall = () => {
+const VideoCalls = () => {
+  const { id } = useParams();
   const { sellerId, callTo } = useParams();
+  const [callId, setCallId] = useState(null);
   const [localStream, setLocalStream] = useState(null);
   const [remoteStream, setRemoteStream] = useState(null);
   const localVideoRef = useRef();
@@ -12,14 +15,29 @@ const VideoCall = () => {
   const peerConnection = useRef();
   const socket = useRef();
 
+  //   featch the call id
+  useEffect(() => {
+    const fetchCallId = async () => {
+      try {
+        const response = await axios.get(
+          `http://localhost:6060/get/seller/callId/${id}`
+        );
+        setCallId(response.data.callId);
+      } catch (error) {
+        console.error("Error fetching data:", error.message);
+      }
+    };
+
+    fetchCallId();
+  }, [id]);
+
   useEffect(() => {
     // Set up Socket.IO connection
-    socket.current = io("http://localhost:3001");
+    socket.current = io("http://localhost:6060");
 
     const startCall = async () => {
       try {
-        const { data } = await fetchCallBySellerId(sellerId);
-        const callID = data.callID;
+        const callID = callId;
 
         socket.current.emit("join-call", { callID, callTo });
 
@@ -45,7 +63,7 @@ const VideoCall = () => {
 
     startCall();
     startLocalStream();
-  }, [sellerId, callTo]);
+  }, [callId, callTo]);
 
   const startLocalStream = async () => {
     try {
@@ -135,4 +153,4 @@ const VideoCall = () => {
   );
 };
 
-export default VideoCall;
+export default VideoCalls;

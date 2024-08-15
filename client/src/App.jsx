@@ -20,7 +20,7 @@ import PaymentAuth from "./pages/PaymentAuth";
 import Payment from "./components/payment";
 import ClientCall from "./pages/ClientCall";
 import VideoCall from "./components/videoCall";
-import ImageSlider from "./pages/imageSlider";
+import VideoCalls from "./components/tryyCall";
 
 const images = [
   "https://via.placeholder.com/800x400/0000FF/FFFFFF?text=Slide+1",
@@ -55,6 +55,9 @@ function App() {
 
         <Route path="/vide" element={<ClientCall />} />
         <Route path="/videoCallto" element={<VideoCall />} />
+
+        {/* asdfasdf */}
+        <Route path="/videoCall/to/seller/:id" element={<VideoCalls />} />
       </Routes>
     </>
   );

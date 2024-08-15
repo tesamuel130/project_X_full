@@ -74,6 +74,7 @@ export const getOneSellerDetail = async (req, res) => {
       sImgPath: sellerImage.path,
       sImgmimetype: sellerImage.mimetype,
       serviceType: seller.serviceType,
+      _id: seller._id,
     });
   } catch (error) {
     console.error("Error fetching seller details:", error);

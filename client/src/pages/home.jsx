@@ -97,6 +97,10 @@ export default function Home() {
     navigate(`/video/play/${id}`);
   };
 
+  const goToCall = (id) => {
+    navigate(`/chat/paymentauth/${id}`);
+  };
+
   return (
     <>
       <NavBarTwo />

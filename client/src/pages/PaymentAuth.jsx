@@ -28,6 +28,7 @@ export default function () {
     sImgPath: "",
     sImgmimetype: "",
     serviceType: "",
+    _id: "",
   });
   const [error, setError] = useState(null);
 
@@ -53,6 +54,7 @@ export default function () {
           sImgPath: response.data.sImgPath || "",
           sImgmimetype: response.data.sImgmimetype || "",
           serviceType: response.data.serviceType || "",
+          _id: response.data._id || "",
         }));
       } catch (error) {
         console.error("Error fetching uploaded files", error);
@@ -67,6 +69,11 @@ export default function () {
   // if (loading) {
   //   return <div>Loading...</div>;
   // }
+
+  const goToVideo = (id) => {
+    // alert(id);
+    navigate(`/videoCall/to/seller/${id}`);
+  };
 
   if (error) {
     return (
@@ -122,6 +129,7 @@ export default function () {
                   <button
                     className="btn btn-primary payed-call-btn"
                     type="call"
+                    onClick={() => goToVideo(formSellerData._id)}
                   >
                     Call
                   </button>
