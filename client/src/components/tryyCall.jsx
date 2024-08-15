@@ -1,7 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import { useParams } from "react-router-dom";
 import io from "socket.io-client";
-// import { fetchCallBySellerId } from "../api/api";
 import axios from "axios";
 
 const VideoCalls = () => {
@@ -15,7 +14,7 @@ const VideoCalls = () => {
   const peerConnection = useRef();
   const socket = useRef();
 
-  //   featch the call id
+  // Fetch the call ID
   useEffect(() => {
     const fetchCallId = async () => {
       try {
@@ -24,7 +23,7 @@ const VideoCalls = () => {
         );
         setCallId(response.data.callId);
       } catch (error) {
-        console.error("Error fetching data:", error.message);
+        console.error("Error fetching call ID:", error.message);
       }
     };
 
@@ -32,23 +31,27 @@ const VideoCalls = () => {
   }, [id]);
 
   useEffect(() => {
+    // if (!callId || !callTo) return; // Ensure both callId and callTo are available
+
     // Set up Socket.IO connection
     socket.current = io("http://localhost:6060");
 
+    socket.current.on("connection", () => {
+      console.log("Connected to Socket.IO server");
+    });
+
     const startCall = async () => {
       try {
-        const callID = callId;
-
-        socket.current.emit("join-call", { callID, callTo });
+        socket.current.emit("join-call", { callID: callId, callTo });
 
         socket.current.on("incoming-call", async ({ from }) => {
           console.log("Incoming call from:", from);
           await initiateCall(from);
         });
 
-        socket.current.on("call-answered", async ({ answerer }) => {
-          console.log("Call answered by:", answerer);
-          await createAnswer();
+        socket.current.on("call-answer", async ({ answer }) => {
+          console.log("Call answered:", answer);
+          await createAnswer(answer);
         });
 
         // Clean up
@@ -57,7 +60,7 @@ const VideoCalls = () => {
           if (peerConnection.current) peerConnection.current.close();
         };
       } catch (error) {
-        console.error("Error fetching call ID:", error);
+        console.error("Error during call setup:", error);
       }
     };
 
@@ -81,32 +84,26 @@ const VideoCalls = () => {
   const initiateCall = async (callTo) => {
     peerConnection.current = new RTCPeerConnection();
 
-    // Add local stream tracks to peer connection
     localStream.getTracks().forEach((track) => {
       peerConnection.current.addTrack(track, localStream);
     });
 
-    // Handle remote stream
     peerConnection.current.ontrack = (event) => {
       setRemoteStream(event.streams[0]);
       remoteVideoRef.current.srcObject = event.streams[0];
     };
 
-    // Create offer
     const offer = await peerConnection.current.createOffer();
     await peerConnection.current.setLocalDescription(offer);
 
-    // Send offer to the peer
     socket.current.emit("call-offer", { offer, to: callTo });
 
-    // Listen for answer
     socket.current.on("call-answer", async ({ answer }) => {
       await peerConnection.current.setRemoteDescription(
         new RTCSessionDescription(answer)
       );
     });
 
-    // Handle ICE candidates
     peerConnection.current.onicecandidate = ({ candidate }) => {
       if (candidate) {
         socket.current.emit("ice-candidate", { candidate, to: callTo });
@@ -119,15 +116,13 @@ const VideoCalls = () => {
           new RTCIceCandidate(candidate)
         );
       } catch (error) {
-        console.error("Error adding received ICE candidate:", error);
+        console.error("Error adding ICE candidate:", error);
       }
     });
   };
 
-  const createAnswer = async () => {
-    const answer = await peerConnection.current.createAnswer();
+  const createAnswer = async (answer) => {
     await peerConnection.current.setLocalDescription(answer);
-
     socket.current.emit("call-answer", { answer });
   };
 
