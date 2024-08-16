@@ -44,7 +44,7 @@ function CallToSeller({ userId, sellerId }) {
 
     socket.on("callAccepted", () => {
       setIsCalling(false);
-      navigate(`/videocall/${userId}/${sellerId}`);
+      navigate(`/chat/videocall/${userId}/${sellerId}`);
     });
 
     socket.on("callRejected", () => {
