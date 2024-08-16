@@ -74,9 +74,12 @@ function PublicSellerDetail() {
     const fetchUserUploads = async () => {
       const token = Cookies.get("token");
       try {
-        const response = await axios.get("/get/userid/for/videocall", {
-          headers: { Authorization: `Bearer ${token}` },
-        });
+        const response = await axios.get(
+          `/chat/public/chatseller/paymentauth/${id}`,
+          {
+            headers: { Authorization: `Bearer ${token}` },
+          }
+        );
 
         setFormUserData((prev) => ({
           ...prev,
