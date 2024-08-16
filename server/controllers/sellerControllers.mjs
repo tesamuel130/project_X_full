@@ -1,4 +1,8 @@
 import Seller from "../models/seller.mjs";
+import User from "../models/user.mjs";
+import jwt from "jsonwebtoken";
+
+const JWT_SECRET = process.env.JWT_SECRET;
 
 //filter the seller by service type
 //filter the public chat service type seller
@@ -94,7 +98,7 @@ export const getUserIdVideoCall = async (req, res) => {
     const decoded = jwt.verify(token, JWT_SECRET);
     const userId = decoded.id;
 
-    const user = await Seller.findByIdAndDelete(userId);
+    const user = await User.findByIdAndDelete(userId);
 
     if (!user) {
       return res.status(404).json({ message: "User not found" });

@@ -3,6 +3,9 @@ import User from "../models/user.mjs";
 import { v4 as uuidv4 } from "uuid";
 import { hashPassword, comparePassword } from "../helpers/auth.mjs";
 import jwt from "jsonwebtoken";
+import dotenv from "dotenv";
+
+dotenv.config();
 
 export const test = (req, res) => {
   console.log("test is working");

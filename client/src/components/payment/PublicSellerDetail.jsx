@@ -12,7 +12,7 @@ import CallToSeller from "./VideoCallToSeller";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPhone, faStar } from "@fortawesome/free-solid-svg-icons";
 
-function publicSellerDetail() {
+function PublicSellerDetail() {
   const { id } = useParams();
   const navigate = useNavigate();
   const [formSellerData, setFormSellerData] = useState({
@@ -60,7 +60,7 @@ function publicSellerDetail() {
           callId: response.data.callId || "",
         }));
       } catch (error) {
-        console.error("Error fetching uploaded files", error);
+        console.error("Error fetching user id", error);
         setError(error);
         toast("Error fetching uploaded files", error);
       }
@@ -69,12 +69,12 @@ function publicSellerDetail() {
     fetchUploads();
   }, [id]);
 
-  //   featch client data
+  // Fetch client data
   useEffect(() => {
     const fetchUserUploads = async () => {
       const token = Cookies.get("token");
       try {
-        const response = await axios.get(`/get/userid/videocall`, {
+        const response = await axios.get("/get/userid/for/videocall", {
           headers: { Authorization: `Bearer ${token}` },
         });
 
@@ -83,14 +83,13 @@ function publicSellerDetail() {
           callId: response.data.callId || "",
         }));
       } catch (error) {
-        console.error("Error fetching uploaded files", error);
         setError(error);
-        toast("Error fetching uploaded files", error);
+        toast.error("Error fetching user ID");
       }
     };
 
     fetchUserUploads();
-  }, [id]);
+  }, []);
 
   //   assign the seller and client callid from the db
   const userId = formUserData.callId;
@@ -154,4 +153,4 @@ function publicSellerDetail() {
   );
 }
 
-export default publicSellerDetail;
+export default PublicSellerDetail;

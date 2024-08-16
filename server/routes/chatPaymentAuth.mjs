@@ -1,7 +1,13 @@
 import { Router } from "express";
 import cors from "cors";
-import authenticateToken from "../middleware/authenticateToken.mjs";
-import { getOneSellerDetail } from "../controllers/sellerControllers.mjs";
+import {
+  authenticateToken,
+  verifyToken,
+} from "../middleware/authenticateToken.mjs";
+import {
+  getOneSellerDetail,
+  getUserIdVideoCall,
+} from "../controllers/sellerControllers.mjs";
 import upload from "../middleware/upload.mjs";
 import {
   paymentStatusSender,
@@ -23,7 +29,7 @@ router.use(
 router.get("/chat/public/chatseller/paymentauth/:id", getOneSellerDetail);
 
 //featch userid for video call
-router.get("/get/userid/videocall", authenticateToken, getOneSellerDetail);
+router.get("/get/userid/for/videocall", verifyToken, getUserIdVideoCall);
 
 //get the payment options
 router.get(

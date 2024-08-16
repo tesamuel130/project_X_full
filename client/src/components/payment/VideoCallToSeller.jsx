@@ -11,6 +11,9 @@ function CallToSeller({ userId, sellerId }) {
   const navigate = useNavigate();
 
   useEffect(() => {
+    socket.on("connect", () => {
+      console.log("Connected to server");
+    });
     // Request permission for push notifications
     if ("Notification" in window && "serviceWorker" in navigator) {
       navigator.serviceWorker.ready.then((registration) => {

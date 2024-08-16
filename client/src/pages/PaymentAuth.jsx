@@ -6,34 +6,35 @@ import Cookies from "js-cookie";
 
 //import payment comopnent
 import PaymentSubmition from "../components/payment/paymentSubmition";
-import publicSellerDetail from "../components/payment/PublicSellerDetail";
+// import publicSellerDetail from "../components/payment/";
+import PublicSellerDetail from "../components/payment/PublicSellerDetail";
 
 export default function () {
-  const { id } = useParams();
-  const [error, setError] = useState(null);
+  // const { id } = useParams();
+  // const [error, setError] = useState(null);
 
-  // if (loading) {
-  //   return <div>Loading...</div>;
+  // // if (loading) {
+  // //   return <div>Loading...</div>;
+  // // }
+
+  // if (error) {
+  //   return (
+  //     <div>
+  //       <h1>404 - Seller Not Found</h1>
+  //       <p>We couldn't find the seller you're looking for.</p>
+  //     </div>
+  //   );
   // }
-
-  if (error) {
-    return (
-      <div>
-        <h1>404 - Seller Not Found</h1>
-        <p>We couldn't find the seller you're looking for.</p>
-      </div>
-    );
-  }
 
   return (
     <>
       <div className="container">
         <div className="row">
           <div>
-            <publicSellerDetail />
+            <PublicSellerDetail />
           </div>
           <div className="col-md-6 pay-form-cont">
-            <PaymentSubmition id={id} />
+            {/* <PaymentSubmition id={id} /> */}
           </div>
           {/* asdfkl; */}
         </div>

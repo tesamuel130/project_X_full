@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from "react";
+import { useParams, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCopy } from "@fortawesome/free-solid-svg-icons";
 
-export default function PaymentSubmition(id) {
+export default function PaymentSubmition() {
+  const { id } = useParams();
   const [files, setFiles] = useState([]);
   const [userId, setUserId] = useState("");
   const [transactions, setTransactions] = useState([]);
@@ -29,7 +31,7 @@ export default function PaymentSubmition(id) {
 
   const fetchUser = async (id) => {
     try {
-      const res = await axios.get(`http://localhost:5000/users/${id}`);
+      const res = await axios.get(`http://localhost:5000/users/`);
       setUser(res.data);
     } catch (error) {
       console.error("Error fetching user:", error);
@@ -115,7 +117,7 @@ export default function PaymentSubmition(id) {
 
   return (
     <div className="pay-form-cont">
-      <form action="post" className="pay-form" onSubmit={handleFileUpload}>
+      {/* <form action="post" className="pay-form" onSubmit={handleFileUpload}>
         <div className="form-out-input">
           <label htmlFor="name">Name</label>
           <input
@@ -212,7 +214,7 @@ export default function PaymentSubmition(id) {
         <button className="btn btn-primary pay-btn" type="submit">
           Submit
         </button>
-      </form>
+      </form> */}
     </div>
   );
 }
