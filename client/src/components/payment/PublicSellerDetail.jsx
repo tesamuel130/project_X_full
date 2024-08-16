@@ -29,8 +29,9 @@ function publicSellerDetail() {
     sImgmimetype: "",
     serviceType: "",
     _id: "",
+    callId: "",
   });
-  const [formUserData, setFornUserData] = useState({
+  const [formUserData, setFormUserData] = useState({
     callId: "",
   });
   const [error, setError] = useState(null);
@@ -59,6 +60,7 @@ function publicSellerDetail() {
           sImgmimetype: response.data.sImgmimetype || "",
           serviceType: response.data.serviceType || "",
           _id: response.data._id || "",
+          callId: response.data.callId || "",
         }));
       } catch (error) {
         console.error("Error fetching uploaded files", error);
