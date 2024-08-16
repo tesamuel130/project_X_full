@@ -1,5 +1,6 @@
 import create from "prompt-sync";
 import User from "../models/user.mjs";
+import { v4 as uuidv4 } from "uuid";
 import { hashPassword, comparePassword } from "../helpers/auth.mjs";
 import jwt from "jsonwebtoken";
 
@@ -30,12 +31,16 @@ export const registerCustomer = async (req, res) => {
       return res.json({ error: "Email already exist" });
     }
 
+    // Create a unique callId for the seller
+    const callId = `client-${uuidv4()}`;
+
     const hashedPassword = await hashPassword(password);
     //create a user in database
     const user = await User.create({
       name,
       email,
       password: hashedPassword,
+      callId,
     });
 
     return res.json(user);
