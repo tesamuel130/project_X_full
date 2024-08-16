@@ -11,6 +11,35 @@ function CallToSeller({ userId, sellerId }) {
   const navigate = useNavigate();
 
   useEffect(() => {
+    // Request permission for push notifications
+    if ("Notification" in window && "serviceWorker" in navigator) {
+      navigator.serviceWorker.ready.then((registration) => {
+        registration.pushManager.getSubscription().then((subscription) => {
+          if (!subscription) {
+            registration.pushManager
+              .subscribe({
+                userVisibleOnly: true,
+                applicationServerKey: `${import.meta.env.VITE_PUBLIC_KEY}`,
+              })
+              .then((newSubscription) => {
+                // Emit socket event to register user with subscription details
+                socket.emit("registerUser", {
+                  userId,
+                  subscription: newSubscription,
+                });
+              });
+          } else {
+            // If already subscribed, register the user
+            socket.emit("registerUser", {
+              userId,
+              subscription,
+            });
+          }
+        });
+      });
+    }
+
+    // handle event from the server
     socket.emit("registerUser", { userId });
 
     socket.on("callAccepted", () => {
