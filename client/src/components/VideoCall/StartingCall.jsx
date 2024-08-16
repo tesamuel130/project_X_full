@@ -5,7 +5,7 @@ import io from "socket.io-client";
 const socket = io("http://localhost:6060"); // Point to the shared socket server
 let peerConnection;
 
-function Caller() {
+function startingCallUser() {
   const { userId, sellerId } = useParams();
   const localVideoRef = useRef(null);
   const remoteVideoRef = useRef(null);
@@ -84,4 +84,4 @@ function Caller() {
   );
 }
 
-export default Caller;
+export default startingCallUser;

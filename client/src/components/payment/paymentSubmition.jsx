@@ -3,7 +3,7 @@ import axios from "axios";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCopy } from "@fortawesome/free-solid-svg-icons";
 
-export default function PaymentSubmition() {
+export default function PaymentSubmition(id) {
   const [files, setFiles] = useState([]);
   const [userId, setUserId] = useState("");
   const [transactions, setTransactions] = useState([]);

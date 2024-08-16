@@ -33,7 +33,7 @@ export default function () {
             <publicSellerDetail />
           </div>
           <div className="col-md-6 pay-form-cont">
-            <PaymentSubmition />
+            <PaymentSubmition id={id} />
           </div>
           {/* asdfkl; */}
         </div>

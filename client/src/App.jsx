@@ -16,6 +16,9 @@ import PlayVideo from "./pages/PlayVideo";
 import Chat from "./pages/Chat";
 import PaymentAuth from "./pages/PaymentAuth";
 
+// staring video call path
+import startingCallUser from "./components/VideoCall/StartingCall";
+
 //trying search
 import Payment from "./components/payment";
 import ClientCall from "./pages/ClientCall";
@@ -49,6 +52,12 @@ function App() {
         <Route path="/video/play/:id" element={<PlayVideo />} />
         <Route path="/chat" element={<Chat />} />
         <Route path="/chat/paymentauth/:id" element={<PaymentAuth />} />
+
+        {/* starting the video call */}
+        <Route
+          path="/chat/videocall/:userId/:sellerId"
+          element={<startingCallUser />}
+        />
 
         {/* try to see the paymentauth style */}
         <Route path="/chat/paymentauth" element={<Payment />} />
