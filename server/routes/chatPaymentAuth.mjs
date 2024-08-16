@@ -22,6 +22,9 @@ router.use(
 //featch payment auth on the payment auth page
 router.get("/chat/public/chatseller/paymentauth/:id", getOneSellerDetail);
 
+//featch userid for video call
+router.get("/get/userid/videocall", authenticateToken, getOneSellerDetail);
+
 //get the payment options
 router.get(
   "/chat/public/chatseller/paymentauth/payment-options",

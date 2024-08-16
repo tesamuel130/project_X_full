@@ -75,6 +75,33 @@ export const getOneSellerDetail = async (req, res) => {
       sImgmimetype: sellerImage.mimetype,
       serviceType: seller.serviceType,
       _id: seller._id,
+      callId: seller.callId,
+    });
+  } catch (error) {
+    console.error("Error fetching seller details:", error);
+    res.status(500).send(error);
+  }
+};
+
+//filter one person by id
+export const getUserIdVideoCall = async (req, res) => {
+  try {
+    const token = req.cookies.token;
+    if (!token) {
+      return res.status(401).json({ message: "No token provided" });
+    }
+
+    const decoded = jwt.verify(token, JWT_SECRET);
+    const userId = decoded.id;
+
+    const user = await Seller.findByIdAndDelete(userId);
+
+    if (!user) {
+      return res.status(404).json({ message: "User not found" });
+    }
+
+    res.status(200).json({
+      callId: user.callId,
     });
   } catch (error) {
     console.error("Error fetching seller details:", error);

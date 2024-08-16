@@ -15,7 +15,6 @@ import { faPhone, faStar } from "@fortawesome/free-solid-svg-icons";
 function publicSellerDetail() {
   const { id } = useParams();
   const navigate = useNavigate();
-  const [seller, setSeller] = useState(null);
   const [formSellerData, setFormSellerData] = useState({
     nickName: "",
     gender: "",
@@ -43,8 +42,6 @@ function publicSellerDetail() {
         const response = await axios.get(
           `/chat/public/chatseller/paymentauth/${id}`
         );
-        setSeller(response.data);
-
         setFormSellerData((prev) => ({
           ...prev,
           nickName: response.data.nickName || "",
@@ -75,8 +72,11 @@ function publicSellerDetail() {
   //   featch client data
   useEffect(() => {
     const fetchUserUploads = async () => {
+      const token = Cookies.get("token");
       try {
-        const response = await axios.get(`/chat/public/chatuser/detail/${id}`);
+        const response = await axios.get(`/get/userid/videocall`, {
+          headers: { Authorization: `Bearer ${token}` },
+        });
 
         setFormUserData((prev) => ({
           ...prev,
