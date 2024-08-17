@@ -12,7 +12,6 @@ import upload from "../middleware/upload.mjs";
 import {
   paymentStatusSender,
   paymentOptions,
-  currencyOptions,
 } from "../controllers/paymentControllers.mjs";
 
 const router = Router();
@@ -29,7 +28,7 @@ router.use(
 router.get("/chat/public/chatseller/paymentauth/:id", getOneSellerDetail);
 
 //featch userid for video call
-router.get("/get/userid/for/videocall", verifyToken, getUserIdVideoCall);
+router.get("/get/userid/for/videocall", getUserIdVideoCall);
 
 //get the payment options
 router.get(
