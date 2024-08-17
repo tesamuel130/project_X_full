@@ -5,7 +5,7 @@ import io from "socket.io-client";
 
 const socket = io("http://localhost:6060"); // Socket server URL
 
-function CallToSeller({ userId, sellerId, email }) {
+function CallToSeller({ userId, sellerId }) {
   const [isCalling, setIsCalling] = useState(false);
   const [callRejectedReason, setCallRejectedReason] = useState("");
   const navigate = useNavigate();
@@ -28,7 +28,6 @@ function CallToSeller({ userId, sellerId, email }) {
                 // Emit socket event to register user with subscription details
                 socket.emit("registerUser", {
                   userId,
-                  email,
                   subscription: newSubscription,
                 });
               });
@@ -36,7 +35,6 @@ function CallToSeller({ userId, sellerId, email }) {
             // If already subscribed, register the user
             socket.emit("registerUser", {
               userId,
-              email,
               subscription,
             });
           }
@@ -45,7 +43,7 @@ function CallToSeller({ userId, sellerId, email }) {
     }
 
     // handle event from the server
-    // socket.emit("registerUser", { userId, email });
+    socket.emit("registerUser", { userId });
 
     socket.on("callAccepted", () => {
       setIsCalling(false);
