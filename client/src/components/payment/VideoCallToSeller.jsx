@@ -5,7 +5,7 @@ import io from "socket.io-client";
 
 const socket = io("http://localhost:6060"); // Socket server URL
 
-function CallToSeller({ userId, sellerId }) {
+function CallToSeller({ userId, sellerId, email }) {
   const [isCalling, setIsCalling] = useState(false);
   const [callRejectedReason, setCallRejectedReason] = useState("");
   const navigate = useNavigate();
@@ -28,6 +28,7 @@ function CallToSeller({ userId, sellerId }) {
                 // Emit socket event to register user with subscription details
                 socket.emit("registerUser", {
                   userId,
+                  email,
                   subscription: newSubscription,
                 });
               });
@@ -35,6 +36,7 @@ function CallToSeller({ userId, sellerId }) {
             // If already subscribed, register the user
             socket.emit("registerUser", {
               userId,
+              email,
               subscription,
             });
           }
@@ -43,7 +45,7 @@ function CallToSeller({ userId, sellerId }) {
     }
 
     // handle event from the server
-    socket.emit("registerUser", { userId });
+    // socket.emit("registerUser", { userId, email });
 
     socket.on("callAccepted", () => {
       setIsCalling(false);
@@ -85,7 +87,7 @@ function CallToSeller({ userId, sellerId }) {
       {/* assign the reall frontend */}
       {/* popup the call */}
 
-      <div class="col-md-10 col-sm-10 col-xs-8">
+      {/* <div class="col-md-10 col-sm-10 col-xs-8">
         <div class="l-form">
           <div class="card">
             <div className="card-head">
@@ -190,7 +192,7 @@ function CallToSeller({ userId, sellerId }) {
             </div>
           </div>
         </div>
-      </div>
+      </div> */}
 
       {/* popup the call */}
     </div>

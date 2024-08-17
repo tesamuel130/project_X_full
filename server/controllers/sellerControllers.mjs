@@ -106,6 +106,7 @@ export const getUserIdVideoCall = async (req, res) => {
 
     res.status(200).json({
       callId: user.callId,
+      email: user.email,
     });
   } catch (error) {
     console.error("Error fetching seller details:", error);

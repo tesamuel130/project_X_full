@@ -32,6 +32,7 @@ function PublicSellerDetail() {
   });
   const [formUserData, setFormUserData] = useState({
     callId: "",
+    email: "",
   });
   const [error, setError] = useState(null);
 
@@ -81,6 +82,7 @@ function PublicSellerDetail() {
         setFormUserData((prev) => ({
           ...prev,
           callId: response.data.callId || "",
+          email: response.data.email || "",
         }));
       } catch (error) {
         setError(error);
@@ -93,6 +95,7 @@ function PublicSellerDetail() {
 
   //   assign the seller and client callid from the db
   const userId = formUserData.callId;
+  const email = formUserData.email;
   const sellerId = formSellerData.callId;
 
   if (error) {
@@ -144,7 +147,7 @@ function PublicSellerDetail() {
               </div>
             </div>
             {/* in heare their is call btn before */}
-            <CallToSeller userId={userId} sellerId={sellerId} />
+            <CallToSeller userId={userId} sellerId={sellerId} email={email} />
           </div>
         </div>
       </div>
