@@ -53,15 +53,6 @@ export const registerCustomer = async (req, res) => {
     const verificationExpiration = new Date(Date.now() + 60 * 60 * 1000);
     const callId = `client-${uuidv4()}`;
 
-    //create a user in database
-    const user = await User.create({
-      name,
-      email,
-      password: hashedPassword,
-      callId,
-      verificationExpiration,
-    });
-
     // Generate a verification token
     const token = jwt.sign({ userId: user._id }, JWT_SECRET, {
       expiresIn: "1d",
@@ -84,12 +75,29 @@ export const registerCustomer = async (req, res) => {
       text: `Please verify your email by clicking the link: ${verifyLink}`,
     };
 
-    await transporter.sendMail(mailOptions);
+    // send verificaiton email
+    const emailSent = await transporter.sendMail(mailOptions);
 
-    return res.status(201).json({
-      message: "User registered. Check your email for verification link.",
-      user,
-    });
+    // only save the user if the email is verified
+    if (emailSent.accepted.length > 0) {
+      const user = await User.create({
+        name,
+        email,
+        password: hashedPassword,
+        callId,
+        verificationExpiration,
+      });
+
+      return res.status(201).json({
+        message: "User registered. Check your email for verification link.",
+        user,
+      });
+    } else {
+      return res.status(500).json({
+        error:
+          "Failed to send verification email. Please try again. and check the email is valid",
+      });
+    }
   } catch (error) {
     console.log(error);
   }
