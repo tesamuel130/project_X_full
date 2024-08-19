@@ -5,16 +5,8 @@ import axios from "axios";
 import { toast } from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
 
-//import the css asset
-import "../assets/style/style.css";
-import "../assets/style/form-awesome.css";
-import "../assets/style/font-circle-video.css";
-import "../assets/bootstrap/css/bootstrap.min.css";
-
-//import js file
-// import "../assets/js/custom.js";
-import "../assets/js/jquery.min.js";
-import "../assets/bootstrap/js/bootstrap.min.js";
+//import the components
+import Footer from "../components/footer";
 
 export default function SignUp() {
   const navigate = useNavigate();
@@ -44,7 +36,8 @@ export default function SignUp() {
       } else {
         setData({});
         toast.success("User registered successfully");
-        navigate("/login");
+        setEmail(data.email);
+        navigate("/emailNotification");
       }
     } catch (error) {
       console.log(error);
@@ -61,17 +54,17 @@ export default function SignUp() {
           <div className="banner-text hidden-xs">
             <div className="line"></div>
             <div className="b-text">
-              Watch{" "}
+              enjoy{" "}
               <span className="color-active">
                 millions
                 <br /> of
               </span>{" "}
-              <span className="color-b1">v</span>
-              <span className="color-b2">i</span>
-              <span className="color-b3">de</span>
-              <span className="color-active">os</span> for free.
+              <span className="color-b1">c</span>
+              <span className="color-b2">a</span>
+              <span className="color-b3">ll</span>
+              <span className="color-active">s</span> by lingChat.
             </div>
-            <div className="overtext">Over 6000 videos uploaded Daily.</div>
+            <div className="overtext">Over 100 sellers uploaded Daily.</div>
           </div>
           <div className="login-window">
             <div className="l-head">Sign Up for Free</div>
@@ -142,14 +135,6 @@ export default function SignUp() {
                     </div>
                   </div>
                 </div>
-                <div className="row hidden-xs">
-                  <div className="col-lg-12 forgottext">
-                    <Link to="/#">
-                      By clicking "Sign Up" I agree to circle's Terms of
-                      Service.
-                    </Link>
-                  </div>
-                </div>
                 <div className="visible-xs text-center mt-30">
                   <span className="forgottext">
                     <Link to="/login">Already have an account?</Link>
@@ -163,6 +148,7 @@ export default function SignUp() {
           </div>
         </div>
       </div>
+      <Footer />
     </div>
   );
 }

@@ -1,5 +1,6 @@
 import create from "prompt-sync";
 import User from "../models/user.mjs";
+import nodemailer from "nodemailer";
 import { v4 as uuidv4 } from "uuid";
 import { hashPassword, comparePassword } from "../helpers/auth.mjs";
 import jwt from "jsonwebtoken";
