@@ -690,8 +690,8 @@ export default function Home() {
                   <div className="row">
                     {/* person list */}
                     {/* aspodflk */}
-                    {publicChatPerson.length > 0 ? (
-                      publicChatPerson.map((person) => (
+                    {contactInPerson.length > 0 ? (
+                      contactInPerson.map((person) => (
                         <div
                           className="col-lg-3 col-sm-6 col-xs-12"
                           key={person._id}
@@ -699,17 +699,21 @@ export default function Home() {
                           <div className="b-playlist">
                             <div className="v-img">
                               <img
-                                src={`http://localhost:6010/${person.firstImage}`}
+                                src={`http://localhost:6010/${person.thirdImage}`}
                                 alt={person.name}
                                 className="l-1"
                               />
                               <img
-                                src={`http://localhost:6010/${person.firstImage}`}
+                                src={`http://localhost:6010/${person.secondImage}`}
                                 alt={person.name}
                                 className="l-2"
                               />
                               <a href="single-video-tabs.html">
-                                <img src={vidImg0} alt="" className="l-3" />
+                                <img
+                                  src={`http://localhost:6010/${person.firstImage}`}
+                                  alt=""
+                                  className="l-3"
+                                />
                               </a>
                               <div className="items">20</div>
                             </div>
@@ -718,7 +722,7 @@ export default function Home() {
                               <a>{person.nickName}</a>
                             </div>
                             <div className="v-views">
-                              Price: {person.price}/M
+                              Price: {person.price}/day
                               <br />
                               {
                                 person.calls
@@ -733,32 +737,6 @@ export default function Home() {
                     ) : (
                       <div>No chatters available</div>
                     )}
-
-                    {/* aklsdfjklasd */}
-
-                    <div className="col-lg-3 col-sm-6 col-xs-12">
-                      <div className="b-playlist">
-                        <div className="v-img">
-                          <img src={vidImg0} alt="" className="l-1" />
-                          <img src={vidImg0} alt="" className="l-2" />
-                          <a href="single-video-tabs.html">
-                            <img src={vidImg0} alt="" className="l-3" />
-                          </a>
-                          <div className="items">20</div>
-                        </div>
-                        <div className="v-desc">
-                          <a href="#">
-                            There Can Only Be One! Introducing Tanc & Hercules
-                          </a>
-                        </div>
-                        <div className="v-views">
-                          127,548 views.{" "}
-                          <span className="v-percent">
-                            <span className="v-circle"></span> 78%
-                          </span>
-                        </div>
-                      </div>
-                    </div>
                   </div>
                   {/* see more butons for home suplay service component */}
                   <div className="home-seeMore-button-container">
