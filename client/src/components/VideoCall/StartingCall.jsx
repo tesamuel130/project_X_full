@@ -2,10 +2,10 @@ import React, { useState, useEffect, useRef } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import io from "socket.io-client";
 
-const socket = io("http://localhost:6060");
-let peerConnection;
-
 function StartingCallUser() {
+  const socket = io("http://localhost:6060");
+  let peerConnection;
+
   const { userId, sellerId } = useParams();
   const localVideoRef = useRef(null);
   const remoteVideoRef = useRef(null);

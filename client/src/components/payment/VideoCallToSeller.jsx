@@ -3,9 +3,9 @@ import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import io from "socket.io-client";
 
-const socket = io("http://localhost:6060"); // Socket server URL
-
 function CallToSeller({ userId, sellerId }) {
+  const socket = io("http://localhost:6060"); // Socket server URL
+
   const [isCalling, setIsCalling] = useState(false);
   const [callRejectedReason, setCallRejectedReason] = useState("");
   const navigate = useNavigate();

@@ -15,7 +15,6 @@ export default function NotFound404() {
 
   return (
     <div>
-      <Navbar />
       <div class="content-wrapper">
         <div class="container">
           <div class="row">
