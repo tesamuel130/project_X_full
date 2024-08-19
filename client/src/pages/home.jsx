@@ -397,6 +397,14 @@ export default function Home() {
                       <div>No chatters available</div>
                     )}
                   </div>
+                  {/* see more butons for home suplay service component */}
+                  <div className="home-seeMore-button-container">
+                    <Link to="/chat">
+                      <button className="btn btn-prime">
+                        <FontAwesomeIcon icon={faPager} /> See More{" "}
+                      </button>
+                    </Link>
+                  </div>
                 </div>
               </div>
               {/* <!-- / chater component --> */}
@@ -747,7 +755,7 @@ export default function Home() {
                   </div>
                   {/* see more butons for home suplay service component */}
                   <div className="home-seeMore-button-container">
-                    <Link to="/video">
+                    <Link to="/personContact">
                       <button className="btn btn-prime">
                         <FontAwesomeIcon icon={faPager} /> See More{" "}
                       </button>
