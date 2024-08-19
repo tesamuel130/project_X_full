@@ -13,8 +13,37 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPhone, faStar } from "@fortawesome/free-solid-svg-icons";
 
 function PublicSellerDetail() {
-  const { id } = useParams();
   const navigate = useNavigate();
+
+  // Check if user is logged in
+  useEffect(() => {
+    const checkToken = async () => {
+      const token = Cookies.get("token");
+
+      if (!token) {
+        navigate("/login");
+        return;
+      }
+
+      try {
+        const response = await axios.get("/verifyToken", {
+          headers: { Authorization: `Bearer ${token}` },
+        });
+
+        if (!response.data.valid) {
+          throw new Error("Invalid token");
+        }
+      } catch (error) {
+        console.error("Token validation failed", error);
+        Cookies.remove("token");
+        navigate("/login");
+      }
+    };
+
+    checkToken();
+  }, [navigate]);
+
+  const { id } = useParams();
   const [formSellerData, setFormSellerData] = useState({
     nickName: "",
     gender: "",

@@ -6,9 +6,38 @@ import io from "socket.io-client";
 function CallToSeller({ userId, sellerId }) {
   const socket = io("http://localhost:6060"); // Socket server URL
 
+  const navigate = useNavigate();
+
+  // Check if user is logged in
+  useEffect(() => {
+    const checkToken = async () => {
+      const token = Cookies.get("token");
+
+      if (!token) {
+        navigate("/login");
+        return;
+      }
+
+      try {
+        const response = await axios.get("/verifyToken", {
+          headers: { Authorization: `Bearer ${token}` },
+        });
+
+        if (!response.data.valid) {
+          throw new Error("Invalid token");
+        }
+      } catch (error) {
+        console.error("Token validation failed", error);
+        Cookies.remove("token");
+        navigate("/login");
+      }
+    };
+
+    checkToken();
+  }, [navigate]);
+
   const [isCalling, setIsCalling] = useState(false);
   const [callRejectedReason, setCallRejectedReason] = useState("");
-  const navigate = useNavigate();
 
   useEffect(() => {
     socket.on("connect", () => {

@@ -5,6 +5,36 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCopy } from "@fortawesome/free-solid-svg-icons";
 
 export default function PaymentSubmition() {
+  const navigate = useNavigate();
+
+  // Check if user is logged in
+  useEffect(() => {
+    const checkToken = async () => {
+      const token = Cookies.get("token");
+
+      if (!token) {
+        navigate("/login");
+        return;
+      }
+
+      try {
+        const response = await axios.get("/verifyToken", {
+          headers: { Authorization: `Bearer ${token}` },
+        });
+
+        if (!response.data.valid) {
+          throw new Error("Invalid token");
+        }
+      } catch (error) {
+        console.error("Token validation failed", error);
+        Cookies.remove("token");
+        navigate("/login");
+      }
+    };
+
+    checkToken();
+  }, [navigate]);
+
   const { id } = useParams();
   const [files, setFiles] = useState([]);
   const [userId, setUserId] = useState("");
