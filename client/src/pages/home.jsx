@@ -715,7 +715,7 @@ export default function Home() {
                                 alt={person.name}
                                 className="l-2"
                               />
-                              <a href="single-video-tabs.html">
+                              <a>
                                 <img
                                   src={`http://localhost:6010/${person.firstImage}`}
                                   alt=""

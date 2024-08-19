@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
-import { Link } from "react-router-dom";
 import axios from "axios";
 import toast from "react-hot-toast";
 import Cookies from "js-cookie";
@@ -142,6 +141,7 @@ export default function PersonSellerDetail() {
               <img
                 src={`http://localhost:6010/${formSellerData.sImgPath}`}
                 alt=""
+                style={{ width: "200px", height: "200px" }}
               />
             </div>
             <div className="person-detail">
@@ -173,7 +173,7 @@ export default function PersonSellerDetail() {
               </div>
             </div>
             {/* in heare their is call btn before */}
-            <CallToSeller userId={userId} sellerId={sellerId} />
+            {/* <CallToSeller userId={userId} sellerId={sellerId} /> */}
           </div>
         </div>
       </div>
