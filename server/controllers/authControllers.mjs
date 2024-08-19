@@ -11,7 +11,11 @@ export const test = (req, res) => {
   console.log("test is working");
 };
 
+const CLIENT_URL = process.env.CLIENT_URL;
 const JWT_SECRET = process.env.JWT_SECRET;
+const emailAdd = process.env.EMAIL_ADDR;
+const userEmail = process.env.EMAIL_ADDR;
+const pass = process.env.EMAIL_PASSWORD;
 
 //customer register endpoint
 export const registerCustomer = async (req, res) => {
