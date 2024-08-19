@@ -31,12 +31,27 @@ export const publicChatServiceSeller = async (req, res) => {
   }
 };
 
-//filter the private chat service type seller
-export const privateChatServiceSeller = async (req, res) => {
-  const serviceType = "PrivateChat";
+//filter the contact in person service type seller
+export const contactInPersonServiceSeller = async (req, res) => {
   try {
-    const chatSellers = await Seller.find({ serviceType: serviceType });
-    res.status(200).json(chatSellers);
+    const page = parseInt(req.query.page) || 1;
+    const limit = parseInt(req.query.limit) || 10;
+    const skip = (page - 1) * limit;
+
+    const serviceType = "Contact In Person";
+
+    const chatSellers = await Seller.find({ serviceType: serviceType })
+      .skip(skip)
+      .limit(limit);
+    const totalSeller = await Seller.countDocuments({
+      serviceType: serviceType,
+    });
+
+    res.status(200).json({
+      results: chatSellers,
+      totalPages: Math.ceil(totalSeller / limit),
+      currentPage: page,
+    });
   } catch (error) {
     res.status(500).send(error);
   }

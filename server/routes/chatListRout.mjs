@@ -1,6 +1,9 @@
 import { Router } from "express";
 import cors from "cors";
-import { publicChatServiceSeller } from "../controllers/sellerControllers.mjs";
+import {
+  publicChatServiceSeller,
+  contactInPersonServiceSeller,
+} from "../controllers/sellerControllers.mjs";
 
 const router = Router();
 
@@ -12,6 +15,10 @@ router.use(
   })
 );
 
+// public chat service type
 router.get("/public/chat/list", publicChatServiceSeller);
+
+// contact in person service type
+router.get("/contactInPerson/chat/list", contactInPersonServiceSeller);
 
 export default router;

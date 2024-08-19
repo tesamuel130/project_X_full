@@ -49,6 +49,7 @@ export default function Home() {
   const [totalPages, setTotalPages] = useState(1);
   const limit = 5;
 
+  // list public chat seller
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -76,6 +77,43 @@ export default function Home() {
     fetchData();
   }, [currentPage]);
 
+  // list contact in person page
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await axios.get(
+          `/contactInPerson/chat/list?page=${currentPage}&limit=${limit}`
+        );
+        if (response.status === 200) {
+          const dataWithFirstImage = response.data.results.map((person) => ({
+            ...person,
+            firstImage:
+              person.sellerImage && person.sellerImage.length > 0
+                ? person.sellerImage[0].path
+                : null,
+            secondImage:
+              person.sellerImage && person.sellerImage.length > 1
+                ? person.sellerImage[1].path
+                : null,
+            thirdImage:
+              person.sellerImage && person.sellerImage.length > 2
+                ? person.sellerImage[2].path
+                : null,
+          }));
+          setContactInPerson(dataWithFirstImage);
+          setTotalPages(response.data.totalPages || 1); // Ensure totalPages is set correctly
+        } else {
+          console.error("Unexpected response code:", response.status);
+        }
+      } catch (error) {
+        console.error("Error fetching data:", error.message);
+      }
+    };
+
+    fetchData();
+  }, [currentPage]);
+
+  // list video
   useEffect(() => {
     const fetchUploads = async () => {
       try {
@@ -428,39 +466,49 @@ export default function Home() {
                   <div className="row">
                     {/* video list */}
                     <div>
-                      {uploads.map((upload) => (
-                        <div key={upload._id}>
-                          <div
-                            className="col-lg-3 col-sm-6 videoitem"
-                            onClick={() => goToVideo(upload._id)}
-                          >
-                            <div className="b-video">
-                              <div className="v-img">
-                                <a>
-                                  {upload.thumbnail.map((thumbnail) => (
-                                    <img
-                                      key={thumbnail.filename}
-                                      src={`http://localhost:6050/${thumbnail.path}`}
-                                      alt={thumbnail.filename}
-                                    />
-                                  ))}
-                                </a>
-                                <div class="time">{upload.videoMin}</div>
+                      {uploads.length > 0 ? (
+                        uploads.map((upload) => (
+                          <div key={upload._id}>
+                            <div
+                              className="col-lg-3 col-sm-6 videoitem"
+                              onClick={() => goToVideo(upload._id)}
+                            >
+                              <div className="b-video">
+                                <div className="v-img">
+                                  <a>
+                                    {upload.thumbnail.map((thumbnail) => (
+                                      <img
+                                        key={thumbnail.filename}
+                                        src={`http://localhost:6050/${thumbnail.path}`}
+                                        alt={thumbnail.filename}
+                                      />
+                                    ))}
+                                  </a>
+                                  <div class="time">{upload.videoMin}</div>
+                                </div>
+                              </div>
+                              <div class="v-desc">
+                                <a>{upload.title}</a>
+                              </div>
+                              <div class="v-views">
+                                {upload.views} views
+                                <span className="v-percent">
+                                  <span className="v-circle"></span>{" "}
+                                  {upload.reating}%
+                                </span>
                               </div>
                             </div>
-                            <div class="v-desc">
-                              <a>{upload.title}</a>
-                            </div>
-                            <div class="v-views">
-                              {upload.views} views
-                              <span className="v-percent">
-                                <span className="v-circle"></span>{" "}
-                                {upload.reating}%
-                              </span>
+                          </div>
+                        ))
+                      ) : (
+                        <div className="cb-content videolist">
+                          <div className="row">
+                            <div className="col-lg-3 col-sm-6">
+                              No Video available
                             </div>
                           </div>
                         </div>
-                      ))}
+                      )}
                     </div>
                   </div>
                   {/* see more butons for home suplay service component */}
@@ -641,45 +689,52 @@ export default function Home() {
                 <div className="cb-content videolist">
                   <div className="row">
                     {/* person list */}
-                    <ul>
-                      {contactInPerson.map((seller) => {
-                        <li key={seller._id}>
-                          <div className="col-lg-3 col-sm-6 col-xs-12">
-                            <div className="b-playlist">
-                              <div className="v-img">
-                                <img
-                                  src={seller.image}
-                                  alt=""
-                                  className="l-1"
-                                />
-                                <img
-                                  src={seller.image}
-                                  alt=""
-                                  className="l-2"
-                                />
-                                <a href="single-video-tabs.html">
-                                  <img
-                                    src={seller.image}
-                                    alt=""
-                                    className="l-3"
-                                  />
-                                </a>
-                                <div className="items">{seller.imageItem}</div>
-                              </div>
-                              <div className="v-desc">
-                                <a href="#">UserName: {seller.nickName}</a>
-                              </div>
-                              <div className="v-views">
-                                {seller.NoOfContact} contacts.{" "}
-                                <span className="v-percent">
-                                  <span className="v-circle"></span> 78%
-                                </span>
-                              </div>
+                    {/* aspodflk */}
+                    {publicChatPerson.length > 0 ? (
+                      publicChatPerson.map((person) => (
+                        <div
+                          className="col-lg-3 col-sm-6 col-xs-12"
+                          key={person._id}
+                        >
+                          <div className="b-playlist">
+                            <div className="v-img">
+                              <img
+                                src={`http://localhost:6010/${person.firstImage}`}
+                                alt={person.name}
+                                className="l-1"
+                              />
+                              <img
+                                src={`http://localhost:6010/${person.firstImage}`}
+                                alt={person.name}
+                                className="l-2"
+                              />
+                              <a href="single-video-tabs.html">
+                                <img src={vidImg0} alt="" className="l-3" />
+                              </a>
+                              <div className="items">20</div>
+                            </div>
+                            <div className="v-desc">
+                              <br />
+                              <a>{person.nickName}</a>
+                            </div>
+                            <div className="v-views">
+                              Price: {person.price}/M
+                              <br />
+                              {
+                                person.calls
+                              } <i className="fa fa-phone"></i> Calls | &nbsp;
+                              {[...Array(5)].map((_, i) => (
+                                <FontAwesomeIcon key={i} icon={faStar} />
+                              ))}
                             </div>
                           </div>
-                        </li>;
-                      })}
-                    </ul>
+                        </div>
+                      ))
+                    ) : (
+                      <div>No chatters available</div>
+                    )}
+
+                    {/* aklsdfjklasd */}
 
                     <div className="col-lg-3 col-sm-6 col-xs-12">
                       <div className="b-playlist">
@@ -700,31 +755,6 @@ export default function Home() {
                           127,548 views.{" "}
                           <span className="v-percent">
                             <span className="v-circle"></span> 78%
-                          </span>
-                        </div>
-                      </div>
-                    </div>
-
-                    <div className="col-lg-3 col-sm-6 col-xs-12">
-                      <div className="b-playlist">
-                        <div className="v-img">
-                          <img src={vidImg0} alt="" className="l-1" />
-                          <img src={vidImg0} alt="" className="l-2" />
-                          <a href="single-video-tabs.html">
-                            <img src={vidImg0} alt="" className="l-3" />
-                          </a>
-                          <div className="items">15</div>
-                        </div>
-                        <div className="v-desc">
-                          <a href="#">
-                            Pokémon 3: The Movie - Spell Of The Unown: Entei
-                            HD...
-                          </a>
-                        </div>
-                        <div className="v-views">
-                          18,241,542 views.{" "}
-                          <span className="v-percent">
-                            <span className="v-circle"></span> 93%
                           </span>
                         </div>
                       </div>
