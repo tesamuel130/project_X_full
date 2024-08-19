@@ -4,12 +4,6 @@ import axios from "axios";
 import Cookies from "js-cookie";
 import { toast } from "react-hot-toast";
 
-//import the css asset
-import "../assets/style/style.css";
-import "../assets/style/form-awesome.css";
-import "../assets/style/font-circle-video.css";
-import "../assets/bootstrap/css/bootstrap.min.css";
-
 //import fontawsome
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -31,10 +25,12 @@ import logoimg from "../assets/images/lingChatLogoOnly.png";
 
 export default function Navbartr() {
   const navigate = useNavigate();
-  const mobileNavMenuRef = useRef();
+  const mobileNavMenuRef = useRef(null);
 
   const showNavList = () => {
-    mobileNavMenuRef.current.classList.toggle("mobile-menu");
+    if (mobileNavMenuRef.current) {
+      mobileNavMenuRef.current.classList.toggle("mobile-menu");
+    }
   };
 
   const handleLogout = async () => {
@@ -231,7 +227,7 @@ export default function Navbartr() {
                 </Link>
               </li>
               <li>
-                <Link link="/person%contact">
+                <Link link="/personContact">
                   <FontAwesomeIcon icon={faContactBook} />
                   <p>Person Contact</p>
                 </Link>

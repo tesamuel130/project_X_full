@@ -1141,7 +1141,7 @@
   .mobile-menu-btn-color img {
     width: 100%;
   }
-  .mobile-menu-content {
+  .mobile-menu-content.mobile-menu-content-acitve {
     padding: 20px 20px;
   }
   .mobile-menu-user {
