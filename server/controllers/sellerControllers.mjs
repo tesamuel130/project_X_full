@@ -38,7 +38,7 @@ export const contactInPersonServiceSeller = async (req, res) => {
     const limit = parseInt(req.query.limit) || 10;
     const skip = (page - 1) * limit;
 
-    const serviceType = "Contact In Person";
+    const serviceType = "Person Contact";
 
     const chatSellers = await Seller.find({ serviceType: serviceType })
       .skip(skip)
