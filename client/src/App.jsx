@@ -24,9 +24,6 @@ import StartingCallUser from "./components/VideoCall/StartingCall";
 
 //trying search
 import Payment from "./components/payment";
-import ClientCall from "./pages/ClientCall";
-import VideoCall from "./components/videoCall";
-import VideoCalls from "./components/tryyCall";
 
 const images = [
   "https://via.placeholder.com/800x400/0000FF/FFFFFF?text=Slide+1",
@@ -73,14 +70,8 @@ function App() {
         {/* try to see the paymentauth style */}
         <Route path="/chat/paymentauth" element={<Payment />} />
 
-        <Route path="/vide" element={<ClientCall />} />
-        <Route path="/videoCallto" element={<VideoCall />} />
-
         {/* page not found 404 notify */}
         <Route path="*" element={<NotFound404 />} />
-
-        {/* asdfasdf */}
-        <Route path="/videoCall/to/seller/:id" element={<VideoCalls />} />
       </Routes>
     </>
   );
