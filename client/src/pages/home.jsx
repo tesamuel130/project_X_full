@@ -139,6 +139,10 @@ export default function Home() {
     navigate(`/chat/paymentauth/${id}`);
   };
 
+  const goToPersonConact = (id) => {
+    navigate(`/personContact/paymentauth/${id}`);
+  };
+
   return (
     <>
       <NavBarTwo />
@@ -696,7 +700,10 @@ export default function Home() {
                           className="col-lg-3 col-sm-6 col-xs-12"
                           key={person._id}
                         >
-                          <div className="b-playlist">
+                          <div
+                            className="b-playlist"
+                            onClick={() => goToPersonConact(person._id)}
+                          >
                             <div className="v-img">
                               <img
                                 src={`http://localhost:6010/${person.thirdImage}`}
