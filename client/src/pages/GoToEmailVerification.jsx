@@ -9,7 +9,6 @@ export default function GoToEmailVerification({ email }) {
 
   return (
     <div>
-      <Navbar />
       <div class="container-fluid bg-image">
         <div class="row">
           <div class="login-wraper">

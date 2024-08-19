@@ -4,6 +4,7 @@ import {
   test,
   registerCustomer,
   loginUser,
+  verifyEmail,
 } from "../controllers/authControllers.mjs";
 
 const router = Router();
@@ -18,6 +19,7 @@ router.use(
 
 router.get("/", test);
 router.post("/register", registerCustomer);
+router.get("/verifyEmail/:token", verifyEmail);
 router.post("/login", loginUser);
 
 //forget password

@@ -54,7 +54,7 @@ export const registerCustomer = async (req, res) => {
     const callId = `client-${uuidv4()}`;
 
     // Generate a verification token
-    const token = jwt.sign({ userId: user._id }, JWT_SECRET, {
+    const token = jwt.sign({ email }, JWT_SECRET, {
       expiresIn: "1d",
     });
 
@@ -108,7 +108,7 @@ export const verifyEmail = async (req, res) => {
   const { token } = req.params;
   try {
     const decoded = jwt.verify(token, JWT_SECRET);
-    const user = await User.findById(decoded.userId);
+    const user = await User.findOne({ email: decoded.email });
 
     if (!user) {
       return res.status(400).json({ error: "Invalid token." });
