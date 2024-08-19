@@ -16,7 +16,7 @@ import RecetPassword from "./pages/RecetPassword";
 import Videos from "./pages/Video";
 import PlayVideo from "./pages/PlayVideo";
 import Chat from "./pages/Chat";
-import PaymentAuth from "./pages/PaymentAuth";
+import PaymentAuth from "./pages/PaymentAuthChat";
 import NotFound404 from "./pages/NotFound404";
 
 // staring video call path

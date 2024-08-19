@@ -5,9 +5,9 @@ import toast from "react-hot-toast";
 import Cookies from "js-cookie";
 
 //import payment comopnent
-import PaymentSubmition from "../components/payment/paymentSubmition";
+import PaymentSubmition from "../components/payment/paymentSubmitionChat";
 // import publicSellerDetail from "../components/payment/";
-import PublicSellerDetail from "../components/payment/PublicSellerDetail";
+import PublicSellerDetail from "../components/payment/PublicSellerDetailChat";
 
 export default function () {
   const navigate = useNavigate();
