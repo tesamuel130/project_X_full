@@ -126,6 +126,11 @@ export const loginUser = async (req, res) => {
       return res.json({ error: "Email or password is incorrect" });
     }
 
+    //check is valid email
+    if (!user.isValidEmail) {
+      return res.json({ error: "Email not verified" });
+    }
+
     //check if passwords match
     const match = await comparePassword(password, user.password);
     if (match) {
