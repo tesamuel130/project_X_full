@@ -9,6 +9,14 @@ const userSchema = new Schema(
       unique: true,
     },
     password: String,
+    isValidEmail: {
+      type: Boolean,
+      default: false,
+    },
+    verificationExpiration: {
+      type: Date,
+      required: true,
+    },
     resetToken: String,
     resetTokenExpiration: Date,
     transaction: [
