@@ -99,7 +99,7 @@ export default function Navbartr() {
                           <Link to="/stream">Live Striming</Link>
                         </li>
                         <li>
-                          <Link to="/person%contact">Person Contact</Link>
+                          <Link to="/personContact">Person Contact</Link>
                         </li>
                         <li>
                           <Link to="/help">Help</Link>
