@@ -19,6 +19,19 @@ export const authenticateToken = (req, res, next) => {
   }
 };
 
+export const authenticateTokens = (req, res, next) => {
+  const authHeader = req.headers["authorization"];
+  const token = authHeader && authHeader.split(" ")[1];
+
+  if (token == null) return res.sendStatus(401);
+
+  jwt.verify(token, JWT_SECRET, (err, user) => {
+    if (err) return res.sendStatus(403);
+    req.user = user;
+    next();
+  });
+};
+
 export const verifyToken = async (req, res, next) => {
   // Extract token from headers
   const token = req.headers.authorization?.split(" ")[1]; // Bearer token

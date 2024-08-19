@@ -6,6 +6,7 @@ import {
   loginUser,
   verifyEmail,
 } from "../controllers/authControllers.mjs";
+import { authenticateTokens } from "../middleware/authenticateToken.mjs";
 
 const router = Router();
 
@@ -21,6 +22,11 @@ router.get("/", test);
 router.post("/register", registerCustomer);
 router.get("/verifyEmail/:token", verifyEmail);
 router.post("/login", loginUser);
+
+//autenticate token used to rediect the invalid token to login
+router.get("/verifyToken", authenticateTokens, (req, res) => {
+  res.json({ valid: true });
+});
 
 //forget password
 import {
