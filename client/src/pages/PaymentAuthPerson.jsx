@@ -5,9 +5,9 @@ import toast from "react-hot-toast";
 import Cookies from "js-cookie";
 
 //import payment comopnent
-import PaymentSubmition from "../components/payment/paymentSubmitionChat";
+import PaymentSubmitionPerson from "../components/payment/PaymentSubmitionPerson";
 // import publicSellerDetail from "../components/payment/";
-import PublicSellerDetail from "../components/payment/PublicSellerDetail";
+import PersonSellerDetail from "../components/payment/PersonSellerDetail";
 
 export default function () {
   const navigate = useNavigate();
@@ -61,10 +61,10 @@ export default function () {
       <div className="container">
         <div className="row">
           <div>
-            <PublicSellerDetail />
+            <PersonSellerDetail />
           </div>
           <div className="col-md-6 pay-form-cont">
-            {/* <PaymentSubmition id={id} /> */}
+            {/* <PaymentSubmitionPerson id={id} /> */}
           </div>
           {/* asdfkl; */}
         </div>
