@@ -1,8 +1,8 @@
 import React from "react";
 
 // Import includes componens
-import Footer from "../includes/Footer";
-import Navbar from "../includes/Navbar";
+import Footer from "../components/footer";
+// import Navbar from "../includes/Navbar";
 
 export default function GoToEmailVerification({ email }) {
   const mailtoLink = `mailto:${email}`;

@@ -8,7 +8,7 @@ import { useNavigate } from "react-router-dom";
 //import the components
 import Footer from "../components/footer";
 
-export default function SignUp() {
+export default function SignUp({ setEmail }) {
   const navigate = useNavigate();
   const [data, setData] = useState({
     name: "",

@@ -1,5 +1,5 @@
 import "./App.css";
-import React from "react";
+import React, { useState } from "react";
 import { Routes, Route } from "react-router-dom";
 // import NavBar from "../src/components/NavBar";
 import axios from "axios";
@@ -9,12 +9,15 @@ import Navbartr from "./components/Navbartr";
 import Home from "./pages/Home";
 import Login from "./pages/Login";
 import SignUp from "./pages/SignUp";
+import GoToEmailVerification from "./pages/GoToEmailVerification";
+import VerifyEmail from "./pages/verifyEmail";
 import ForgotPassword from "./pages/ForgotPassword";
 import RecetPassword from "./pages/RecetPassword";
 import Videos from "./pages/Video";
 import PlayVideo from "./pages/PlayVideo";
 import Chat from "./pages/Chat";
 import PaymentAuth from "./pages/PaymentAuth";
+import NotFound404 from "./pages/NotFound404";
 
 // staring video call path
 import StartingCallUser from "./components/VideoCall/StartingCall";
@@ -36,13 +39,21 @@ axios.defaults.baseURL = "http://localhost:6020";
 axios.defaults.withCredentials = true;
 
 function App() {
+  // set email that used to mailto func
+  const [email, setEmail] = useState("");
+
   return (
     <>
       <Navbartr />
       <Toaster position="top-right" toastOptions={{ duration: 3000 }} />
       <Routes>
         <Route path="/login" element={<Login />} />
-        <Route path="/register" element={<SignUp />} />
+        <Route path="/register" element={<SignUp setEmail={setEmail} />} />
+        <Route
+          path="/emailNotification"
+          element={<GoToEmailVerification email={email} />}
+        />
+        <Route path="/verify/:token" element={<VerifyEmail />} />
         <Route path="/forgot-password" element={<ForgotPassword />} />
         <Route path="/reset-password/:token" element={<RecetPassword />} />
 
@@ -64,6 +75,9 @@ function App() {
 
         <Route path="/vide" element={<ClientCall />} />
         <Route path="/videoCallto" element={<VideoCall />} />
+
+        {/* page not found 404 notify */}
+        <Route path="*" element={<NotFound404 />} />
 
         {/* asdfasdf */}
         <Route path="/videoCall/to/seller/:id" element={<VideoCalls />} />
