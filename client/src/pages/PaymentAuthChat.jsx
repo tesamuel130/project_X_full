@@ -7,7 +7,7 @@ import Cookies from "js-cookie";
 //import payment comopnent
 import PaymentSubmition from "../components/payment/paymentSubmitionChat";
 // import publicSellerDetail from "../components/payment/";
-import PublicSellerDetail from "../components/payment/PublicSellerDetailChat";
+import PublicSellerDetail from "../components/payment/PublicSellerDetail";
 
 export default function () {
   const navigate = useNavigate();
