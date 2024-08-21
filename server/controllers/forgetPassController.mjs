@@ -123,7 +123,7 @@ export const forgetPassword = async (req, res) => {
         opacity: 0;
       "
     >
-    Welcome to LingChat! Confirm your email to get started.
+    Reset your password quickly and easily by clicking the link below.
     </div>
     <table border="0" cellpadding="0" cellspacing="0" width="100%">
       <tr>
@@ -279,7 +279,7 @@ export const forgetPassword = async (req, res) => {
       from: emailAdd,
       to: email,
       subject: "Password Reset",
-      html: `<p>You requested a password reset</p><p>Click this <a href="${resetLink}">link</a> to reset your password.</p>`,
+      html: emailTemplate,
     };
 
     transporter.sendMail(mailOptions, (error, info) => {
