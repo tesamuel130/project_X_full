@@ -13,12 +13,19 @@ export const publicChatServiceSeller = async (req, res) => {
     const skip = (page - 1) * limit;
 
     const serviceType = "Public";
+    const verificationStatus = "finished";
 
-    const chatSellers = await Seller.find({ serviceType: serviceType })
+    const chatSellers = await Seller.find({
+      serviceType: serviceType,
+      verificationStatus: verificationStatus,
+      "sellerImage.0": { $exists: true },
+    })
       .skip(skip)
       .limit(limit);
     const totalSeller = await Seller.countDocuments({
       serviceType: serviceType,
+      verificationStatus: verificationStatus,
+      "sellerImage.0": { $exists: true },
     });
 
     res.status(200).json({
@@ -40,11 +47,17 @@ export const contactInPersonServiceSeller = async (req, res) => {
 
     const serviceType = "Person Contact";
 
-    const chatSellers = await Seller.find({ serviceType: serviceType })
+    const chatSellers = await Seller.find({
+      serviceType: serviceType,
+      verificationStatus: verificationStatus,
+      'sellerImage.0': { $exists: true } 
+    })
       .skip(skip)
       .limit(limit);
     const totalSeller = await Seller.countDocuments({
       serviceType: serviceType,
+      verificationStatus: verificationStatus,
+      'sellerImage.0': { $exists: true } 
     });
 
     res.status(200).json({
