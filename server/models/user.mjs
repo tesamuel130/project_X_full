@@ -19,38 +19,6 @@ const userSchema = new Schema(
     },
     resetToken: String,
     resetTokenExpiration: Date,
-    transaction: [
-      {
-        accountUserName: {
-          type: String,
-        },
-        accountNumber: {
-          type: String,
-        },
-        currency: {
-          type: String,
-        },
-        amount: {
-          type: Number,
-        },
-        paymentMethod: {
-          type: String,
-        },
-      },
-    ],
-    recietImage: [
-      {
-        filename: {
-          type: String,
-        },
-        path: {
-          type: String,
-        },
-        mimetype: {
-          type: String,
-        },
-      },
-    ],
     callId: {
       type: String,
       unique: true,
@@ -59,8 +27,9 @@ const userSchema = new Schema(
       type: String,
     },
     subscription: {
-      type: Object,
-    }, // PWA push subscription
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "Subscription",
+    },
   },
   { timestamps: true }
 );
