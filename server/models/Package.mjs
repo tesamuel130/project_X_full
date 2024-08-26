@@ -7,6 +7,14 @@ const packageSchema = new Schema(
       type: String,
       required: true,
     },
+    price: {
+      type: Number,
+      required: true,
+    },
+    duration: {
+      type: Number,
+      required: true,
+    },
   },
   { timestamps: true }
 );
