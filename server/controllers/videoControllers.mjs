@@ -94,3 +94,70 @@ export const countVideoView = async (req, res) => {
     res.status(500).json({ error: error.message });
   }
 };
+
+// TODO: add a middleware that used to check the user validation and count the video view
+// generate a middleware
+export const checkSubscriptionValidity = async (req, res, next) => {
+  const { userId } = req.body;
+
+  try {
+    const subscription = await Subscription.findOne({ user: userId });
+
+    if (!subscription || !subscription.active || !subscription.adminApproved) {
+      return res
+        .status(403)
+        .json({
+          message: "No active subscription or subscription not approved",
+        });
+    }
+
+    // Check if subscription has expired
+    const currentTime = new Date();
+    const elapsedMinutes = (currentTime - subscription.startTime) / (1000 * 60);
+
+    if (elapsedMinutes > subscription.duration) {
+      subscription.active = false;
+      await subscription.save();
+      return res.status(403).json({ message: "Subscription expired" });
+    }
+
+    req.subscription = subscription;
+    next();
+  } catch (error) {
+    res.status(500).json({ message: "Server error", error });
+  }
+};
+
+// Route to view a video
+export const viewVideoClient = async (req, res) => {
+  const { videoId } = req.params;
+  const subscription = req.subscription;
+
+  try {
+    const video = await Video.findById(videoId);
+
+    if (!video) {
+      return res.status(404).json({ message: "Video not found" });
+    }
+
+    // Check if the video has already been viewed
+    const alreadyViewed = subscription.videosViewed.some(
+      (viewedVideo) => viewedVideo.videoId.toString() === videoId
+    );
+
+    // If not already viewed and the view limit has been reached
+    if (!alreadyViewed && subscription.videosViewed.length >= 10) {
+      return res.status(403).json({ message: "Video view limit reached" });
+    }
+
+    // If the video has not been viewed, add to viewed list
+    if (!alreadyViewed) {
+      subscription.videosViewed.push({ videoId });
+      await subscription.save();
+    }
+
+    res.json({ message: "Video retrieved successfully", video });
+  } catch (error) {
+    res.status(500).json({ message: "Server error", error });
+  }
+};
