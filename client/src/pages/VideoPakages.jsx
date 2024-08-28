@@ -1,6 +1,6 @@
 import Footer from "../includes/Footer";
 
-const Package = () => {
+const VideoPackage = () => {
   return (
     <div>
       <div class="content-wrapper">
@@ -135,4 +135,4 @@ const Package = () => {
   );
 };
 
-export default Package;
+export default VideoPackage;
