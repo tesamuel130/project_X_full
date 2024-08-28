@@ -1,4 +1,4 @@
-import Footer from "../includes/Footer";
+import Footer from "../components/footer";
 
 const VideoPackage = () => {
   return (
@@ -24,20 +24,22 @@ const VideoPackage = () => {
                               <hr></hr>
                               <center>
                                 <h1>
-                                  35 <i className="fa fa-dollar pink"> </i>{" "}
+                                  35 <i className="fa fa-dollar pink"> ETB</i>{" "}
                                 </h1>
                               </center>
                             </div>
 
                             <div className="card-bod">
-                              <ul>
-                                <li>lorem epsum </li>
-                                <li>sdfjhkhkh </li>
-                                <li>lorem epsum</li>
-                                <li>lorem epsum </li>
-                                <li>sdfjhkhkh </li>
-                                <li>lorem epsum</li>
-                              </ul>
+                              <center>
+                                <ul className="no">
+                                  <li>lorem epsum </li>
+                                  <li>sdfjhkhkh </li>
+                                  <li>lorem epsum</li>
+                                  <li>lorem epsum </li>
+                                  <li>sdfjhkhkh </li>
+                                  <li>lorem epsum</li>
+                                </ul>
+                              </center>
                               <hr></hr>
                               <center>
                                 <button className="btn btn-prime order">
@@ -65,7 +67,7 @@ const VideoPackage = () => {
                             <div className="card-bod">
                               <center>
                                 {" "}
-                                <ul class="no">
+                                <ul className="no">
                                   <li>8 Videos </li>
                                   <li>Per Hour </li>
                                   <li>lorem epsum</li>
@@ -95,20 +97,22 @@ const VideoPackage = () => {
                               <hr></hr>
                               <center>
                                 <h1>
-                                  35 <i className="fa fa-dollar pink"> </i>{" "}
+                                  35 <i className="fa fa-dollar pink"> ETB</i>{" "}
                                 </h1>
                               </center>
                             </div>
 
                             <div className="card-bod">
-                              <ul class="no">
-                                <li>8 Vidoes</li>
-                                <li>Per Hour </li>
-                                <li>lorem epsum</li>
-                                <li>lorem epsum </li>
-                                <li>sdfjhkhkh </li>
-                                <li>lorem epsum</li>
-                              </ul>
+                              <center>
+                                <ul className="no">
+                                  <li>lorem epsum </li>
+                                  <li>sdfjhkhkh </li>
+                                  <li>lorem epsum</li>
+                                  <li>lorem epsum </li>
+                                  <li>sdfjhkhkh </li>
+                                  <li>lorem epsum</li>
+                                </ul>
+                              </center>
                               <hr></hr>
                               <center>
                                 <button className="btn btn-prime order">
