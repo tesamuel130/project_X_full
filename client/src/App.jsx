@@ -19,6 +19,8 @@ import Chat from "./pages/Chat";
 import PersonContact from "./pages/PersonContact";
 import PaymentAuth from "./pages/PaymentAuthChat";
 import PaymentAuthPerson from "./pages/PaymentAuthPerson";
+// TODO: work more on the package page
+import VideoPackage from "./pages/VideoPakages";
 import NotFound404 from "./pages/NotFound404";
 
 // staring video call path
@@ -67,6 +69,7 @@ function App() {
           path="/personContact/paymentauth/:id"
           element={<PaymentAuthPerson />}
         />
+        <Route path="/videoPackage" element={<VideoPackage />} />
 
         {/* starting the video call */}
         <Route
