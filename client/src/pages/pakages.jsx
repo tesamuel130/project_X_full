@@ -1,12 +1,8 @@
 import Footer from "../includes/Footer";
-import Navbar from "../includes/Navbar";
-import Sidebar from "../includes/Sidebar";
 
 const Package = () => {
   return (
     <div>
-      <Navbar />
-
       <div class="content-wrapper">
         <div class="container">
           <div class="row">
