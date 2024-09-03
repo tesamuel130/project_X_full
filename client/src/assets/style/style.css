@@ -494,7 +494,7 @@
   }
   .tags-type1,
   .tags-type2 {
-    fond-size: 0;
+    font-size: 0;
     display: table;
   }
   .tags-type1 a,
@@ -4294,7 +4294,7 @@
     margin: 0 auto;
     background-color: #447efa;
     color: white;
-    borde: solid 1px #447efa;
+    border: solid 1px #447efa;
     -webkit-transition: 0.3s;
     -moz-transition: 0.3s;
     -ms-transition: 0.3s;
