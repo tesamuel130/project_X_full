@@ -18,7 +18,6 @@ router.use(
   })
 );
 
-// /askdfj
 router.get("/", test);
 router.post("/register", registerCustomer);
 router.get("/verifyEmail/:token", verifyEmail);
