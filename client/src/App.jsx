@@ -1,4 +1,8 @@
 import "./App.css";
+import "./assets/css/style.css";
+import "./assets/css/font-awesome.min.css";
+import "./assets/css/font-circle-video.css";
+
 import React, { useState } from "react";
 import { Routes, Route } from "react-router-dom";
 // import NavBar from "../src/components/NavBar";

@@ -9,5 +9,10 @@ export default defineConfig({
   },
   build: {
     chunkSizeWarningLimit: 10000,
+    rollupOptions: {
+      output: {
+        assetFileNames: "assets/[name][extname]",
+      },
+    },
   },
 });

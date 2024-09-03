@@ -1,0 +1,135 @@
+.mainContainer{
+    width: 100%;
+    height: 85vh;
+    display: flex;
+    justify-content: center;
+}
+
+.callDetailContainer{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+}
+
+.videoContainer{
+    width: 100%;
+    height: 70vh;
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+}
+
+.callerStream{
+    width: 80%;
+    height: 100%;
+    background-color: black;
+}
+
+.localStream{
+    width: 40%;
+    height: 50%;
+    right: 8%;
+    margin-top: 5px;
+    position: absolute;
+}
+
+.callButtonsContainer{
+    width: 80%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.buttonsDepOnCall{
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+
+.buttonsDepOnCall button{
+    border: none;
+    padding: 15px;
+    border-radius: 50%;
+    background-color: rgb(203, 209, 207);
+}
+
+.buttonsDepOnCall .callEndBtn{
+    background-color: rgb(241, 48, 48);
+}
+
+.buttonsDepOnCall .callEndBtn .callEndBtnIcon{
+    color: white;
+    font-size: 20px;
+}
+
+.buttonsDepOnCall button:hover{
+    opacity: 0.7;
+    transform: translateY(-3px);
+}
+
+.buttonsDepOnCall .callEndBtn:hover{
+    background-color: rgb(241, 48, 48);
+    opacity: 0.7;
+    transform: translateY(-3px);
+}
+
+.callButtonsContainer .reportCont{
+    align-self: center;
+}
+
+.callButtonsContainer .reportCont select{
+    /* width: 50%; */
+    padding: 10px;
+    border: 2px solid rgb(203, 209, 207);
+    border-radius: 5px;
+}
+
+@media (max-width: 768px){
+    .callDetailContainer{
+        width: 95%;
+    }
+
+    .callerStream{
+        width: 100%;
+    }
+
+    .localStream{
+        right: 20px;
+    }
+
+    .callButtonsContainer{
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        margin-left: 40px;
+        margin-right: 40px;
+    }
+}
+
+@media (max-width: 480px){
+    .callerStream{
+        width: 95%;
+    }
+
+    .localStream{
+        height: 140px;
+        right: 20px;
+    }
+
+    .callButtonsContainer{
+        width: 100%;
+        display: flex;
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 20px;
+        margin-left: 40px;
+    }
+
+    .callButtonsContainer .reportCont{
+        align-self: flex-start;
+    }
+}
